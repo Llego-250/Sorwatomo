@@ -1,0 +1,7 @@
+
+
+RewriteEngine On
+RewriteCond %{HTTP_HOST} ^sorwatom\.com [NC]
+RewriteCond %{SERVER_PORT} 80
+RewriteRule ^(.*)$ https://www.sorwatom.com/$1 [R=301,L]
+RewriteOptions inherit
