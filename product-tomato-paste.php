@@ -1,178 +1,353 @@
 <?php
-$page_title = 'Sorwatom - Tomato Paste';
+$page_title       = 'Tomato Paste — Sorwatom';
+$page_description = 'Sorwatom Double Concentrated Tomato Paste — made from sun-ripened Great Lakes tomatoes. Available in 50g Sachet, 70g Sachet, and 800g Tin.';
+$page_css         = ['pages/products.css'];
+$body_class       = 'product-page product-tomato-paste';
+$current_page     = 'products';
 include '_head.php';
 ?>
+<style>
+/* ── Product Detail Layout ─────────────────────────────────────────── */
+.product-hero {
+    background: #1a3a2e;
+    padding: 80px 0 60px;
+    text-align: center;
+    color: #fff;
+}
+.product-hero .eyebrow {
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #a8c5b0;
+    margin-bottom: 14px;
+    display: block;
+}
+.product-hero h1 {
+    font-size: 42px;
+    font-weight: 300;
+    color: #fff;
+    margin: 0;
+    line-height: 1.2;
+}
+.product-hero h1 em {
+    font-style: normal;
+    color: #7ecba0;
+}
+.product-detail {
+    padding: 64px 0 80px;
+    background: #fff;
+}
+.product-detail__grid {
+    display: grid;
+    grid-template-columns: 1fr 1.1fr;
+    gap: 56px;
+    align-items: start;
+}
+@media (max-width: 768px) {
+    .product-detail__grid { grid-template-columns: 1fr; gap: 32px; }
+    .product-hero h1 { font-size: 30px; }
+}
+.product-img-main {
+    background: #f5f7f5;
+    border-radius: 12px;
+    padding: 40px;
+    aspect-ratio: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+.product-img-main img.product-main-img {
+    max-height: 360px;
+    width: 100%;
+    object-fit: contain;
+    transition: opacity 0.25s ease;
+}
+.product-thumb-strip {
+    display: flex;
+    gap: 12px;
+    margin-top: 16px;
+}
+.product-thumb {
+    flex: 1;
+    background: #f5f7f5;
+    border-radius: 8px;
+    padding: 12px;
+    border: 2px solid transparent;
+    cursor: pointer;
+    transition: border-color 0.2s, transform 0.15s;
+    text-align: center;
+}
+.product-thumb:hover { transform: translateY(-2px); }
+.product-thumb.active { border-color: #1a7a50; }
+.product-thumb img { max-height: 70px; width: 100%; object-fit: contain; display: block; margin: 0 auto 6px; }
+.product-thumb span { font-size: 11px; font-weight: 600; color: #555; letter-spacing: 0.5px; text-transform: uppercase; }
+.badge {
+    display: inline-block;
+    padding: 4px 14px;
+    border: 1px solid #1a7a50;
+    color: #1a7a50;
+    border-radius: 20px;
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-weight: 600;
+    margin-bottom: 16px;
+}
+.product-detail__title {
+    font-family: inherit;
+    font-size: 22px;
+    font-weight: 700;
+    color: #1a2e1a;
+    margin: 0 0 16px;
+    line-height: 1.35;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+.product-detail__desc {
+    font-size: 15px;
+    line-height: 1.75;
+    color: #4a5a4a;
+    margin-bottom: 24px;
+}
+.product-features {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+.product-features li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 14px;
+    color: #3a4a3a;
+}
+.product-features li::before {
+    content: '';
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+    background: #e6f4ec;
+    border-radius: 50%;
+    flex-shrink: 0;
+    position: relative;
+}
+.product-features li .feat-check {
+    color: #1a7a50;
+    font-weight: 700;
+    font-size: 13px;
+    margin-left: -28px;
+    margin-right: 10px;
+    min-width: 18px;
+    text-align: center;
+}
+.product-detail__actions {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+    margin-top: 32px;
+}
+.btn-primary-green {
+    display: inline-block;
+    padding: 13px 28px;
+    background: #1a7a50;
+    color: #fff !important;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background 0.2s, transform 0.15s;
+    letter-spacing: 0.3px;
+}
+.btn-primary-green:hover { background: #155e3e; transform: translateY(-1px); color: #fff !important; }
+.btn-outline-dark {
+    display: inline-block;
+    padding: 13px 28px;
+    border: 2px solid #1a3a2e;
+    color: #1a3a2e !important;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background 0.2s, color 0.2s, transform 0.15s;
+    letter-spacing: 0.3px;
+}
+.btn-outline-dark:hover { background: #1a3a2e; color: #fff !important; transform: translateY(-1px); }
+/* Related Products */
+.related-section {
+    padding: 56px 0 72px;
+    background: #f8faf8;
+}
+.related-section .section-eyebrow {
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #1a7a50;
+    margin-bottom: 32px;
+    text-align: center;
+    font-weight: 700;
+}
+.related-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
+@media (max-width: 768px) {
+    .related-grid { grid-template-columns: 1fr; }
+}
+@media (min-width: 769px) and (max-width: 991px) {
+    .related-grid { grid-template-columns: repeat(2, 1fr); }
+}
+.related-card {
+    background: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    text-decoration: none;
+    display: block;
+    border: 1px solid #e8ede8;
+    transition: box-shadow 0.2s, transform 0.2s;
+}
+.related-card:hover { box-shadow: 0 8px 28px rgba(26,58,46,0.12); transform: translateY(-3px); }
+.related-card__img {
+    background: #f5f7f5;
+    padding: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 180px;
+}
+.related-card__img img { max-height: 130px; max-width: 100%; object-fit: contain; }
+.related-card__body { padding: 18px 20px 20px; }
+.related-card__label { font-size: 10px; letter-spacing: 2px; color: #1a7a50; text-transform: uppercase; font-weight: 700; margin-bottom: 6px; display: block; }
+.related-card__name { font-size: 16px; font-weight: 700; color: #1a2e1a; margin: 0 0 8px; }
+.related-card__link { font-size: 13px; color: #1a7a50; font-weight: 600; }
+/* CTA Block */
+.cta-block {
+    padding: 64px 0;
+    background: #1a3a2e;
+    text-align: center;
+    color: #fff;
+}
+.cta-block h2 { font-size: 28px; font-weight: 300; color: #fff; margin: 0 0 10px; }
+.cta-block p { color: #a8c5b0; font-size: 15px; margin: 0 0 28px; }
+</style>
+<body class="<?php echo htmlspecialchars($body_class); ?>">
 
-<body>
-
-<!-- Header -->
 <?php include 'nav_bar.html'; ?>
 
-<!--Page header & Title-->
-<section id="page_header" class="products"></section>
-
-<!--Page Content-->
-<section id="blog" class="padding-bottom bg-wrap common-bg positive-re">
-
-    <div class="default-breadcrumb">
-      <div class="container">
-        <div class="row">
-          <div class="col-sm-6">
-            <ol class="breadcrumb">
-              <li class="breadcrumb-item"><a href="index.php"><i class="fa fa-home"></i></a></li>
-              <li class="breadcrumb-item"><a href="products.php">Our Products</a></li>
-              <li class="breadcrumb-item active">Tomato Paste</li>
-            </ol>
-          </div>
-        </div>
-      </div>
-    </div>
-
+<!-- Hero -->
+<section class="product-hero">
     <div class="container">
+        <span class="eyebrow">PASTA &middot; DOUBLE CONCENTRATED</span>
+        <h1>Sorwatom <em>Tomato Paste</em></h1>
+    </div>
+</section>
 
-      <div class="row">
-        <!--Sidebar-->
-        <div class="col-md-3 col-sm-4">
-          <aside class="sidebar">
-            <div class="widget">
+<!-- Product Detail -->
+<section class="product-detail">
+    <div class="container">
+        <div class="product-detail__grid">
 
-              <div class="text-center side-heading-content">
-                <span class="line-border-left"></span>
-                <h4 class="center-content">Products</h4>
-                <span class="line-border-right"></span>
-              </div>
-
-              <!-- List of links to types of products -->
-              <?php include 'products_sidebar.html'; ?>
-
-            </div><!--/.widget-->
-          </aside><!--/.sidebar-->
-        </div>
-
-        <div class="col-md-9 col-sm-7">
-          <!-- Title -->
-          <div class="text-center wow fadeInDown" data-wow-duration="1s" data-wow-delay=".5s">
-            <div class="border-wrap">
-              <span class="line-border-left"></span>
-              <h3 class="center-content">Tomato Paste</h3>
-
+            <!-- Gallery Column -->
+            <div class="product-detail__gallery">
+                <div class="product-img-main">
+                    <img
+                        id="mainProductImg"
+                        src="img/product/tomatoes_paste_70g.png"
+                        alt="Sorwatom Tomato Paste 70g Sachet"
+                        loading="eager"
+                        class="product-main-img">
+                </div>
+                <div class="product-thumb-strip">
+                    <div class="product-thumb active" data-img="img/product/tomatoes_paste_50g.png" data-alt="Sorwatom Tomato Paste 50g Sachet" onclick="switchImg(this)">
+                        <img src="img/product/tomatoes_paste_50g.png" alt="50g Sachet">
+                        <span>50g Sachet</span>
+                    </div>
+                    <div class="product-thumb" data-img="img/product/tomatoes_paste_70g.png" data-alt="Sorwatom Tomato Paste 70g Sachet" onclick="switchImg(this)">
+                        <img src="img/product/tomatoes_paste_70g.png" alt="70g Sachet">
+                        <span>70g Sachet</span>
+                    </div>
+                    <div class="product-thumb" data-img="img/product/tomatoes_paste_800g.png" data-alt="Sorwatom Tomato Paste 800g Tin" onclick="switchImg(this)">
+                        <img src="img/product/tomatoes_paste_800g.png" alt="800g Tin">
+                        <span>800g Tin</span>
+                    </div>
+                </div>
             </div>
-          </div>
 
-          <!-- Tomato Paste 70 gm-->
-          <div class="products-details half_space wow fadeInLeft" data-wow-duration="1s" data-wow-delay=".5s">
-              <h3 class="product-header"><span>Tomato Paste 70 gm</span></h3>
-
-              <div class="row">
-                <!-- Image -->
-                <div class="col-md-4">
-                  <div class="product-img">
-                    <ul id="product-gal" class="gallery prod-gal-wrap list-unstyled cS-hidden">
-                      <li data-thumb="img/product/tomatoes_paste_70g.png">
-                        <img src="img/product/tomatoes_paste_70g.png" class="img-responsive" loading="lazy" />
-                        <h5 class="prod-gal-title">70 gm</h5>
-                      </li>
-                    </ul>
-                  </div>
+            <!-- Info Column -->
+            <div class="product-detail__info">
+                <span class="badge">Pasta &middot; Double Concentrated</span>
+                <h2 class="product-detail__title">SORWATOM Double Concentrated Tomato Paste</h2>
+                <p class="product-detail__desc">Made from sun-ripened Great Lakes tomatoes, our double-concentrated paste brings bold colour and vibrant taste to any dish. Free from artificial additives &mdash; just pure tomato, crafted to an Italian specification.</p>
+                <ul class="product-features">
+                    <li><span class="feat-check">&#10003;</span> 100% Natural</li>
+                    <li><span class="feat-check">&#10003;</span> No Preservatives</li>
+                    <li><span class="feat-check">&#10003;</span> Double Concentrated (28&ndash;30%)</li>
+                    <li><span class="feat-check">&#10003;</span> ISO Certified</li>
+                </ul>
+                <div class="product-detail__actions">
+                    <a href="contact-us.php?inquiry=tomato-paste" class="btn-primary-green">Request a Quote &rarr;</a>
+                    <a href="products.php" class="btn-outline-dark">View All Products</a>
                 </div>
-                <!-- Description -->
-                <div class="col-md-8">
-                  <div class="acc-container">
-                    <div class="acc-wrap">
-                      <div class="acc-content open">
-                        <div class="acc-content-inner">
-                          <p>SORWATOM Double- concentrated tomato paste is made with natural
-                             ripened tomatoes for a wholesome classic taste. Bold color
-                             and a vibrant taste, our 70g is a must have in your kitchen.
-                          </p>
-                        </div>
-                      </div>
-                    </div>
+            </div>
 
-                  </div><!--/.accordial panel exit-->
-                </div><!--/.col-md-8 -->
+        </div>
+    </div>
+</section>
 
-              </div><!--/.row -->
-          </div><!--/.product Details -->
+<!-- Related Products -->
+<section class="related-section">
+    <div class="container">
+        <p class="section-eyebrow">YOU MIGHT ALSO LIKE</p>
+        <div class="related-grid">
 
-          <!-- Tomato Paste 50 gm-->
-          <div class="products-details half_space wow fadeInRight" data-wow-duration="1s" data-wow-delay=".6s">
-              <h3 class="product-header"><span>Tomato Paste 50gm</span></h3>
-
-              <div class="row">
-                <!-- Image -->
-                <div class="col-md-4">
-                  <div class="product-img">
-                    <ul id="product-gal" class="gallery prod-gal-wrap list-unstyled cS-hidden">
-                      <li data-thumb="img/product/tomatoes_paste_50g.png">
-                        <img src="img/product/tomatoes_paste_50g.png" class="img-responsive" loading="lazy" />
-                        <h5 class="prod-gal-title">50 gm</h5>
-                      </li>
-                    </ul>
-                  </div>
+            <a href="product-ketchup.php" class="related-card">
+                <div class="related-card__img">
+                    <img src="img/product/ketchup.png" alt="Sorwatom Heirloom Ketchup">
                 </div>
-                <!-- Description -->
-                <div class="col-md-8">
-                  <div class="acc-container">
-                    <div class="acc-wrap">
-                      <div class="acc-content open">
-                        <div class="acc-content-inner">
-                          <p>
-                            Designed and developed to the same high specification and standard
-                            as our flagship 70g pack to serve smaller households, and provide
-                            a more affordable pack for price sensitive markets.
-                          </p>
-                        </div>
-                      </div>
-                    </div>
-                  </div><!--/.accordial panel exit-->
-                </div><!--/.col-md-8 -->
-
-              </div><!--/.row -->
-          </div><!--/.product Details -->
-
-          <!-- Tomato Paste 800 gm-->
-          <div class="products-details products-list-details half_space wow fadeInRight" data-wow-duration="1s" data-wow-delay=".7s">
-              <h3 class="product-header"><span>Tomato paste 800gm</span></h3>
-
-              <div class="row">
-                <!-- Image -->
-                <div class="col-md-4">
-                  <div class="product-img">
-                    <ul id="product-gal" class="gallery prod-gal-wrap list-unstyled cS-hidden">
-                      <li data-thumb="img/product/tomatoes_paste_800g.png">
-                        <img src="img/product/tomatoes_paste_800g.png" class="img-responsive" loading="lazy" />
-                        <h5 class="prod-gal-title">800 gm</h5>
-                      </li>
-                    </ul>
-                  </div>
+                <div class="related-card__body">
+                    <span class="related-card__label">Condiments &middot; Glass Bottle</span>
+                    <p class="related-card__name">Heirloom Ketchup</p>
+                    <span class="related-card__link">View Product &rarr;</span>
                 </div>
-                <!-- Description -->
-                <div class="col-md-8">
-                  <div class="acc-container">
-                    <div class="acc-wrap">
-                      <div class="acc-content open">
-                        <div class="acc-content-inner">
-                          <p> Developed for the hospitality industry in mind, our 800g
-                            retains the same natural taste and color as all our other
-                            products. Packed in easy open and reusable tins, it's a
-                            perfect fit for the  HORECA market.
-                          </p>
-                        </div>
-                      </div>
-                    </div>
-                  </div><!--/.accordial panel exit-->
-                </div><!--/.col-md-8 -->
+            </a>
 
-              </div><!--/.row -->
-          </div><!--/.product Details -->
+            <a href="product-masala.php" class="related-card">
+                <div class="related-card__img">
+                    <img src="img/product/masala.png" alt="Sorwatom Pilau Masala">
+                </div>
+                <div class="related-card__body">
+                    <span class="related-card__label">Spices &middot; Hand-Ground Heritage Blend</span>
+                    <p class="related-card__name">Pilau Masala</p>
+                    <span class="related-card__link">View Product &rarr;</span>
+                </div>
+            </a>
 
+            <a href="product-vinegar.php" class="related-card">
+                <div class="related-card__img">
+                    <img src="img/product/vinegar.png" alt="Sorwatom Pure Vinegar">
+                </div>
+                <div class="related-card__body">
+                    <span class="related-card__label">Condiments &middot; Glass Bottle</span>
+                    <p class="related-card__name">Pure Vinegar</p>
+                    <span class="related-card__link">View Product &rarr;</span>
+                </div>
+            </a>
 
-        </div><!--/.col-md-9 -->
-      </div><!--/.row -->
+        </div>
+    </div>
+</section>
 
-    </div><!--/.container -->
-
+<!-- CTA -->
+<section class="cta-block">
+    <div class="container">
+        <h2>Ready to stock Sorwatom products?</h2>
+        <p>Get in touch with our sales team for pricing, bulk orders, and distribution enquiries.</p>
+        <a href="contact-us.php" class="btn-primary-green">Get in Touch &rarr;</a>
+    </div>
 </section>
 
 <?php include 'footer.html'; ?>
@@ -180,5 +355,29 @@ include '_head.php';
 <a href="javascript:void(0)" id="back-top"><i class="fa fa-angle-up fa-2x"></i></a>
 
 <?php include '_scripts.php'; ?>
+
+<script>
+function switchImg(thumb) {
+    var thumbs = document.querySelectorAll('.product-thumb');
+    thumbs.forEach(function(t) { t.classList.remove('active'); });
+    thumb.classList.add('active');
+    var mainImg = document.getElementById('mainProductImg');
+    mainImg.style.opacity = '0';
+    setTimeout(function() {
+        mainImg.src = thumb.getAttribute('data-img');
+        mainImg.alt = thumb.getAttribute('data-alt');
+        mainImg.style.opacity = '1';
+    }, 150);
+}
+// Set initial active thumb correctly
+(function() {
+    var thumbs = document.querySelectorAll('.product-thumb');
+    if (thumbs.length) {
+        thumbs.forEach(function(t) { t.classList.remove('active'); });
+        thumbs[0].classList.add('active');
+        document.getElementById('mainProductImg').src = thumbs[0].getAttribute('data-img');
+    }
+})();
+</script>
 </body>
 </html>
