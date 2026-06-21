@@ -223,7 +223,7 @@ include '_head.php';
             <div class="product-detail__gallery">
                 <div class="product-img-main">
                     <img
-                        src="img/product/vinegar.png"
+                        src="assets/img/products/vinegar.png"
                         alt="Sorwatom Pure White Vinegar Glass Bottle"
                         loading="eager"
                         class="product-main-img">
@@ -259,7 +259,7 @@ include '_head.php';
 
             <a href="product-tomato-paste.php" class="related-card">
                 <div class="related-card__img">
-                    <img src="img/product/tomatoes_paste_70g.png" alt="Sorwatom Tomato Paste">
+                    <img src="assets/img/products/tomatoes_paste_70g.png" alt="Sorwatom Tomato Paste">
                 </div>
                 <div class="related-card__body">
                     <span class="related-card__label">Pasta &middot; Double Concentrated</span>
@@ -270,7 +270,7 @@ include '_head.php';
 
             <a href="product-ketchup.php" class="related-card">
                 <div class="related-card__img">
-                    <img src="img/product/ketchup.png" alt="Sorwatom Heirloom Ketchup">
+                    <img src="assets/img/products/ketchup.png" alt="Sorwatom Heirloom Ketchup">
                 </div>
                 <div class="related-card__body">
                     <span class="related-card__label">Condiments &middot; Glass Bottle</span>
@@ -281,7 +281,7 @@ include '_head.php';
 
             <a href="product-masala.php" class="related-card">
                 <div class="related-card__img">
-                    <img src="img/product/masala.png" alt="Sorwatom Pilau Masala">
+                    <img src="assets/img/products/masala.png" alt="Sorwatom Pilau Masala">
                 </div>
                 <div class="related-card__body">
                     <span class="related-card__label">Spices &middot; Hand-Ground Heritage Blend</span>

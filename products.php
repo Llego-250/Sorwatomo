@@ -17,13 +17,7 @@ include 'partials/_head.php';
        SECTION 1 — HERO
        ============================================================ -->
   <section class="hero hero--half" aria-label="Page introduction">
-    <img
-      class="hero__bg"
-      src="assets/img/hero-products.jpg"
-      alt=""
-      role="presentation"
-      loading="eager"
-    >
+    <div class="hero__bg hero__bg--pattern" aria-hidden="true"></div>
     <div class="hero__overlay" aria-hidden="true"></div>
 
     <div class="hero__content container">
@@ -90,7 +84,7 @@ include 'partials/_head.php';
           <a href="product-tomato-paste.php" class="product-card__link" aria-label="Tomato Paste 50g — view product details">
             <div class="product-card__img-wrap">
               <img
-                src="assets/img/products/tomato-paste-50g.png"
+                src="assets/img/products/tomatoes_paste_50g.png"
                 alt="Sorwatom Tomato Paste 50g sachet"
                 loading="lazy"
                 width="400"
@@ -122,7 +116,7 @@ include 'partials/_head.php';
           <a href="product-tomato-paste.php" class="product-card__link" aria-label="Tomato Paste 70g — view product details">
             <div class="product-card__img-wrap">
               <img
-                src="assets/img/products/tomato-paste-70g.png"
+                src="assets/img/products/tomatoes_paste_70g.png"
                 alt="Sorwatom Tomato Paste 70g sachet"
                 loading="lazy"
                 width="400"
@@ -154,7 +148,7 @@ include 'partials/_head.php';
           <a href="product-tomato-paste.php" class="product-card__link" aria-label="Tomato Paste 800g tin — view product details">
             <div class="product-card__img-wrap">
               <img
-                src="assets/img/products/tomato-paste-800g.png"
+                src="assets/img/products/tomatoes_paste_800g.png"
                 alt="Sorwatom Tomato Paste 800g tin"
                 loading="lazy"
                 width="400"
@@ -247,7 +241,7 @@ include 'partials/_head.php';
           <a href="product-masala.php" class="product-card__link" aria-label="Pilau Masala — view product details">
             <div class="product-card__img-wrap">
               <img
-                src="assets/img/products/pilau-masala.png"
+                src="assets/img/products/masala.png"
                 alt="Sorwatom Pilau Masala spice pouch"
                 loading="lazy"
                 width="400"

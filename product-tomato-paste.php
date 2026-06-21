@@ -256,22 +256,22 @@ include '_head.php';
                 <div class="product-img-main">
                     <img
                         id="mainProductImg"
-                        src="img/product/tomatoes_paste_70g.png"
+                        src="assets/img/products/tomatoes_paste_70g.png"
                         alt="Sorwatom Tomato Paste 70g Sachet"
                         loading="eager"
                         class="product-main-img">
                 </div>
                 <div class="product-thumb-strip">
-                    <div class="product-thumb active" data-img="img/product/tomatoes_paste_50g.png" data-alt="Sorwatom Tomato Paste 50g Sachet" onclick="switchImg(this)">
-                        <img src="img/product/tomatoes_paste_50g.png" alt="50g Sachet">
+                    <div class="product-thumb active" data-img="assets/img/products/tomatoes_paste_50g.png" data-alt="Sorwatom Tomato Paste 50g Sachet" onclick="switchImg(this)">
+                        <img src="assets/img/products/tomatoes_paste_50g.png" alt="50g Sachet">
                         <span>50g Sachet</span>
                     </div>
-                    <div class="product-thumb" data-img="img/product/tomatoes_paste_70g.png" data-alt="Sorwatom Tomato Paste 70g Sachet" onclick="switchImg(this)">
-                        <img src="img/product/tomatoes_paste_70g.png" alt="70g Sachet">
+                    <div class="product-thumb" data-img="assets/img/products/tomatoes_paste_70g.png" data-alt="Sorwatom Tomato Paste 70g Sachet" onclick="switchImg(this)">
+                        <img src="assets/img/products/tomatoes_paste_70g.png" alt="70g Sachet">
                         <span>70g Sachet</span>
                     </div>
-                    <div class="product-thumb" data-img="img/product/tomatoes_paste_800g.png" data-alt="Sorwatom Tomato Paste 800g Tin" onclick="switchImg(this)">
-                        <img src="img/product/tomatoes_paste_800g.png" alt="800g Tin">
+                    <div class="product-thumb" data-img="assets/img/products/tomatoes_paste_800g.png" data-alt="Sorwatom Tomato Paste 800g Tin" onclick="switchImg(this)">
+                        <img src="assets/img/products/tomatoes_paste_800g.png" alt="800g Tin">
                         <span>800g Tin</span>
                     </div>
                 </div>
@@ -306,7 +306,7 @@ include '_head.php';
 
             <a href="product-ketchup.php" class="related-card">
                 <div class="related-card__img">
-                    <img src="img/product/ketchup.png" alt="Sorwatom Heirloom Ketchup">
+                    <img src="assets/img/products/ketchup.png" alt="Sorwatom Heirloom Ketchup">
                 </div>
                 <div class="related-card__body">
                     <span class="related-card__label">Condiments &middot; Glass Bottle</span>
@@ -317,7 +317,7 @@ include '_head.php';
 
             <a href="product-masala.php" class="related-card">
                 <div class="related-card__img">
-                    <img src="img/product/masala.png" alt="Sorwatom Pilau Masala">
+                    <img src="assets/img/products/masala.png" alt="Sorwatom Pilau Masala">
                 </div>
                 <div class="related-card__body">
                     <span class="related-card__label">Spices &middot; Hand-Ground Heritage Blend</span>
@@ -328,7 +328,7 @@ include '_head.php';
 
             <a href="product-vinegar.php" class="related-card">
                 <div class="related-card__img">
-                    <img src="img/product/vinegar.png" alt="Sorwatom Pure Vinegar">
+                    <img src="assets/img/products/vinegar.png" alt="Sorwatom Pure Vinegar">
                 </div>
                 <div class="related-card__body">
                     <span class="related-card__label">Condiments &middot; Glass Bottle</span>

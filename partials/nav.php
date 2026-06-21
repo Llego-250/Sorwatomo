@@ -5,9 +5,9 @@
   <div class="container">
     <div class="site-nav__inner">
 
-      <!-- Wordmark logo -->
+      <!-- Logo -->
       <a href="index.php" class="nav-logo" aria-label="Sorwatomo — Home">
-        <span class="nav-logo__text">SORWATŌM</span><span class="nav-logo__dot" aria-hidden="true">.</span>
+        <img src="assets/img/logo.png" alt="Sorwatom" class="nav-logo__img" width="140" height="48">
       </a>
 
       <!-- Desktop navigation -->
@@ -70,26 +70,16 @@
 ------------------------------------------------------- */
 .nav-logo {
   display: flex;
-  align-items: baseline;
-  gap: 1px;
+  align-items: center;
   text-decoration: none;
   flex-shrink: 0;
 }
 
-.nav-logo__text {
-  color: white;
-  font-family: var(--font-body);
-  font-size: 1.1rem;
-  letter-spacing: 0.18em;
-  font-weight: 500;
-  text-transform: uppercase;
-  line-height: 1;
-}
-
-.nav-logo__dot {
-  color: var(--col-cta);
-  font-size: 1.3rem;
-  line-height: 1;
+.nav-logo__img {
+  height: 44px;
+  width: auto;
+  object-fit: contain;
+  display: block;
 }
 
 /* -------------------------------------------------------

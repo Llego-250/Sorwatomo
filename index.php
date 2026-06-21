@@ -17,15 +17,8 @@ include 'partials/_head.php';
        ============================================================ -->
   <section class="hero hero--full" aria-label="Homepage hero">
 
-    <!-- Background food photograph -->
-    <img
-      class="hero__bg"
-      src="assets/img/slider/hero-home.jpg"
-      alt=""
-      aria-hidden="true"
-      fetchpriority="high"
-      loading="eager"
-    >
+    <!-- Decorative hero background -->
+    <div class="hero__bg hero__bg--pattern" aria-hidden="true"></div>
 
     <!-- Skip link (keyboard users) -->
     <a href="#main" class="skip-link">Skip to content</a>
@@ -145,7 +138,7 @@ include 'partials/_head.php';
               <span class="badge badge--dark">Bestseller</span>
             </div>
             <img
-              src="img/product/tomatoes_paste_70g.png"
+              src="assets/img/products/tomatoes_paste_70g.png"
               alt="Sorwatom Tomato Paste 70g sachet"
               loading="lazy"
               width="400"
@@ -163,7 +156,7 @@ include 'partials/_head.php';
         <a href="product-ketchup.php" class="product-card reveal" data-delay="2" aria-label="Heirloom Ketchup — view product">
           <div class="product-card__img-wrap">
             <img
-              src="img/product/ketchup.png"
+              src="assets/img/products/ketchup.png"
               alt="Sorwatom Heirloom Ketchup bottle"
               loading="lazy"
               width="400"
@@ -181,7 +174,7 @@ include 'partials/_head.php';
         <a href="product-masala.php" class="product-card reveal" data-delay="3" aria-label="Pilau Masala — view product">
           <div class="product-card__img-wrap">
             <img
-              src="img/product/masala.png"
+              src="assets/img/products/masala.png"
               alt="Sorwatom Pilau Masala packet"
               loading="lazy"
               width="400"

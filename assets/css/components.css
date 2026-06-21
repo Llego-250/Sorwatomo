@@ -977,6 +977,7 @@
   position: relative;
   display: flex;
   align-items: flex-end;
+  background: var(--col-ground);
   overflow: hidden;
   background: var(--col-ground);
 }
@@ -998,6 +999,15 @@
   object-fit: cover;
   opacity: 0.35;
   z-index: 0;
+}
+
+/* Decorative pattern fallback when no photo is available */
+.hero__bg--pattern {
+  background:
+    radial-gradient(ellipse 80% 60% at 70% 40%, rgba(200, 146, 58, 0.18) 0%, transparent 60%),
+    radial-gradient(ellipse 50% 80% at 20% 70%, rgba(196, 71, 42, 0.12) 0%, transparent 55%),
+    linear-gradient(160deg, var(--col-ground-2) 0%, var(--col-ground) 100%);
+  opacity: 1;
 }
 
 /* Content layer */
