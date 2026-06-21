@@ -1,103 +1,306 @@
 <?php
-$page_title = 'Sorwatom - Ketchup';
+$page_title       = 'Heirloom Ketchup — Sorwatom';
+$page_description = 'Sorwatom Heirloom Tomato Ketchup — made from vine-ripened tomatoes with no artificial colours or high-fructose corn syrup. Available in 350g and 700g glass bottles.';
+$page_css         = ['pages/products.css'];
+$body_class       = 'product-page product-ketchup';
+$current_page     = 'products';
 include '_head.php';
 ?>
+<style>
+/* ── Product Detail Layout ─────────────────────────────────────────── */
+.product-hero {
+    background: #1a3a2e;
+    padding: 80px 0 60px;
+    text-align: center;
+    color: #fff;
+}
+.product-hero .eyebrow {
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #a8c5b0;
+    margin-bottom: 14px;
+    display: block;
+}
+.product-hero h1 {
+    font-size: 42px;
+    font-weight: 300;
+    color: #fff;
+    margin: 0;
+    line-height: 1.2;
+}
+.product-hero h1 em {
+    font-style: normal;
+    color: #7ecba0;
+}
+.product-detail {
+    padding: 64px 0 80px;
+    background: #fff;
+}
+.product-detail__grid {
+    display: grid;
+    grid-template-columns: 1fr 1.1fr;
+    gap: 56px;
+    align-items: start;
+}
+@media (max-width: 768px) {
+    .product-detail__grid { grid-template-columns: 1fr; gap: 32px; }
+    .product-hero h1 { font-size: 30px; }
+}
+.product-img-main {
+    background: #f5f7f5;
+    border-radius: 12px;
+    padding: 40px;
+    aspect-ratio: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+.product-img-main img.product-main-img {
+    max-height: 360px;
+    width: 100%;
+    object-fit: contain;
+}
+.badge {
+    display: inline-block;
+    padding: 4px 14px;
+    border: 1px solid #1a7a50;
+    color: #1a7a50;
+    border-radius: 20px;
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-weight: 600;
+    margin-bottom: 16px;
+}
+.product-detail__title {
+    font-family: inherit;
+    font-size: 22px;
+    font-weight: 700;
+    color: #1a2e1a;
+    margin: 0 0 16px;
+    line-height: 1.35;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+.product-detail__desc {
+    font-size: 15px;
+    line-height: 1.75;
+    color: #4a5a4a;
+    margin-bottom: 24px;
+}
+.product-features {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+.product-features li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 14px;
+    color: #3a4a3a;
+}
+.feat-check {
+    color: #1a7a50;
+    font-weight: 700;
+    font-size: 13px;
+    min-width: 18px;
+    text-align: center;
+}
+.product-detail__actions {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+    margin-top: 32px;
+}
+.btn-primary-green {
+    display: inline-block;
+    padding: 13px 28px;
+    background: #1a7a50;
+    color: #fff !important;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background 0.2s, transform 0.15s;
+    letter-spacing: 0.3px;
+}
+.btn-primary-green:hover { background: #155e3e; transform: translateY(-1px); color: #fff !important; }
+.btn-outline-dark {
+    display: inline-block;
+    padding: 13px 28px;
+    border: 2px solid #1a3a2e;
+    color: #1a3a2e !important;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background 0.2s, color 0.2s, transform 0.15s;
+    letter-spacing: 0.3px;
+}
+.btn-outline-dark:hover { background: #1a3a2e; color: #fff !important; transform: translateY(-1px); }
+/* Related Products */
+.related-section {
+    padding: 56px 0 72px;
+    background: #f8faf8;
+}
+.related-section .section-eyebrow {
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #1a7a50;
+    margin-bottom: 32px;
+    text-align: center;
+    font-weight: 700;
+}
+.related-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
+@media (max-width: 768px) {
+    .related-grid { grid-template-columns: 1fr; }
+}
+@media (min-width: 769px) and (max-width: 991px) {
+    .related-grid { grid-template-columns: repeat(2, 1fr); }
+}
+.related-card {
+    background: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    text-decoration: none;
+    display: block;
+    border: 1px solid #e8ede8;
+    transition: box-shadow 0.2s, transform 0.2s;
+}
+.related-card:hover { box-shadow: 0 8px 28px rgba(26,58,46,0.12); transform: translateY(-3px); }
+.related-card__img {
+    background: #f5f7f5;
+    padding: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 180px;
+}
+.related-card__img img { max-height: 130px; max-width: 100%; object-fit: contain; }
+.related-card__body { padding: 18px 20px 20px; }
+.related-card__label { font-size: 10px; letter-spacing: 2px; color: #1a7a50; text-transform: uppercase; font-weight: 700; margin-bottom: 6px; display: block; }
+.related-card__name { font-size: 16px; font-weight: 700; color: #1a2e1a; margin: 0 0 8px; }
+.related-card__link { font-size: 13px; color: #1a7a50; font-weight: 600; }
+/* CTA Block */
+.cta-block {
+    padding: 64px 0;
+    background: #1a3a2e;
+    text-align: center;
+    color: #fff;
+}
+.cta-block h2 { font-size: 28px; font-weight: 300; color: #fff; margin: 0 0 10px; }
+.cta-block p { color: #a8c5b0; font-size: 15px; margin: 0 0 28px; }
+</style>
+<body class="<?php echo htmlspecialchars($body_class); ?>">
 
-<body>
-
-<!-- Header -->
 <?php include 'nav_bar.html'; ?>
 
-<!--Page header & Title-->
-<section id="page_header" class="products"></section>
-
-<!--Page Content-->
-<section id="blog" class="padding-bottom bg-wrap common-bg positive-re">
-
-    <div class="default-breadcrumb">
-      <div class="container">
-        <div class="row">
-          <div class="col-sm-6">
-            <ol class="breadcrumb">
-              <li class="breadcrumb-item"><a href="index.php"><i class="fa fa-home"></i></a></li>
-              <li class="breadcrumb-item"><a href="products.php">Our Products</a></li>
-              <li class="breadcrumb-item active">Ketchup</li>
-            </ol>
-          </div>
-        </div>
-      </div>
-    </div>
-
+<!-- Hero -->
+<section class="product-hero">
     <div class="container">
+        <span class="eyebrow">CONDIMENTS &middot; GLASS BOTTLE</span>
+        <h1>Heirloom <em>Ketchup</em></h1>
+    </div>
+</section>
 
-      <div class="row">
-        <!--Sidebar-->
-        <div class="col-md-3 col-sm-4">
-          <aside class="sidebar">
-            <div class="widget">
+<!-- Product Detail -->
+<section class="product-detail">
+    <div class="container">
+        <div class="product-detail__grid">
 
-              <div class="text-center side-heading-content">
-                <span class="line-border-left"></span>
-                <h4 class="center-content">Products</h4>
-                <span class="line-border-right"></span>
-              </div>
-
-              <!-- List of links to types of products -->
-              <?php include 'products_sidebar.html'; ?>
-
-            </div><!--/.widget-->
-          </aside><!--/.sidebar-->
-        </div>
-
-        <div class="col-md-9 col-sm-7">
-          <!-- Title -->
-          <div class="text-center wow fadeInDown" data-wow-duration="1s" data-wow-delay=".5s">
-            <div class="border-wrap">
-              <span class="line-border-left"></span>
-              <h3 class="center-content">Ketchup</h3>
-              <span class="line-border-right"></span>
-              <p></p>
-            </div>
-          </div>
-
-          <!-- Ketchup -->
-          <div class="products-details half_space wow fadeInLeft" data-wow-duration="1s" data-wow-delay=".5s">
-            <h3 class="product-header"><span>Ketchup</span></h3>
-            <div class="row">
-
-              <!-- Image -->
-              <div class="col-md-4">
-                <div class="product-img">
-                  <ul id="product-gal" class="gallery prod-gal-wrap list-unstyled cS-hidden">
-                    <li data-thumb="img/product/ketchup.png">
-                      <img src="img/product/ketchup.png" class="img-responsive" loading="lazy" />
-                      <h5 class="prod-gal-title"></h5>
-                    </li>
-                  </ul>
+            <!-- Gallery Column -->
+            <div class="product-detail__gallery">
+                <div class="product-img-main">
+                    <img
+                        src="img/product/ketchup.png"
+                        alt="Sorwatom Heirloom Tomato Ketchup Glass Bottle"
+                        loading="eager"
+                        class="product-main-img">
                 </div>
-              </div>
-              <!-- Description -->
-              <div class="col-md-8">
-                <div class="acc-container">
-                  <div class="acc-wrap">
-                    <div class="acc-content open">
-                      <div class="acc-content-inner">
-                        <p>
-                          Try our ketchup made from vine ripened tomatoes to give you a balanced blend of
-                          spices to make a sweet and tangy sauce that goes well with any dish.
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </div><!--/.accordial panel exit-->
-              </div><!--/.col-md-8 -->
+            </div>
 
-            </div><!--/.row -->
-          </div><!--/.product Details -->
+            <!-- Info Column -->
+            <div class="product-detail__info">
+                <span class="badge">Condiments &middot; Glass Bottle</span>
+                <h2 class="product-detail__title">SORWATOM Heirloom Tomato Ketchup</h2>
+                <p class="product-detail__desc">Made from vine-ripened tomatoes and a balanced blend of spices &mdash; a sweet, tangy sauce that belongs on every table. No artificial colours, no high-fructose corn syrup.</p>
+                <ul class="product-features">
+                    <li><span class="feat-check">&#10003;</span> Vine-ripened tomatoes</li>
+                    <li><span class="feat-check">&#10003;</span> No artificial colours</li>
+                    <li><span class="feat-check">&#10003;</span> Glass bottle</li>
+                    <li><span class="feat-check">&#10003;</span> 350g &amp; 700g available</li>
+                </ul>
+                <div class="product-detail__actions">
+                    <a href="contact-us.php?inquiry=ketchup" class="btn-primary-green">Request a Quote &rarr;</a>
+                    <a href="products.php" class="btn-outline-dark">View All Products</a>
+                </div>
+            </div>
 
-        </div><!--/.col-md-9 -->
-      </div><!--/.row -->
-    </div><!--/.container -->
+        </div>
+    </div>
+</section>
+
+<!-- Related Products -->
+<section class="related-section">
+    <div class="container">
+        <p class="section-eyebrow">YOU MIGHT ALSO LIKE</p>
+        <div class="related-grid">
+
+            <a href="product-tomato-paste.php" class="related-card">
+                <div class="related-card__img">
+                    <img src="img/product/tomatoes_paste_70g.png" alt="Sorwatom Tomato Paste">
+                </div>
+                <div class="related-card__body">
+                    <span class="related-card__label">Pasta &middot; Double Concentrated</span>
+                    <p class="related-card__name">Tomato Paste</p>
+                    <span class="related-card__link">View Product &rarr;</span>
+                </div>
+            </a>
+
+            <a href="product-masala.php" class="related-card">
+                <div class="related-card__img">
+                    <img src="img/product/masala.png" alt="Sorwatom Pilau Masala">
+                </div>
+                <div class="related-card__body">
+                    <span class="related-card__label">Spices &middot; Hand-Ground Heritage Blend</span>
+                    <p class="related-card__name">Pilau Masala</p>
+                    <span class="related-card__link">View Product &rarr;</span>
+                </div>
+            </a>
+
+            <a href="product-vinegar.php" class="related-card">
+                <div class="related-card__img">
+                    <img src="img/product/vinegar.png" alt="Sorwatom Pure Vinegar">
+                </div>
+                <div class="related-card__body">
+                    <span class="related-card__label">Condiments &middot; Glass Bottle</span>
+                    <p class="related-card__name">Pure Vinegar</p>
+                    <span class="related-card__link">View Product &rarr;</span>
+                </div>
+            </a>
+
+        </div>
+    </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-block">
+    <div class="container">
+        <h2>Ready to stock Sorwatom products?</h2>
+        <p>Get in touch with our sales team for pricing, bulk orders, and distribution enquiries.</p>
+        <a href="contact-us.php" class="btn-primary-green">Get in Touch &rarr;</a>
+    </div>
 </section>
 
 <?php include 'footer.html'; ?>
