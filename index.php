@@ -1,325 +1,302 @@
-<!doctype html>
-<html lang="en" class="no-js">
+<?php
+$page_title       = 'Sorwatomo — Pure Harvest from the Great Lakes';
+$page_description = 'Sorwatom produces 100% natural tomato paste, ketchup, masala and vinegar crafted in the heart of East Africa since 1984.';
+$page_css         = ['pages/home.css'];
+$body_class       = 'page-home';
+$current_page     = 'home';
+include 'partials/_head.php';
+?>
+<body class="<?= $body_class ?>">
 
-<head>
-    <meta name="description" content="SORWATOM is Eastern Africa's leading agribusiness manufacturer, it was created in 1984 by a group of highly successful investors who identified an opportunity t" />
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-    <title>Sorwatom</title>
+<?php include 'partials/nav.php'; ?>
 
-    <!---/* Favicon */-->
-    <link rel="apple-touch-icon" sizes="180x180" href="images/favicon/apple-touch-icon.png">
-    <link rel="icon" type="image/png" href="images/favicon/favicon-32x32.png" sizes="32x32">
-    <link rel="manifest" href="images/favicon/manifest.json">
-    <meta name="theme-color" content="#ffffff">
+<main id="main">
 
-    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
-    <link rel="stylesheet" type="text/css" href="css/style.css">
-    <link rel="stylesheet" type="text/css" href="css/bistro-icons.css">
-    <link rel="stylesheet" type="text/css" href="css/animate.css">
-    <link rel="stylesheet" type="text/css" href="css/settings.css">
-    <link rel="stylesheet" type="text/css" href="css/navigation.css">
-    <link rel="stylesheet" type="text/css" href="css/owl.carousel.css">
-    <link rel="stylesheet" type="text/css" href="css/owl.transitions.css">
-    <link rel="stylesheet" type="text/css" href="css/zerogrid.css">
-    <link rel="stylesheet" type="text/css" href="css/loader.css"> 
-    <link rel="stylesheet" type="text/css" href="css/jquery.timelineMe.css"> 
-    <link rel="stylesheet" type="text/css" href="css/gallery-box.css">  
-    <link rel="stylesheet" type="text/css" href="css/bootstrap-responsive-tabs.css">
-    <link rel="stylesheet" type="text/css" href="css/lightslider.css" />                  
-    <link rel="stylesheet" type="text/css" href="css/advanced-read-more.min.css">
-    <link rel="stylesheet" type="text/css" href="css/jquery.eeyellow.Timeline.css" />
-    <link rel="stylesheet" type="text/css" href="css/lity.css">
-    <link rel="stylesheet" type="text/css" href="css/isotope-docseccb.css" media="screen">
-    <style type="text/css">
-        img{
-            display: initial !important; 
-        }
-        .wow:first-child {
-            visibility: hidden;
-        }
-    </style>
-    
-</head>
+  <!-- ============================================================
+       SECTION 1 — HERO
+       ============================================================ -->
+  <section class="hero hero--full" aria-label="Homepage hero">
 
-<body>
+    <!-- Background food photograph -->
+    <img
+      class="hero__bg"
+      src="assets/img/slider/hero-home.jpg"
+      alt=""
+      aria-hidden="true"
+      fetchpriority="high"
+      loading="eager"
+    >
 
-<!-- Header -->
-<?php include 'nav_bar.html'; ?>
+    <!-- Skip link (keyboard users) -->
+    <a href="#main" class="skip-link">Skip to content</a>
 
-<div id="first-slider">
-    <div id="carousel-example-generic" class="carousel slide carousel-fade">
-        <!-- Wrapper for slides -->
-        <div class="carousel-inner" role="listbox">
-            <!-- Item 1 -->
-            <div class="item active slide0 slide1">
-              <img src="img/s1.jpg" alt="">
-             </div>
-            <!-- Item 2 -->
-            
-            <div class="item slide0 slide2">
-              <img src="img/02.jpg" alt="">
-            </div>
-
-        </div>
-        <!-- End Wrapper for slides-->
-             <!-- Indicators -->
-    </div>
-</div>
-
-<!--Features Section-->
-<section class="feature_wrap padding" id="specialities">
-    <div class="container">
-      <div class="row">
-       <div class="col-md-12 text-center">
-          <div class="border-wrap border-wrap-white wow fadeInDown" data-wow-duration="500ms" data-wow-delay="300ms">
-            <span class="line-border-left"></span>
-            <h3 class="center-content">Why Choose Us <span> </span></h3>
-            <span class="line-border-right"></span>
-          </div>
-        </div>
-      </div>
-      <div class="row">
-
-        <div class="col-md-3 wow fadeInLeft " id="why-2-choose" data-wow-duration="500ms" data-wow-delay="300ms">
-          <i class="icon-glas">
-            <img src="img/tranch/100.png" alt="">
-          </i>
-          <br>
-          <h5>100% NATURAL </h5>
-        </div>
-
-        <div class="col-md-3 fadeInDown" id="why-2-choose" data-wow-duration="500ms" data-wow-delay="600ms">
-          <i class="icon-glas"><img src="img/tranch/map.png" alt=""></i>
-          <br>
-          <h5>ALWAYS AVAILABLE</h5>
-        </div>
-
-        <div class="col-md-3  wow fadeInUp" id="why-2-choose" data-wow-duration="500ms" data-wow-delay="900ms">
-          <i class="icon-glas"><img src="img/tranch/s.time.png" alt=""></i>
-          <h5>WE SAVE YOUR TIME</h5>
-        </div>
-
-        <div class="col-md-3 wow fadeInRight" id="why-2-choose" data-wow-duration="500ms" data-wow-delay="1200ms">
-          <i class="icon-glas"><img src="img/tranch/strd.png" alt=""></i>
-          <h5> INTERNATIONAL STANDARDS</h5>
-        </div>
-      </div>
-    </div>
-</section>
-
-  <!--Featured Receipes -->
-<section class="feature_wrap">
-    <div class="padding text-center">
+    <!-- Hero content -->
+    <div class="hero__content">
       <div class="container">
-        <div class="row">
-          <div class="col-md-12">
-            <div class="border-wrap offering wow fadeInDown" data-wow-duration="500ms" data-wow-delay="300ms">
-                <span class="line-border-left"></span>
-                <h3 class="center-content">Delicious <span>Offerings</span></h3>
-                <span class="line-border-right"></span>
-              </div>
-          </div>
+
+        <!-- Eyebrow with left gold rule -->
+        <p class="hero-eyebrow">From Seed to Spoon</p>
+
+        <h1 class="hero__title">Pure <em>Harvest.</em></h1>
+
+        <p class="hero__subtitle">
+          Experience the richness of 100% natural agribusiness products, crafted with
+          traditional wisdom and modern precision in the heart of East Africa.
+        </p>
+
+        <div class="hero__actions">
+          <a href="products.php" class="btn btn--ghost">Explore Collection</a>
+          <a href="about.php" class="btn--text" style="color:rgba(255,255,255,0.75);">Our Story</a>
         </div>
-        
-        <div id="our-product" class="owl-carousel">
-            
-          <div class="item main-product-wrap">
-            <div class="wow fadeInLeft" data-wow-duration="500ms" data-wow-delay="300ms">
-              <div class="main-product">
-                <div class="main-product-img">
-                  <div class="product-overflow">
-                    <a href="product-tomato-paste.php" class="overflow-icon link"><i class="fa fa-link"></i></a>
-                    <a href="img/product/tomatoes_paste_50g.png" class="overflow-icon expand fancybox"><i class="fa fa-expand"></i></a>
-                  </div>
-                  <img src="img/product/tomatoes_paste_50g.png" alt="" class="img-responsive">
-                </div>
-                <div class="main-product-content">
-                  <h5>Tomato paste 50g</h5>
-                </div>
-              </div>
-            </div>
-          </div>
-          
-          <div class="item main-product-wrap">
-            <div class="wow fadeInDown" data-wow-duration="500ms" data-wow-delay="600ms">
-              <div class="main-product">
-                <div class="main-product-img">
-                  <div class="product-overflow">
-                    <a href="product-tomato-paste.php" class="overflow-icon link"><i class="fa fa-link"></i></a>
-                    <a href="img/product/tomatoes_paste_70g.png" class="overflow-icon expand fancybox"><i class="fa fa-expand"></i></a>
-                  </div>
-                  <img src="img/product/tomatoes_paste_70g.png" alt="" class="img-responsive">
-                </div>
-                <div class="main-product-content">
-                  <h5>Tomato Paste 70g</h5>
-                </div>
-              </div>
-            </div>
-          </div>
-          
-          <div class="item main-product-wrap">
-            <div class="wow fadeInUp" data-wow-duration="500ms" data-wow-delay="900ms">
-                <div class="main-product">
-                  <div class="main-product-img">
-                    <div class="product-overflow">
-                      <a href="product-tomato-paste.php" class="overflow-icon link"><i class="fa fa-link"></i></a>
-                      <a href="img/product/tomatoes_paste_800g.png" class="overflow-icon expand fancybox"><i class="fa fa-expand"></i></a>
-                    </div>
-                    <img src="img/product/tomatoes_paste_800g.png" alt="" class="img-responsive">
-                  </div>
-                  <div class="main-product-content">
-                    <h5>Tomato Paste 800g</h5>
-                  </div>
-                </div>
-            </div>
-          </div>
-          
-          <div class="item main-product-wrap">
-            <div class="wow fadeInDown" data-wow-duration="500ms" data-wow-delay="1200ms">
-                <div class="main-product">
-                  <div class="main-product-img">
-                    <div class="product-overflow">
-                      <a href="product-ketchup.php" class="overflow-icon link "><i class="fa fa-link"></i></a>
-                      <a href="img/product/ketchup.png" class="overflow-icon expand fancybox"><i class="fa fa-expand"></i></a>
-                    </div>
-                    <img src="img/product/ketchup.png" alt="" class="img-responsive">
-                  </div>
-                  <div class="main-product-content">
-                    <h5>Ketchup</h5>
-                  </div>
-                </div>
-            </div>
-          </div>
-          
-          <div class="item main-product-wrap">
-            <div class="wow fadeInRight" data-wow-duration="500ms" data-wow-delay="1400ms">
-                <div class="main-product">
-                  <div class="main-product-img">
-                    <div class="product-overflow">
-                      <a href="product-vinegar.php" class="overflow-icon link"><i class="fa fa-link"></i></a>
-                      <a href="img/product/vinegar.png" class="overflow-icon expand fancybox"><i class="fa fa-expand"></i></a>
-                    </div>
-                    <img src="img/product/vinegar.png" alt="" class="img-responsive">
-                  </div>
-                  <div class="main-product-content">
-                    <h5>Vinegar</h5>
-                  </div>
-                </div>
-            </div>
-          </div>
-          
-          <div class="item main-product-wrap">
-            <div class="wow fadeInRight" data-wow-duration="500ms" data-wow-delay="1400ms">
-                <div class="main-product">
-                  <div class="main-product-img">
-                    <div class="product-overflow">
-                      <a href="product-masala.php" class="overflow-icon link"><i class="fa fa-link"></i></a>
-                      <a href="img/product/masala.png" class="overflow-icon expand fancybox"><i class="fa fa-expand"></i></a>
-                    </div>
-                    <img src="img/product/masala.png" alt="" class="img-responsive">
-                  </div>
-                  <div class="main-product-content">
-                    <h5>Masala</h5>
-                  </div>
-                </div>
-            </div>
-          </div>
-          
-          
-          <!-- Template for new product - copy and paste above
-          <!--
-          <div class="item main-product-wrap">
-            <div class="wow fadeInRight" data-wow-duration="500ms" data-wow-delay="1400ms">
-                <div class="main-product">
-                  <div class="main-product-img">
-                    <div class="product-overflow">
-                            
-                      <a href="link to product page" class="overflow-icon link"><i class="fa fa-link"></i></a>
-                      <a href="image file for new product" class="overflow-icon expand fancybox"><i class="fa fa-expand"></i></a>
-                    </div>
-                    <img src="image file for new product" alt="" class="img-responsive">
-                  </div>
-                  <div class="main-product-content">
-                    <h5>Product Name</h5>
-                  </div>
-                </div>
-            </div>
-          </div>
-          -->
-            
-        </div>
+
       </div>
     </div>
-</section>
 
-<?php include 'footer.html'; ?>
+    <!-- Scroll indicator -->
+    <div class="hero__scroll" aria-hidden="true">
+      <div class="scroll-indicator">
+        <span>Scroll</span>
+        <span class="scroll-indicator__line"></span>
+      </div>
+    </div>
 
-<a href="javascript:void(0)" id="back-top"><i class="fa fa-angle-up fa-2x"></i></a>
+  </section><!-- /.hero -->
 
-<script src="js/jquery-2.2.4.min.js"></script>
-<script src="js/bootstrap.min.js" type="text/javascript"></script>
-<script src="js/validator.min.js"></script>
-<script src="js/modernizr.js"></script>
-<script src="js/jquery.themepunch.tools.min.js"></script>
-<script src="js/jquery.themepunch.revolution.min.js"></script>
-<script src="js/revolution.extension.layeranimation.min.js"></script>
-<script src="js/revolution.extension.navigation.min.js"></script>
-<script src="js/revolution.extension.parallax.min.js"></script>
-<script src="js/revolution.extension.slideanims.min.js"></script>
-<script src="js/revolution.extension.video.min.js"></script>
-<script src="js/slider.js" type="text/javascript"></script>
-<script src="js/owl.carousel.min.js" ></script>
-<script src="js/owl.carousel2.thumbs.js"></script>
-<script src="js/lightslider.min.js"></script>
-<script src="js/jquery.parallax-1.1.3.js"></script>
-<script src="js/jquery-countTo.js"></script>
-<script src="js/jquery.appear.js"></script>
-<script src="js/jquery.mixitup.min.js"></script>
-<script src="js/jquery.timelineMe.js"></script>
-<script src="js/jquery.bootstrap-responsive-tabs.min.js"></script>
-<script src="js/jquery.gallery.js"></script>
-<script src="js/functions.js"></script>
-<script src="js/wow.min.js"></script>
-<script src="js/advanced-read-more.min.js"></script>
-<script src="js/lity.js"></script>
-<script src="js/jquery.jscroll.js"></script>
-<script src="js/jquery.eeyellow.Timeline.js"></script>
-<script src="js/isotope-docs.mineccb.js"></script>
-<script type="text/javascript">
-    $(document).ready(function(){
-        $('.VivaTimeline').vivaTimeline({
-            carousel: true,
-            carouselTime: 3000
-        });  
-    });
-    $(window).on('load', function(){
-        $grid = $('#quality-grid').isotope({ layoutMode: 'masonry' });
-    });
-    $('body').readMore({
-        showLines: 5,
-        linkCaption: 'expand...',
-        linkCloseCaption: 'reduce...',
-        linkHint: 'Click for more information'
-    });
-    // ======================================================
-    // Animation
-    // ======================================================
-    wow = new WOW({
-        animateClass: 'animated',
-        offset:       -10000,
-        callback:     function(box) {
-            console.log("WOW: animating <" + box.tagName.toLowerCase() + ">")
-        }
-    });
-    wow.init();
-</script>
-<script type="text/javascript">
-    $(document).ready(function(){
-        $("#invitation").modal('show');
-    });
-</script>
+
+  <!-- ============================================================
+       SECTION 2 — TICKER STRIP
+       ============================================================ -->
+  <div class="ticker" aria-hidden="true">
+    <div class="ticker__track">
+      <!-- Duplicated so the CSS animation loops seamlessly at -50% -->
+      <span class="ticker__item">100% Natural &middot; Since 1984 &middot; Great Lakes Grown &middot; International Standards &middot; &nbsp;</span>
+      <span class="ticker__item">100% Natural &middot; Since 1984 &middot; Great Lakes Grown &middot; International Standards &middot; &nbsp;</span>
+    </div>
+  </div>
+
+
+  <!-- ============================================================
+       SECTION 3 — WHY SORWATOM
+       ============================================================ -->
+  <section class="section" aria-labelledby="why-heading">
+    <div class="container">
+
+      <!-- Section header -->
+      <span class="eyebrow">Why Sorwatom</span>
+      <h2 id="why-heading" style="max-width:560px; margin-bottom:var(--space-xl);">
+        Grown with intention, <em>delivered with pride.</em>
+      </h2>
+
+      <!-- Four-pillar grid -->
+      <div class="grid-4">
+
+        <article class="pillar reveal" data-delay="1">
+          <span class="pillar__num" aria-hidden="true">01</span>
+          <h3 class="pillar__title">100% Natural</h3>
+          <p class="pillar__desc">No synthetic additives or preservatives. Just pure sun-ripened ingredients.</p>
+        </article>
+
+        <article class="pillar reveal" data-delay="2">
+          <span class="pillar__num" aria-hidden="true">02</span>
+          <h3 class="pillar__title">Always Fresh</h3>
+          <p class="pillar__desc">Daily harvests ensure the peak of flavour in every packet and jar we produce.</p>
+        </article>
+
+        <article class="pillar reveal" data-delay="3">
+          <span class="pillar__num" aria-hidden="true">03</span>
+          <h3 class="pillar__title">Traceable Origin</h3>
+          <p class="pillar__desc">Know exactly which farm your spice and paste comes from with full transparency.</p>
+        </article>
+
+        <article class="pillar reveal" data-delay="4">
+          <span class="pillar__num" aria-hidden="true">04</span>
+          <h3 class="pillar__title">Global Standards</h3>
+          <p class="pillar__desc">Rigorous quality control meeting international food safety benchmarks.</p>
+        </article>
+
+      </div><!-- /.grid-4 -->
+
+    </div><!-- /.container -->
+  </section>
+
+
+  <!-- ============================================================
+       SECTION 4 — SIGNATURE OFFERINGS
+       ============================================================ -->
+  <section class="section" style="background:var(--col-surface-2);" aria-labelledby="offerings-heading">
+    <div class="container">
+
+      <!-- Two-row section header -->
+      <div class="section-header">
+        <div class="section-header__body">
+          <span class="eyebrow">Signature Offerings</span>
+          <h2 id="offerings-heading">The taste of the <em>Great Lakes.</em></h2>
+        </div>
+        <a href="products.php" class="section-header__link">View Full Catalog</a>
+      </div>
+
+      <!-- Three product cards -->
+      <div class="grid-3">
+
+        <!-- Tomato Paste -->
+        <a href="product-tomato-paste.php" class="product-card reveal" data-delay="1" aria-label="Tomato Paste 70g — view product">
+          <div class="product-card__img-wrap">
+            <div class="product-card__badges">
+              <span class="badge badge--dark">Bestseller</span>
+            </div>
+            <img
+              src="img/product/tomatoes_paste_70g.png"
+              alt="Sorwatom Tomato Paste 70g sachet"
+              loading="lazy"
+              width="400"
+              height="400"
+            >
+          </div>
+          <div class="product-card__body">
+            <p class="product-card__category">Tomato Paste</p>
+            <h3 class="product-card__name">Tomato Paste 70g</h3>
+            <p class="product-card__desc">Double-concentrated, 100% natural tomato paste in an easy-open flexible sachet.</p>
+          </div>
+        </a>
+
+        <!-- Ketchup -->
+        <a href="product-ketchup.php" class="product-card reveal" data-delay="2" aria-label="Heirloom Ketchup — view product">
+          <div class="product-card__img-wrap">
+            <img
+              src="img/product/ketchup.png"
+              alt="Sorwatom Heirloom Ketchup bottle"
+              loading="lazy"
+              width="400"
+              height="400"
+            >
+          </div>
+          <div class="product-card__body">
+            <p class="product-card__category">Ketchup</p>
+            <h3 class="product-card__name">Heirloom Ketchup</h3>
+            <p class="product-card__desc">Slow-cooked from vine-ripened tomatoes with a naturally balanced sweetness.</p>
+          </div>
+        </a>
+
+        <!-- Masala -->
+        <a href="product-masala.php" class="product-card reveal" data-delay="3" aria-label="Pilau Masala — view product">
+          <div class="product-card__img-wrap">
+            <img
+              src="img/product/masala.png"
+              alt="Sorwatom Pilau Masala packet"
+              loading="lazy"
+              width="400"
+              height="400"
+            >
+          </div>
+          <div class="product-card__body">
+            <p class="product-card__category">Spice Blend</p>
+            <h3 class="product-card__name">Pilau Masala</h3>
+            <p class="product-card__desc">An aromatic blend of whole spices, ground fresh for authentic East African depth.</p>
+          </div>
+        </a>
+
+      </div><!-- /.grid-3 -->
+
+    </div><!-- /.container -->
+  </section>
+
+
+  <!-- ============================================================
+       SECTION 5 — OUR STORY
+       ============================================================ -->
+  <section class="section section--lg" aria-labelledby="story-heading">
+    <div class="container">
+
+      <div class="story-grid">
+
+        <!-- Left: image + floating badge -->
+        <div class="story-img-wrap reveal" data-delay="1">
+          <img
+            src="assets/img/farm.jpg"
+            alt="Sorwatom farm workers harvesting tomatoes in the Great Lakes region"
+            loading="lazy"
+            width="600"
+            height="750"
+          >
+          <div class="story-badge">
+            <span class="story-badge__value">40+</span>
+            <span class="story-badge__label">Years of Heritage</span>
+          </div>
+        </div>
+
+        <!-- Right: text -->
+        <div class="story-text reveal" data-delay="2">
+
+          <div>
+            <span class="eyebrow">Our Journey</span>
+            <h2 id="story-heading">
+              Cultivating a sustainable future for the <em>Great Lakes region.</em>
+            </h2>
+          </div>
+
+          <p>
+            Founded in 1984 by a group of visionary investors, Sorwatom identified an opportunity
+            to transform locally grown fresh tomatoes into premium tomato paste and serve the
+            rapidly growing demand across East Africa. From a single product line, we became
+            Eastern Africa's leading agribusiness manufacturer — driven by an uncompromising
+            commitment to quality and community.
+          </p>
+
+          <p>
+            In 2004 we upgraded our facilities with the finest Italian processing and packaging
+            technology, becoming the only sub-Saharan African paste manufacturer to pack in
+            flexible four-layer film sachets — keeping product fresher for longer, safer, and
+            more hygienic than traditional metal containers. Today, under professional management
+            with over 60 years of combined African agribusiness expertise, Sorwatom continues to
+            expand its reach across Rwanda, Burundi, Eastern DRC, and beyond.
+          </p>
+
+          <a href="about.php" class="btn--text">Read Our Heritage</a>
+
+        </div>
+
+      </div><!-- /.story-grid -->
+
+    </div><!-- /.container -->
+  </section>
+
+
+  <!-- ============================================================
+       SECTION 6 — CTA BANNER
+       ============================================================ -->
+  <section class="section section--cta" aria-labelledby="cta-heading">
+    <div class="container">
+
+      <div class="cta-block">
+
+        <div class="cta-block__text">
+          <span class="cta-block__eyebrow">For Distribution &amp; Retail</span>
+          <h2 class="cta-block__title" id="cta-heading">
+            Bring the <em>harvest</em> home.
+          </h2>
+          <p class="cta-block__body">
+            Partner with Sorwatom to bring 100% natural Great Lakes produce to your retail
+            shelves or distribution network. We work with partners across East and Central
+            Africa to deliver consistent quality, competitive terms, and full supply-chain
+            transparency.
+          </p>
+        </div>
+
+        <div class="cta-block__actions">
+          <a href="contact.php" class="btn btn--primary">Get in Touch</a>
+        </div>
+
+      </div><!-- /.cta-block -->
+
+    </div><!-- /.container -->
+  </section>
+
+</main><!-- /#main -->
+
+
+<?php include 'partials/footer.php'; ?>
+
+<?php include 'partials/_scripts.php'; ?>
+
 </body>
 </html>

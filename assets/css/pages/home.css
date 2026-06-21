@@ -1,0 +1,220 @@
+/* ============================================================
+   HOME PAGE — SPECIFIC STYLES
+   Supplements components.css and layout.css.
+   ============================================================ */
+
+
+/* ----------------------------------------------------------
+   HERO EYEBROW
+   Custom variant with a left gold rule — used only on the
+   homepage full-height hero.
+   ---------------------------------------------------------- */
+.hero-eyebrow {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  font-size: var(--step--1);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.6);
+  margin-bottom: var(--space-md);
+  font-family: var(--font-body);
+  font-weight: 500;
+}
+
+.hero-eyebrow::before {
+  content: "";
+  width: 32px;
+  height: 1px;
+  background: var(--col-accent);
+  flex-shrink: 0;
+}
+
+
+/* ----------------------------------------------------------
+   HERO — full-height homepage variant
+   ---------------------------------------------------------- */
+
+/* Slightly higher photo opacity for the food-forward hero */
+.page-home .hero__bg {
+  opacity: 0.42;
+}
+
+/* Scroll indicator — positioned below hero content */
+.hero__scroll {
+  position: relative;
+  z-index: 1;
+  padding-bottom: var(--space-lg);
+  display: flex;
+  justify-content: flex-start;
+  padding-left: clamp(1rem, 4vw, 2.5rem);
+}
+
+
+/* ----------------------------------------------------------
+   SECTION HEADER ROW
+   Two-column row: eyebrow+heading left, link right.
+   ---------------------------------------------------------- */
+.section-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: var(--space-md);
+  margin-bottom: var(--space-xl);
+  flex-wrap: wrap;
+}
+
+.section-header__body {
+  flex: 1;
+  min-width: 0;
+}
+
+.section-header__link {
+  font-family: var(--font-body);
+  font-size: var(--step--1);
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--col-text);
+  text-decoration: none;
+  white-space: nowrap;
+  flex-shrink: 0;
+  transition: color var(--dur-fast);
+}
+
+.section-header__link:hover {
+  color: var(--col-accent);
+}
+
+/* Arrow nudge on hover */
+.section-header__link::after {
+  content: " \2192";
+  display: inline;
+  transition: transform var(--dur-fast);
+}
+
+.section-header__link:hover::after {
+  display: inline-block;
+  transform: translateX(4px);
+}
+
+@media (max-width: 640px) {
+  .section-header {
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: var(--space-lg);
+  }
+}
+
+
+/* ----------------------------------------------------------
+   PILLARS — Why Sorwatom grid
+   ---------------------------------------------------------- */
+.pillar {
+  padding-top: var(--space-lg);
+  border-top: 1px solid var(--col-border);
+}
+
+.pillar__num {
+  font-family: var(--font-display);
+  font-size: var(--step-3);
+  color: var(--col-border);
+  line-height: 1;
+  margin-bottom: var(--space-sm);
+  display: block;
+  /* Intentionally lighter than body — decorative ordinal */
+}
+
+.pillar__title {
+  font-family: var(--font-display);
+  font-size: var(--step-1);
+  margin-bottom: var(--space-xs);
+  color: var(--col-text);
+  line-height: 1.2;
+  font-weight: 400;
+}
+
+.pillar__desc {
+  font-size: var(--step--1);
+  color: var(--col-text-muted);
+  line-height: 1.7;
+}
+
+/* Responsive: grid-4 is handled by layout.css (2×2 → 1 col)
+   but we fine-tune the pillar border behaviour here. */
+@media (max-width: 768px) {
+  /* When pillars wrap to 2 columns, remove top border from
+     second row items — the visual weight is sufficient. */
+  .grid-4 .pillar:nth-child(n+3) {
+    padding-top: var(--space-lg);
+  }
+}
+
+@media (max-width: 480px) {
+  /* Single-column: add a bottom divider so items don't blur together */
+  .grid-4 .pillar {
+    padding-bottom: var(--space-lg);
+    border-bottom: 1px solid var(--col-border);
+  }
+
+  .grid-4 .pillar:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+}
+
+
+/* ----------------------------------------------------------
+   STORY SECTION — homepage variant spacing
+   The .story-grid, .story-img-wrap, .story-badge classes
+   live in components.css; this file only adds page-specific
+   margin adjustments.
+   ---------------------------------------------------------- */
+.story-text {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.story-text p {
+  font-size: var(--step-0);
+  color: var(--col-text-muted);
+  line-height: 1.75;
+}
+
+.story-text .btn--text {
+  font-size: var(--step--1);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--col-text);
+  align-self: flex-start;
+}
+
+
+/* ----------------------------------------------------------
+   CTA SECTION — dark green background wrapper
+   The .cta-block itself is styled in components.css.
+   This section uses a surface colour override.
+   ---------------------------------------------------------- */
+.section--cta {
+  background: var(--col-ground-2);
+}
+
+/* Within the dark section, the cta-block body copy */
+.section--cta .cta-block__body {
+  font-size: var(--step-0);
+  color: rgba(255, 255, 255, 0.65);
+  line-height: 1.7;
+  max-width: 480px;
+  margin-top: var(--space-xs);
+}
+
+
+/* ----------------------------------------------------------
+   SCROLL INDICATOR — positioned at base of hero
+   The .scroll-indicator class lives in components.css.
+   This is the placement wrapper only.
+   ---------------------------------------------------------- */
+.hero__scroll .scroll-indicator {
+  margin-top: var(--space-sm);
+}

@@ -1,321 +1,365 @@
-<!doctype html>
-<html lang="en" class="no-js">
-<head>
-    <meta name="description" content="SORWATOM is Eastern Africa's leading agribusiness manufacturer, it was created in 1984 by a group of highly successful investors who identified an opportunity t" />
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-    <title>Sorwatom - Products</title>
+<?php
+$page_title       = 'The Collection — Sorwatom';
+$page_description = 'Six essential East African products: tomato paste, ketchup, vinegar and pilau masala. 100% natural, internationally certified.';
+$page_css         = ['pages/products.css'];
+$body_class       = 'page-products';
+$current_page     = 'products';
+$page_js          = [];
+include 'partials/_head.php';
+?>
+<body class="<?= htmlspecialchars($body_class) ?>">
 
-    <!---/* Favicon */-->
-    <link rel="apple-touch-icon" sizes="180x180" href="images/favicon/apple-touch-icon.png">
-    <link rel="icon" type="image/png" href="images/favicon/favicon-32x32.png" sizes="32x32">
-    <link rel="manifest" href="images/favicon/manifest.json">
-    <meta name="theme-color" content="#ffffff">
+<?php include 'partials/nav.php'; ?>
 
-    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
-    <link rel="stylesheet" type="text/css" href="css/style.css">
-    <link rel="stylesheet" type="text/css" href="css/bistro-icons.css">
-    <link rel="stylesheet" type="text/css" href="css/animate.css">
-    <link rel="stylesheet" type="text/css" href="css/settings.css">
-    <link rel="stylesheet" type="text/css" href="css/navigation.css">
-    <link rel="stylesheet" type="text/css" href="css/owl.carousel.css">
-    <link rel="stylesheet" type="text/css" href="css/owl.transitions.css">
-    <link rel="stylesheet" type="text/css" href="css/zerogrid.css">
-    <link rel="stylesheet" type="text/css" href="css/loader.css"> 
-    <link rel="stylesheet" type="text/css" href="css/jquery.timelineMe.css"> 
-    <link rel="stylesheet" type="text/css" href="css/gallery-box.css">  
-    <link rel="stylesheet" type="text/css" href="css/bootstrap-responsive-tabs.css">
-    <link rel="stylesheet" type="text/css" href="css/lightslider.css" />                  
-    <link rel="stylesheet" type="text/css" href="css/advanced-read-more.min.css">
-    <link rel="stylesheet" type="text/css" href="css/jquery.eeyellow.Timeline.css" />
-    <link rel="stylesheet" type="text/css" href="css/lity.css">
-    <link rel="stylesheet" type="text/css" href="css/isotope-docseccb.css" media="screen">
-    <style type="text/css">
-        img{
-            display: initial !important; 
-        }
-        .wow:first-child {
-            visibility: hidden;
-        }
-        p{
-        display: -webkit-box;
-        -webkit-line-clamp: 2;
-        -webkit-box-orient: vertical;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        }
-    </style>
-</head>
+<main id="main-content">
 
-<body>
+  <!-- ============================================================
+       SECTION 1 — HERO
+       ============================================================ -->
+  <section class="hero hero--half" aria-label="Page introduction">
+    <img
+      class="hero__bg"
+      src="assets/img/hero-products.jpg"
+      alt=""
+      role="presentation"
+      loading="eager"
+    >
+    <div class="hero__overlay" aria-hidden="true"></div>
 
-<!-- Header -->
-<?php include 'nav_bar.html'; ?>
+    <div class="hero__content container">
+      <p class="eyebrow eyebrow--light">The Collection &middot; Six Essentials</p>
+      <h1 class="hero__title">Every kitchen essential, <em>perfected.</em></h1>
+    </div>
+  </section>
 
-<!--Page header & Title-->
-<section id="page_header" class="products"></section>
 
-<!--Populars-->
-<section class="padding-bottom common-bg bg-wrap positive-re" id="popular">
+  <!-- ============================================================
+       SECTION 2 — PROCESS STRIP
+       ============================================================ -->
+  <section class="section--sm" aria-label="Our process">
+    <div class="container">
+      <div class="process-strip" role="list">
 
-    <div class="default-breadcrumb">
-        <div class="container">
-          <div class="row">
-            <div class="col-sm-6">
-              <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="{% url 'home' %}"><i class="fa fa-home"></i></a></li>
-                <li class="breadcrumb-item active">Our Products</li>
-              </ol>
-            </div>
-          </div>    
+        <div class="process-strip__item" role="listitem">
+          <span class="process-strip__label">Sourced</span>
+          <p class="process-strip__text">From smallholder partner farms</p>
         </div>
-    </div><!--Default Breadcrumb End-->
 
+        <div class="process-strip__item" role="listitem">
+          <span class="process-strip__label">Processed</span>
+          <p class="process-strip__text">On Italian state-of-the-art lines</p>
+        </div>
+
+        <div class="process-strip__item" role="listitem">
+          <span class="process-strip__label">Packed</span>
+          <p class="process-strip__text">In four-layer protective film &amp; glass</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       SECTION 3 — FILTER + PRODUCT GRID
+       ============================================================ -->
+  <section class="section" id="collection" aria-labelledby="collection-heading">
     <div class="container">
 
-      <div class="row">
-        <div class="col-md-12">
-          <div class="text-center">
-            <div class="border-wrap">
-              <h3 class="center-content">Our <span>Products</span></h3>
-              <span class="line-border-right"></span>
-            </div>
-          </div>
+      <!-- Filter + label row -->
+      <div class="products-filter-row">
+        <p class="section-heading" id="collection-heading" aria-hidden="true">Six products</p>
+
+        <div class="filter-pills" role="group" aria-label="Filter products by category">
+          <button class="filter-pill active" data-filter="all" aria-pressed="true">All</button>
+          <button class="filter-pill" data-filter="paste" aria-pressed="false">Paste</button>
+          <button class="filter-pill" data-filter="condiments" aria-pressed="false">Condiments</button>
+          <button class="filter-pill" data-filter="spices" aria-pressed="false">Spices</button>
         </div>
       </div>
 
-      <div class="row product-wrap">
+      <!-- Product grid -->
+      <div class="grid-3 products-grid" id="products-grid" aria-label="Product collection" aria-live="polite">
 
-        <!-- Tomato Paste 70g -->
-        <div class="col-sm-6 col-md-4 wow fadeInLeft" data-wow-duration="500ms" data-wow-delay="300ms">
-            <div class="popular product">
-                <div class="image text-center">
-                    <img src="img/product/tomatoes_paste_70g.png" alt="popular1">
-                    <div class="overlay">
-                        <a class="fancybox overlay-inner" href="img/product/tomatoes_paste_70g.png" data-fancybox-group="gallery">
-                          <i class="fa fa-expand"></i>
-                        </a>
-                    </div>
-                </div>
-                <div class="popular-content">
-                  <h4>Tomato Paste 70g</h4>
-                  <p>SORWATOM Double- concentrated tomato paste is made with natural
-                    ripened tomatoes for a wholesome classic taste. Bold color 
-                    and a vibrant taste, our 70g is a must have in your kitchen.
-                  </p>
-                  <a href="product-tomato-paste.php">Read more<i class="fa fa-long-arrow-right"></i></a>
-                </div>  
+        <!-- 01 — Tomato Paste 50g -->
+        <article
+          class="product-card reveal"
+          data-category="paste"
+          data-delay="1"
+        >
+          <a href="product-tomato-paste.php" class="product-card__link" aria-label="Tomato Paste 50g — view product details">
+            <div class="product-card__img-wrap">
+              <img
+                src="assets/img/products/tomato-paste-50g.png"
+                alt="Sorwatom Tomato Paste 50g sachet"
+                loading="lazy"
+                width="400"
+                height="400"
+              >
+              <div class="product-card__badges" aria-hidden="true">
+                <span class="badge badge--outline">Sachet</span>
+                <span class="badge badge--dark">Travel Size</span>
+              </div>
             </div>
+            <div class="product-card__body">
+              <p class="product-card__category">Tomato Paste</p>
+              <h2 class="product-card__name">Tomato Paste &middot; 50g</h2>
+              <p class="product-card__desc">Designed and developed to the same high specification and standard as our flagship 70g.</p>
+              <p class="product-card__format">
+                <span>Sachet &bull; 50 g</span>
+                <span class="product-card__format-arrow" aria-hidden="true">&#8594;</span>
+              </p>
+            </div>
+          </a>
+        </article>
+
+        <!-- 02 — Tomato Paste 70g -->
+        <article
+          class="product-card reveal"
+          data-category="paste"
+          data-delay="2"
+        >
+          <a href="product-tomato-paste.php" class="product-card__link" aria-label="Tomato Paste 70g — view product details">
+            <div class="product-card__img-wrap">
+              <img
+                src="assets/img/products/tomato-paste-70g.png"
+                alt="Sorwatom Tomato Paste 70g sachet"
+                loading="lazy"
+                width="400"
+                height="400"
+              >
+              <div class="product-card__badges" aria-hidden="true">
+                <span class="badge badge--outline">Sachet</span>
+                <span class="badge badge--accent">Best Seller</span>
+              </div>
+            </div>
+            <div class="product-card__body">
+              <p class="product-card__category">Tomato Paste</p>
+              <h2 class="product-card__name">Tomato Paste &middot; 70g</h2>
+              <p class="product-card__desc">SORWATOM Double-concentrated tomato paste made with naturally ripened tomatoes for the everyday kitchen.</p>
+              <p class="product-card__format">
+                <span>Sachet &bull; 70 g</span>
+                <span class="product-card__format-arrow" aria-hidden="true">&#8594;</span>
+              </p>
+            </div>
+          </a>
+        </article>
+
+        <!-- 03 — Tomato Paste 800g -->
+        <article
+          class="product-card reveal"
+          data-category="paste"
+          data-delay="3"
+        >
+          <a href="product-tomato-paste.php" class="product-card__link" aria-label="Tomato Paste 800g tin — view product details">
+            <div class="product-card__img-wrap">
+              <img
+                src="assets/img/products/tomato-paste-800g.png"
+                alt="Sorwatom Tomato Paste 800g tin"
+                loading="lazy"
+                width="400"
+                height="400"
+              >
+              <div class="product-card__badges" aria-hidden="true">
+                <span class="badge badge--outline">Tin</span>
+              </div>
+            </div>
+            <div class="product-card__body">
+              <p class="product-card__category">Tomato Paste</p>
+              <h2 class="product-card__name">Tomato Paste &middot; 800g</h2>
+              <p class="product-card__desc">Developed for the hospitality industry — our 800g tin retains the same natural intensity.</p>
+              <p class="product-card__format">
+                <span>Tin &bull; 800 g</span>
+                <span class="product-card__format-arrow" aria-hidden="true">&#8594;</span>
+              </p>
+            </div>
+          </a>
+        </article>
+
+        <!-- 04 — Heirloom Ketchup -->
+        <article
+          class="product-card reveal"
+          data-category="condiments"
+          data-delay="4"
+        >
+          <a href="product-ketchup.php" class="product-card__link" aria-label="Heirloom Ketchup — view product details">
+            <div class="product-card__img-wrap">
+              <img
+                src="assets/img/products/ketchup.png"
+                alt="Sorwatom Heirloom Ketchup glass bottle"
+                loading="lazy"
+                width="400"
+                height="400"
+              >
+              <div class="product-card__badges" aria-hidden="true">
+                <span class="badge badge--outline">Glass Bottle</span>
+              </div>
+            </div>
+            <div class="product-card__body">
+              <p class="product-card__category">Condiments</p>
+              <h2 class="product-card__name">Heirloom Ketchup</h2>
+              <p class="product-card__desc">Made from vine-ripened tomatoes to give a balanced, tangy and naturally sweet finish.</p>
+              <p class="product-card__format">
+                <span>Glass Bottle</span>
+                <span class="product-card__format-arrow" aria-hidden="true">&#8594;</span>
+              </p>
+            </div>
+          </a>
+        </article>
+
+        <!-- 05 — Pure Vinegar -->
+        <article
+          class="product-card reveal"
+          data-category="condiments"
+          data-delay="1"
+        >
+          <a href="product-vinegar.php" class="product-card__link" aria-label="Pure Vinegar — view product details">
+            <div class="product-card__img-wrap">
+              <img
+                src="assets/img/products/vinegar.png"
+                alt="Sorwatom Pure Vinegar glass bottle"
+                loading="lazy"
+                width="400"
+                height="400"
+              >
+              <div class="product-card__badges" aria-hidden="true">
+                <span class="badge badge--outline">Glass Bottle</span>
+              </div>
+            </div>
+            <div class="product-card__body">
+              <p class="product-card__category">Condiments</p>
+              <h2 class="product-card__name">Pure Vinegar</h2>
+              <p class="product-card__desc">Distilled from the highest quality ingredients, versatile enough for cooking and preserving.</p>
+              <p class="product-card__format">
+                <span>Glass Bottle</span>
+                <span class="product-card__format-arrow" aria-hidden="true">&#8594;</span>
+              </p>
+            </div>
+          </a>
+        </article>
+
+        <!-- 06 — Pilau Masala -->
+        <article
+          class="product-card reveal"
+          data-category="spices"
+          data-delay="2"
+        >
+          <a href="product-masala.php" class="product-card__link" aria-label="Pilau Masala — view product details">
+            <div class="product-card__img-wrap">
+              <img
+                src="assets/img/products/pilau-masala.png"
+                alt="Sorwatom Pilau Masala spice pouch"
+                loading="lazy"
+                width="400"
+                height="400"
+              >
+              <div class="product-card__badges" aria-hidden="true">
+                <span class="badge badge--outline">Spice Pouch</span>
+              </div>
+            </div>
+            <div class="product-card__body">
+              <p class="product-card__category">Spices</p>
+              <h2 class="product-card__name">Pilau Masala</h2>
+              <p class="product-card__desc">Our age-old favourite — a strong and unique flavour blend, the soul of East African celebratory rice.</p>
+              <p class="product-card__format">
+                <span>Spice Pouch</span>
+                <span class="product-card__format-arrow" aria-hidden="true">&#8594;</span>
+              </p>
+            </div>
+          </a>
+        </article>
+
+      </div><!-- /.products-grid -->
+
+    </div><!-- /.container -->
+  </section>
+
+
+  <!-- ============================================================
+       SECTION 4 — WHOLESALE CTA
+       ============================================================ -->
+  <section class="section--sm products-cta" aria-labelledby="cta-heading">
+    <div class="container">
+      <div class="cta-block">
+
+        <div class="cta-block__text">
+          <span class="cta-block__eyebrow">For Trade</span>
+          <h2 class="cta-block__title" id="cta-heading">
+            Looking for <em>wholesale</em><br>or export?
+          </h2>
+          <p class="cta-block__body">
+            We supply hospitality, retail, and distribution across the Great Lakes region and beyond.
+            Custom packaging and private-label options available on request.
+          </p>
         </div>
 
-        <!-- Tomato Paste 50g -->
-        <div class="col-sm-6 col-md-4 wow fadeInDown" data-wow-duration="500ms" data-wow-delay="600ms">
-            <div class="popular product">
-                <div class="image text-center">
-                    <img src="img/product/tomatoes_paste_50g.png" alt="popular1">
-                    <div class="overlay">
-                        <a class="fancybox overlay-inner" href="img/product/tomatoes_paste_50g.png" data-fancybox-group="gallery">
-                            <i class="fa fa-expand"></i>
-                        </a>
-                    </div>
-                </div>
-                <div class="popular-content">
-                  <h4>Tomato Paste 50g</h4>
-                  <p>
-                    Designed and developed to the same high specification and standard 
-                    as our flagship 70g pack to serve smaller households, and provide 
-                    a more affordable pack for price sensitive markets.
-                  </p>
-                  <a href="product-tomato-paste.php">Read more <i class="fa fa-long-arrow-right"></i></a>
-                </div> 
-            </div>
+        <div class="cta-block__actions">
+          <a href="contact-us.php" class="btn btn--primary">Request a Quote &#8594;</a>
         </div>
 
-        <!-- Tomato Paste 800g -->
-        <div class="col-sm-6 col-md-4 wow fadeInUp" data-wow-duration="500ms" data-wow-delay="900ms">
-            <div class="popular product">
-                <div class="image text-center">
-                    <img src="img/product/tomatoes_paste_800g.png" alt="popular1">
-                    <div class="overlay">
-                        <a class="fancybox overlay-inner" href="img/product/tomatoes_paste_800g.png" data-fancybox-group="gallery">
-                          <i class="fa fa-expand"></i>
-                        </a>
-                    </div>
-                </div>
-                <div class="popular-content">
-                  <h4>Tomato Paste 800g</h4>
-                  <p> Developed for the hospitality industry in mind, our 800g 
-                    retains the same natural taste and color as all our other 
-                    products. Packed in easy open and reusable tins, it’s a 
-                    perfect fit for the  HORECA market.
-                  </p>
-                  <a href="product-tomato-paste.php">Read more <i class="fa fa-long-arrow-right"></i></a>
-                </div> 
-            </div>
-        </div>
+      </div>
+    </div>
+  </section>
 
-        <!-- Masala -->
-        <div class="col-sm-6 col-md-4 wow fadeInUp" data-wow-duration="500ms" data-wow-delay="900ms">
-            <div class="popular product">
-                <div class="image text-center">
-                    <img src="img/product/masala.png" alt="popular1">
-                    <div class="overlay">
-                        <a class="fancybox overlay-inner" href="img/product/masala.png" data-fancybox-group="gallery">
-                          <i class="fa fa-expand"></i>
-                        </a>
-                    </div>
-                </div>
-                <div class="popular-content">
-                  <h4>Pilau Masala Seasoning</h4>
-                  <p>
-                    Our age-old favorite pilau masala has a strong and unique 
-                    flavor with an intense aroma that gives even the simplest 
-                    dish a spectacular taste and a vibrant color. Packed with 
-                    100% natural herbs which includes garlic powder, 
-                    cumin seed, turmeric and cinnamon.
-                  </p>
-                  <a href="product-masala.php">Read more <i class="fa fa-long-arrow-right"></i></a>
-                </div> 
-            </div>
-        </div>
+</main><!-- /#main-content -->
 
-        <!-- Ketchup -->
-        <div class="col-sm-6 col-md-4 wow fadeInUp" data-wow-duration="500ms" data-wow-delay="900ms">
-            <div class="popular product">
-                <div class="image text-center">
-                    <img src="img/product/ketchup.png" alt="popular1">
-                    <div class="overlay">
-                        <a class="fancybox overlay-inner" href="img/product/ketchup.png" data-fancybox-group="gallery">
-                          <i class="fa fa-expand"></i>
-                        </a>
-                    </div>
-                </div>
-                <div class="popular-content">
-                  <h4>Ketchup</h4>
-                  <p>
-                    Try our ketchup made from vine ripened tomatoes to 
-                    give you a balanced blend of spices to make a sweet 
-                    and tangy sauce that goes well with any dish.
-                  </p>
-                  <a href="product-ketchup.php">Read more <i class="fa fa-long-arrow-right"></i></a>
-                </div> 
-            </div>
-        </div>
+<?php include 'partials/footer.php'; ?>
 
-        <!-- Vinegar -->
-        <div class="col-sm-6 col-md-4 wow fadeInRight" data-wow-duration="500ms" data-wow-delay="1200ms">
-            <div class="popular product">
-                <div class="image text-center">
-                    <img src="img/product/vinegar.png" alt="popular1">
-                    <div class="overlay">
-                        <a class="fancybox overlay-inner" href="img/product/vinegar.png" data-fancybox-group="gallery">
-                          <i class="fa fa-expand"></i>
-                        </a>
-                    </div>
-                </div>
-                <div class="popular-content">
-                  <h4>Vinegar</h4>
-                  <p>Made with the highest quality products, 
-                    our white vinegar can be used directly on your 
-                    salads or applied to any dressing of your choice.
-                  </p>
-                  <a href="product-vinegar.php">Read more <i class="fa fa-long-arrow-right"></i></a>
-                </div> 
-            </div>
-        </div>
-        
-        
-        <!-- Template 
-        <div class="col-sm-6 col-md-4 wow fadeInRight" data-wow-duration="500ms" data-wow-delay="1200ms">
-            <div class="popular product">
-                <div class="image text-center">
-                    <img src="product image file" alt="popular1">
-                    <div class="overlay">
-                        <a class="fancybox overlay-inner" href="product image file" data-fancybox-group="gallery">
-                          <i class="fa fa-expand"></i>
-                        </a>
-                    </div>
-                </div>
-                <div class="popular-content">
-                  <h4>Product name</h4>
-                  <p>Product description
-                  </p>
-                  <a href="link to product page">Read more <i class="fa fa-long-arrow-right"></i></a>
-                </div> 
-            </div>
-        </div>
-        -->
+<?php include 'partials/_scripts.php'; ?>
 
-      </div><!--/.row-->
+<script>
+/* -------------------------------------------------------
+   PRODUCT FILTER
+   Toggles data-hidden on cards; updates aria-pressed.
+------------------------------------------------------- */
+(function () {
+  var pills = document.querySelectorAll('.filter-pill');
+  var cards = document.querySelectorAll('.product-card[data-category]');
 
-    </div><!--/.container-->
-
-</section><!--Populars End-->
-
-<?php include 'footer.html'; ?>
-
-<a href="javascript:void(0)" id="back-top"><i class="fa fa-angle-up fa-2x"></i></a>
-
-<script src="js/jquery-2.2.4.min.js"></script>
-<script src="js/bootstrap.min.js" type="text/javascript"></script>
-<script src="js/validator.min.js"></script>
-<script src="js/modernizr.js"></script>
-<script src="js/jquery.themepunch.tools.min.js"></script>
-<script src="js/jquery.themepunch.revolution.min.js"></script>
-<script src="js/revolution.extension.layeranimation.min.js"></script>
-<script src="js/revolution.extension.navigation.min.js"></script>
-<script src="js/revolution.extension.parallax.min.js"></script>
-<script src="js/revolution.extension.slideanims.min.js"></script>
-<script src="js/revolution.extension.video.min.js"></script>
-<script src="js/slider.js" type="text/javascript"></script>
-<script src="js/owl.carousel.min.js" ></script>
-<script src="js/owl.carousel2.thumbs.js"></script>
-<script src="js/lightslider.min.js"></script>
-<script src="js/jquery.parallax-1.1.3.js"></script>
-<script src="js/jquery-countTo.js"></script>
-<script src="js/jquery.appear.js"></script>
-<script src="js/jquery.mixitup.min.js"></script>
-<script src="js/jquery.timelineMe.js"></script>
-<script src="js/jquery.bootstrap-responsive-tabs.min.js"></script>
-<script src="js/jquery.gallery.js"></script>
-<script src="js/functions.js"></script>
-<script src="js/wow.min.js"></script>
-<script src="js/advanced-read-more.min.js"></script>
-<script src="js/lity.js"></script>
-<script src="js/jquery.jscroll.js"></script>
-<script src="js/jquery.eeyellow.Timeline.js"></script>
-<script src="js/isotope-docs.mineccb.js"></script>
-<script type="text/javascript">
-    $(document).ready(function(){
-        $('.VivaTimeline').vivaTimeline({
-            carousel: true,
-            carouselTime: 3000
-        });  
+  function applyFilter(filter) {
+    cards.forEach(function (card) {
+      var match = filter === 'all' || card.dataset.category === filter;
+      card.dataset.hidden = match ? 'false' : 'true';
     });
-    $('body').readMore({
-        showLines: 5,
-        linkCaption: 'expand...',
-        linkCloseCaption: 'reduce...',
-        linkHint: 'Click for more information'
+  }
+
+  pills.forEach(function (pill) {
+    pill.addEventListener('click', function () {
+      pills.forEach(function (p) {
+        p.classList.remove('active');
+        p.setAttribute('aria-pressed', 'false');
+      });
+      pill.classList.add('active');
+      pill.setAttribute('aria-pressed', 'true');
+      applyFilter(pill.dataset.filter);
     });
-    // ======================================================
-    // Animation
-    // ======================================================
-    wow = new WOW({
-        animateClass: 'animated',
-        offset:       -10000,
-        callback:     function(box) {
-            console.log("WOW: animating <" + box.tagName.toLowerCase() + ">")
+  });
+
+  /* -------------------------------------------------------
+     SCROLL REVEAL
+     Observes .reveal elements; adds .revealed on entry.
+  ------------------------------------------------------- */
+  if ('IntersectionObserver' in window) {
+    var observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('revealed');
+          observer.unobserve(entry.target);
         }
+      });
+    }, { threshold: 0.12 });
+
+    document.querySelectorAll('.reveal').forEach(function (el) {
+      observer.observe(el);
     });
-    wow.init();
-</script>
-<script type="text/javascript">
-    $(document).ready(function(){
-        $("#invitation").modal('show');
+  } else {
+    /* Fallback: reveal everything immediately */
+    document.querySelectorAll('.reveal').forEach(function (el) {
+      el.classList.add('revealed');
     });
+  }
+})();
 </script>
+
 </body>
 </html>

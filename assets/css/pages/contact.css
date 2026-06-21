@@ -1,0 +1,193 @@
+/* ============================================================
+   CONTACT PAGE — pages/contact.css
+   Augments the design system for page-contact layout.
+   Tokens imported via tokens.css; components via components.css.
+   ============================================================ */
+
+
+/* ----------------------------------------------------------
+   HERO COUNTRY FLAGS
+   ---------------------------------------------------------- */
+
+.country-flag {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: var(--step--1);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.70);
+  font-family: var(--font-body);
+  font-weight: 400;
+}
+
+.country-flag span {
+  /* The country name text next to the emoji */
+  display: inline;
+}
+
+/* Separator dots between flag items — generated on the cluster
+   gap, no extra markup needed. */
+.hero .cluster {
+  margin-top: var(--space-md);
+}
+
+
+/* ----------------------------------------------------------
+   TWO-COLUMN CONTACT GRID
+   Form (left, wider) | Offices (right, narrower)
+   ---------------------------------------------------------- */
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: var(--space-2xl);
+  align-items: start;
+}
+
+@media (max-width: 900px) {
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+/* ----------------------------------------------------------
+   FORM CARD — white surface lifted off section background
+   ---------------------------------------------------------- */
+
+.form-card {
+  background: white;
+  border: 1px solid var(--col-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-2xl);
+}
+
+/* Tighten vertical rhythm within the card headings */
+.form-card .eyebrow {
+  margin-bottom: var(--space-2xs);
+}
+
+.form-card h2 {
+  margin-bottom: var(--space-md);
+}
+
+/* Submit button spacing — top gap from the last field */
+#contact-form .btn--primary {
+  margin-top: var(--space-lg);
+}
+
+
+/* ----------------------------------------------------------
+   OPTIONAL LABEL MODIFIER
+   Suppress uppercase/weight from the label rule on .form-field label.
+   ---------------------------------------------------------- */
+
+.label-optional {
+  color: var(--col-text-muted);
+  font-weight: 300;
+  text-transform: none;
+  letter-spacing: 0;
+}
+
+
+/* ----------------------------------------------------------
+   REGIONAL OFFICES COLUMN
+   ---------------------------------------------------------- */
+
+.offices-col {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.offices-col .eyebrow {
+  margin-bottom: var(--space-sm);
+}
+
+/* Office cards on this page get a slight hover lift */
+.office-card {
+  transition: transform var(--dur-base) var(--ease-out),
+              box-shadow var(--dur-base) var(--ease-out);
+}
+
+.office-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 32px rgba(13, 30, 18, 0.08);
+}
+
+/* HQ card — subtle accent left border to distinguish it */
+.office-card--hq {
+  border-left: 3px solid var(--col-accent);
+}
+
+
+/* ----------------------------------------------------------
+   LOADING STATE on submit button
+   JS toggles .btn--loading
+   ---------------------------------------------------------- */
+
+.btn--primary.btn--loading {
+  opacity: 0.7;
+  pointer-events: none;
+}
+
+
+/* ----------------------------------------------------------
+   FAQ SECTION
+   Dark green background, two-column layout.
+   ---------------------------------------------------------- */
+
+.section--faq {
+  background: var(--col-ground);
+}
+
+.faq-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-2xl);
+  align-items: start;
+}
+
+@media (max-width: 768px) {
+  .faq-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* FAQ left column — the "before you write" prompt */
+.faq-prompt {
+  /* Sticky at the top while the accordion scrolls */
+  position: sticky;
+  top: calc(80px + var(--space-lg)); /* below fixed nav */
+}
+
+.faq-prompt h2 {
+  margin-top: var(--space-sm);
+  color: white;
+  line-height: 1.2;
+}
+
+
+/* ----------------------------------------------------------
+   HERO HALF-HEIGHT — min-height for contact page
+   Overrides hero--half to give more vertical breathing room
+   when country flags are present below the subtitle.
+   ---------------------------------------------------------- */
+
+.page-contact .hero--half {
+  min-height: 58vh;
+}
+
+@media (max-width: 640px) {
+  .page-contact .hero--half {
+    min-height: 72vh;
+  }
+}
+
+/* Card responsive padding */
+@media (max-width: 480px) {
+  .form-card {
+    padding: var(--space-lg);
+  }
+}
