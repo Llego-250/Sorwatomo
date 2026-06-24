@@ -252,7 +252,7 @@ include 'partials/_head.php';
             <span class="badge badge--outline">Eastern DRC</span>
           </div>
 
-          <a href="contact.php" class="btn--text reveal" data-delay="4">
+          <a href="/contact" class="btn--text reveal" data-delay="4">
             Partner With Us
           </a>
         </div>

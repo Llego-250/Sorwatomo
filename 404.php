@@ -1,4 +1,5 @@
 <?php
+http_response_code(404);
 $page_title       = '404 — Page Not Found | Sorwatom';
 $page_description = 'This page does not exist.';
 $page_css         = [];
@@ -34,8 +35,8 @@ include 'partials/_head.php';
       </p>
 
       <div class="hero__actions reveal" data-delay="4">
-        <a href="index.php" class="btn btn--ghost">Go Home</a>
-        <a href="products.php" class="btn btn--primary">View Collection</a>
+        <a href="/" class="btn btn--ghost">Go Home</a>
+        <a href="/products" class="btn btn--primary">View Collection</a>
       </div>
 
     </div><!-- /.hero__content -->

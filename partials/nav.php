@@ -6,7 +6,7 @@
     <div class="site-nav__inner">
 
       <!-- Logo -->
-      <a href="index.php" class="nav-logo" aria-label="Sorwatomo — Home">
+      <a href="/" class="nav-logo" aria-label="Sorwatomo — Home">
         <img src="assets/img/logo.png" alt="Sorwatom" class="nav-logo__img" width="140" height="48">
       </a>
 
@@ -14,16 +14,19 @@
       <nav aria-label="Main navigation">
         <ul class="nav-links" id="nav-links" role="list">
           <li>
-            <a href="index.php"<?= ($current_page ?? '') === 'home' ? ' aria-current="page"' : '' ?>>Home</a>
+            <a href="/"<?= ($current_page ?? '') === 'home' ? ' aria-current="page"' : '' ?>>Home</a>
           </li>
           <li>
-            <a href="products.php"<?= ($current_page ?? '') === 'products' ? ' aria-current="page"' : '' ?>>Collection</a>
+            <a href="/products"<?= ($current_page ?? '') === 'products' ? ' aria-current="page"' : '' ?>>Collection</a>
           </li>
           <li>
-            <a href="about.php"<?= ($current_page ?? '') === 'about' ? ' aria-current="page"' : '' ?>>Our Story</a>
+            <a href="/about"<?= ($current_page ?? '') === 'about' ? ' aria-current="page"' : '' ?>>Our Story</a>
           </li>
           <li>
-            <a href="contact.php" class="nav-cta"<?= ($current_page ?? '') === 'contact' ? ' aria-current="page"' : '' ?>>Contact</a>
+            <a href="/blog"<?= ($current_page ?? '') === 'blog' ? ' aria-current="page"' : '' ?>>Journal</a>
+          </li>
+          <li>
+            <a href="/contact" class="nav-cta"<?= ($current_page ?? '') === 'contact' ? ' aria-current="page"' : '' ?>>Contact</a>
           </li>
         </ul>
       </nav>
@@ -48,16 +51,19 @@
   <div class="mobile-nav" id="mobile-nav" aria-hidden="true" role="dialog" aria-label="Main navigation">
     <ul role="list">
       <li>
-        <a href="index.php"<?= ($current_page ?? '') === 'home' ? ' aria-current="page"' : '' ?>>Home</a>
+        <a href="/"<?= ($current_page ?? '') === 'home' ? ' aria-current="page"' : '' ?>>Home</a>
       </li>
       <li>
-        <a href="products.php"<?= ($current_page ?? '') === 'products' ? ' aria-current="page"' : '' ?>>Collection</a>
+        <a href="/products"<?= ($current_page ?? '') === 'products' ? ' aria-current="page"' : '' ?>>Collection</a>
       </li>
       <li>
-        <a href="about.php"<?= ($current_page ?? '') === 'about' ? ' aria-current="page"' : '' ?>>Our Story</a>
+        <a href="/about"<?= ($current_page ?? '') === 'about' ? ' aria-current="page"' : '' ?>>Our Story</a>
       </li>
       <li>
-        <a href="contact.php"<?= ($current_page ?? '') === 'contact' ? ' aria-current="page"' : '' ?>>Contact</a>
+        <a href="/blog"<?= ($current_page ?? '') === 'blog' ? ' aria-current="page"' : '' ?>>Journal</a>
+      </li>
+      <li>
+        <a href="/contact"<?= ($current_page ?? '') === 'contact' ? ' aria-current="page"' : '' ?>>Contact</a>
       </li>
     </ul>
   </div>

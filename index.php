@@ -38,8 +38,8 @@ include 'partials/_head.php';
         </p>
 
         <div class="hero__actions">
-          <a href="products.php" class="btn btn--ghost">Explore Collection</a>
-          <a href="about.php" class="btn--text" style="color:rgba(255,255,255,0.75);">Our Story</a>
+          <a href="/products" class="btn btn--ghost">Explore Collection</a>
+          <a href="/about" class="btn--text" style="color:rgba(255,255,255,0.75);">Our Story</a>
         </div>
 
       </div>
@@ -125,14 +125,14 @@ include 'partials/_head.php';
           <span class="eyebrow">Signature Offerings</span>
           <h2 id="offerings-heading">The taste of the <em>Great Lakes.</em></h2>
         </div>
-        <a href="products.php" class="section-header__link">View Full Catalog</a>
+        <a href="/products" class="section-header__link">View Full Catalog</a>
       </div>
 
       <!-- Three product cards -->
       <div class="grid-3">
 
         <!-- Tomato Paste -->
-        <a href="product-tomato-paste.php" class="product-card reveal" data-delay="1" aria-label="Tomato Paste 70g — view product">
+        <a href="/product-tomato-paste" class="product-card reveal" data-delay="1" aria-label="Tomato Paste 70g — view product">
           <div class="product-card__img-wrap">
             <div class="product-card__badges">
               <span class="badge badge--dark">Bestseller</span>
@@ -153,7 +153,7 @@ include 'partials/_head.php';
         </a>
 
         <!-- Ketchup -->
-        <a href="product-ketchup.php" class="product-card reveal" data-delay="2" aria-label="Heirloom Ketchup — view product">
+        <a href="/product-ketchup" class="product-card reveal" data-delay="2" aria-label="Heirloom Ketchup — view product">
           <div class="product-card__img-wrap">
             <img
               src="assets/img/products/ketchup.png"
@@ -171,7 +171,7 @@ include 'partials/_head.php';
         </a>
 
         <!-- Masala -->
-        <a href="product-masala.php" class="product-card reveal" data-delay="3" aria-label="Pilau Masala — view product">
+        <a href="/product-masala" class="product-card reveal" data-delay="3" aria-label="Pilau Masala — view product">
           <div class="product-card__img-wrap">
             <img
               src="assets/img/products/masala.png"
@@ -244,7 +244,7 @@ include 'partials/_head.php';
             expand its reach across Rwanda, Burundi, Eastern DRC, and beyond.
           </p>
 
-          <a href="about.php" class="btn--text">Read Our Heritage</a>
+          <a href="/about" class="btn--text">Read Our Heritage</a>
 
         </div>
 
@@ -276,7 +276,7 @@ include 'partials/_head.php';
         </div>
 
         <div class="cta-block__actions">
-          <a href="contact.php" class="btn btn--primary">Get in Touch</a>
+          <a href="/contact" class="btn btn--primary">Get in Touch</a>
         </div>
 
       </div><!-- /.cta-block -->

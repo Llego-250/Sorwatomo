@@ -6,8 +6,8 @@
 
       <!-- Col 1: Brand -->
       <div class="footer-brand footer-col">
-        <a href="index.php" class="nav-logo footer-brand__logo-link" aria-label="Sorwatomo — Home">
-          <span class="nav-logo__text">SORWATŌM</span><span class="nav-logo__dot" aria-hidden="true">.</span>
+        <a href="/" class="footer-brand__logo-link" aria-label="Sorwatomo — Home">
+          <img src="assets/img/logo.png" alt="Sorwatom" class="footer-brand__logo-img" width="130" height="44">
         </a>
         <p>
           The Great Lakes' leading agribusiness — producing extraordinary
@@ -19,10 +19,10 @@
       <div class="footer-col">
         <h4>Explore</h4>
         <ul role="list">
-          <li><a href="about.php">Our Story</a></li>
-          <li><a href="products.php">Product Catalog</a></li>
-          <li><a href="#">Quality Assurance</a></li>
-          <li><a href="contact.php">Get in Touch</a></li>
+          <li><a href="/about">Our Story</a></li>
+          <li><a href="/products">Product Catalog</a></li>
+          <li><a href="/blog">Journal</a></li>
+          <li><a href="/contact">Get in Touch</a></li>
         </ul>
       </div>
 
@@ -83,11 +83,18 @@
    here so the footer works independently of nav.php.
 ------------------------------------------------------- */
 .footer-brand__logo-link {
-  display: inline-flex;
-  align-items: baseline;
-  gap: 1px;
+  display: inline-block;
   text-decoration: none;
   margin-bottom: var(--space-sm);
+}
+
+.footer-brand__logo-img {
+  height: 40px;
+  width: auto;
+  object-fit: contain;
+  display: block;
+  filter: brightness(0) invert(1);
+  opacity: 0.85;
 }
 
 /* -------------------------------------------------------

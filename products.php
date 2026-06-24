@@ -81,7 +81,7 @@ include 'partials/_head.php';
           data-category="paste"
           data-delay="1"
         >
-          <a href="product-tomato-paste.php" class="product-card__link" aria-label="Tomato Paste 50g — view product details">
+          <a href="/product-tomato-paste" class="product-card__link" aria-label="Tomato Paste 50g — view product details">
             <div class="product-card__img-wrap">
               <img
                 src="assets/img/products/tomatoes_paste_50g.png"
@@ -113,7 +113,7 @@ include 'partials/_head.php';
           data-category="paste"
           data-delay="2"
         >
-          <a href="product-tomato-paste.php" class="product-card__link" aria-label="Tomato Paste 70g — view product details">
+          <a href="/product-tomato-paste" class="product-card__link" aria-label="Tomato Paste 70g — view product details">
             <div class="product-card__img-wrap">
               <img
                 src="assets/img/products/tomatoes_paste_70g.png"
@@ -145,7 +145,7 @@ include 'partials/_head.php';
           data-category="paste"
           data-delay="3"
         >
-          <a href="product-tomato-paste.php" class="product-card__link" aria-label="Tomato Paste 800g tin — view product details">
+          <a href="/product-tomato-paste" class="product-card__link" aria-label="Tomato Paste 800g tin — view product details">
             <div class="product-card__img-wrap">
               <img
                 src="assets/img/products/tomatoes_paste_800g.png"
@@ -176,7 +176,7 @@ include 'partials/_head.php';
           data-category="condiments"
           data-delay="4"
         >
-          <a href="product-ketchup.php" class="product-card__link" aria-label="Heirloom Ketchup — view product details">
+          <a href="/product-ketchup" class="product-card__link" aria-label="Heirloom Ketchup — view product details">
             <div class="product-card__img-wrap">
               <img
                 src="assets/img/products/ketchup.png"
@@ -207,7 +207,7 @@ include 'partials/_head.php';
           data-category="condiments"
           data-delay="1"
         >
-          <a href="product-vinegar.php" class="product-card__link" aria-label="Pure Vinegar — view product details">
+          <a href="/product-vinegar" class="product-card__link" aria-label="Pure Vinegar — view product details">
             <div class="product-card__img-wrap">
               <img
                 src="assets/img/products/vinegar.png"
@@ -238,7 +238,7 @@ include 'partials/_head.php';
           data-category="spices"
           data-delay="2"
         >
-          <a href="product-masala.php" class="product-card__link" aria-label="Pilau Masala — view product details">
+          <a href="/product-masala" class="product-card__link" aria-label="Pilau Masala — view product details">
             <div class="product-card__img-wrap">
               <img
                 src="assets/img/products/masala.png"
@@ -288,7 +288,7 @@ include 'partials/_head.php';
         </div>
 
         <div class="cta-block__actions">
-          <a href="contact-us.php" class="btn btn--primary">Request a Quote &#8594;</a>
+          <a href="/contact" class="btn btn--primary">Request a Quote &#8594;</a>
         </div>
 
       </div>
