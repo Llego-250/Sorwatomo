@@ -7,7 +7,7 @@
 
       <!-- Logo -->
       <a href="/" class="nav-logo" aria-label="Sorwatomo — Home">
-        <img src="assets/img/logo.png" alt="Sorwatom" class="nav-logo__img" width="140" height="48">
+        <img src="assets/img/logo.png" alt="Sorwatom" class="nav-logo__img" width="140" height="48" loading="eager" decoding="async">
       </a>
 
       <!-- Desktop navigation -->

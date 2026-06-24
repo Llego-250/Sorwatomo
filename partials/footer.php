@@ -7,7 +7,7 @@
       <!-- Col 1: Brand -->
       <div class="footer-brand footer-col">
         <a href="/" class="footer-brand__logo-link" aria-label="Sorwatomo — Home">
-          <img src="assets/img/logo.png" alt="Sorwatom" class="footer-brand__logo-img" width="130" height="44">
+          <img src="assets/img/logo.png" alt="Sorwatom" class="footer-brand__logo-img" width="130" height="44" loading="lazy" decoding="async">
         </a>
         <p>
           The Great Lakes' leading agribusiness — producing extraordinary

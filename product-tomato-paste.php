@@ -264,15 +264,15 @@ include 'partials/_head.php';
                 </div>
                 <div class="product-thumb-strip">
                     <div class="product-thumb active" data-img="assets/img/products/tomatoes_paste_50g.png" data-alt="Sorwatom Tomato Paste 50g Sachet" onclick="switchImg(this)">
-                        <img src="assets/img/products/tomatoes_paste_50g.png" alt="50g Sachet">
+                        <img src="assets/img/products/tomatoes_paste_50g.png" alt="50g Sachet" loading="lazy" decoding="async">
                         <span>50g Sachet</span>
                     </div>
                     <div class="product-thumb" data-img="assets/img/products/tomatoes_paste_70g.png" data-alt="Sorwatom Tomato Paste 70g Sachet" onclick="switchImg(this)">
-                        <img src="assets/img/products/tomatoes_paste_70g.png" alt="70g Sachet">
+                        <img src="assets/img/products/tomatoes_paste_70g.png" alt="70g Sachet" loading="lazy" decoding="async">
                         <span>70g Sachet</span>
                     </div>
                     <div class="product-thumb" data-img="assets/img/products/tomatoes_paste_800g.png" data-alt="Sorwatom Tomato Paste 800g Tin" onclick="switchImg(this)">
-                        <img src="assets/img/products/tomatoes_paste_800g.png" alt="800g Tin">
+                        <img src="assets/img/products/tomatoes_paste_800g.png" alt="800g Tin" loading="lazy" decoding="async">
                         <span>800g Tin</span>
                     </div>
                 </div>
