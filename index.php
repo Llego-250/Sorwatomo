@@ -18,7 +18,7 @@ include 'partials/_head.php';
   <section class="hero hero--full" aria-label="Homepage hero">
 
     <!-- Decorative hero background -->
-    <div class="hero__bg hero__bg--pattern" aria-hidden="true"></div>
+    <img class="hero__bg" src="assets/img/slider/hero-tomato.jpg" alt="" aria-hidden="true" fetchpriority="high" loading="eager">
 
     <!-- Skip link (keyboard users) -->
     <a href="#main" class="skip-link">Skip to content</a>
@@ -205,7 +205,7 @@ include 'partials/_head.php';
         <!-- Left: image + floating badge -->
         <div class="story-img-wrap reveal" data-delay="1">
           <img
-            src="assets/img/farm.jpg"
+            src="assets/img/slider/story-field.jpg"
             alt="Sorwatom farm workers harvesting tomatoes in the Great Lakes region"
             loading="lazy"
             width="600"

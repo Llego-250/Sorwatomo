@@ -17,7 +17,7 @@ include 'partials/_head.php';
        SECTION 1 — HERO
        ============================================================ -->
   <section class="hero hero--half" aria-label="Page introduction">
-    <div class="hero__bg hero__bg--pattern" aria-hidden="true"></div>
+    <img class="hero__bg" src="assets/img/slider/collection-flatlay.jpg" alt="" aria-hidden="true" fetchpriority="high" loading="eager">
     <div class="hero__overlay" aria-hidden="true"></div>
 
     <div class="hero__content container">

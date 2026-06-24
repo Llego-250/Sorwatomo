@@ -9,9 +9,8 @@
   <title><?= htmlspecialchars($page_title ?? 'Sorwatomo — Great Lakes Agribusiness') ?></title>
 
   <!-- Favicon -->
-  <link rel="apple-touch-icon" sizes="180x180" href="images/favicon/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="images/favicon/favicon-32x32.png">
-  <link rel="manifest" href="images/favicon/manifest.json">
+  <link rel="icon" type="image/png" href="assets/img/favicon.png">
+  <link rel="apple-touch-icon" href="assets/img/favicon.png">
 
   <!-- Google Fonts — preconnect for performance -->
   <link rel="preconnect" href="https://fonts.googleapis.com">

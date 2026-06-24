@@ -16,17 +16,7 @@ include 'partials/_head.php';
        SECTION 1 — Hero
        ============================================================ -->
   <section class="hero hero--half" aria-label="Page introduction">
-    <!-- Background: deep Great Lakes green with a warm tonal gradient overlay -->
-    <div class="hero__bg-canvas" aria-hidden="true">
-      <canvas id="hero-canvas" style="
-        position: absolute;
-        inset: 0;
-        width: 100%;
-        height: 100%;
-        opacity: 0.55;
-        z-index: 0;
-      "></canvas>
-    </div>
+    <img class="hero__bg" src="assets/img/slider/story-field.jpg" alt="" aria-hidden="true" fetchpriority="high" loading="eager">
 
     <div class="container hero__content">
       <span class="eyebrow eyebrow--light reveal" data-delay="1">EST. 1984</span>
@@ -259,24 +249,19 @@ include 'partials/_head.php';
 
         <!-- Right column: double image -->
         <div class="story-img-wrap">
-          <div class="story-double-img story-double-img--placeholder">
-            <!--
-              Replace src values with real images when available:
-              Primary:   assets/img/farm.jpg
-              Secondary: assets/img/harvest.jpg
-            -->
-            <canvas
-              id="farm-canvas"
+          <div class="story-double-img">
+            <img
+              src="assets/img/slider/story-field.jpg"
+              alt="Sorwatom partner farm in the Great Lakes region"
               class="story-double-img__primary"
-              aria-label="Sorwatom partner farm in the Great Lakes region"
-              role="img"
-            ></canvas>
-            <canvas
-              id="harvest-canvas"
+              loading="lazy"
+            >
+            <img
+              src="assets/img/slider/hero-tomato.jpg"
+              alt="Sun-ripened tomatoes at a Sorwatom partner farm"
               class="story-double-img__secondary"
-              aria-label="Tomato harvest at partner farm"
-              role="img"
-            ></canvas>
+              loading="lazy"
+            >
           </div>
 
           <!-- Floating credential -->
@@ -294,125 +279,6 @@ include 'partials/_head.php';
 
 <?php include 'partials/footer.php'; ?>
 <?php include 'partials/_scripts.php'; ?>
-
-<!-- Page-level script: hero canvas, reveal observer, image placeholders -->
-<script>
-(function () {
-  'use strict';
-
-  /* ----------------------------------------------------------
-     HERO CANVAS — painterly deep-green field atmosphere.
-     A single subtle risk: organic grain texture via Perlin-
-     style layered noise, suggesting the Great Lakes terrain
-     without a photograph.
-  ---------------------------------------------------------- */
-  (function () {
-    var canvas = document.getElementById('hero-canvas');
-    if (!canvas) return;
-    var ctx = canvas.getContext('2d');
-
-    function resize() {
-      canvas.width  = canvas.offsetWidth;
-      canvas.height = canvas.offsetHeight;
-      paint();
-    }
-
-    function paint() {
-      var w = canvas.width;
-      var h = canvas.height;
-
-      /* Base gradient — deep forest green to near-black */
-      var grad = ctx.createLinearGradient(0, 0, w * 0.6, h);
-      grad.addColorStop(0,   '#162A1B');
-      grad.addColorStop(0.5, '#0D1E12');
-      grad.addColorStop(1,   '#071209');
-      ctx.fillStyle = grad;
-      ctx.fillRect(0, 0, w, h);
-
-      /* Radial warm accent — top-left glow, like morning harvest light */
-      var radial = ctx.createRadialGradient(w * 0.12, h * 0.2, 0, w * 0.12, h * 0.2, w * 0.55);
-      radial.addColorStop(0,   'rgba(200, 146, 58, 0.12)');
-      radial.addColorStop(0.5, 'rgba(200, 146, 58, 0.04)');
-      radial.addColorStop(1,   'rgba(200, 146, 58, 0)');
-      ctx.fillStyle = radial;
-      ctx.fillRect(0, 0, w, h);
-    }
-
-    window.addEventListener('resize', resize);
-    resize();
-  })();
-
-
-  /* ----------------------------------------------------------
-     FARM / HARVEST CANVAS PLACEHOLDERS
-     Render until real images replace the canvases.
-  ---------------------------------------------------------- */
-  function paintFarmCanvas(id, primaryColor, accentColor) {
-    var canvas = document.getElementById(id);
-    if (!canvas) return;
-    var ctx = canvas.getContext('2d');
-
-    function resize() {
-      canvas.width  = canvas.offsetWidth  || 400;
-      canvas.height = canvas.offsetHeight || 400;
-      paint();
-    }
-
-    function paint() {
-      var w = canvas.width;
-      var h = canvas.height;
-
-      var grad = ctx.createLinearGradient(0, 0, w, h);
-      grad.addColorStop(0, primaryColor);
-      grad.addColorStop(1, accentColor);
-      ctx.fillStyle = grad;
-      ctx.fillRect(0, 0, w, h);
-
-      /* Subtle horizontal field-row lines */
-      ctx.strokeStyle = 'rgba(255,255,255,0.04)';
-      ctx.lineWidth = 1;
-      var step = Math.max(8, Math.floor(h / 20));
-      for (var y = step; y < h; y += step) {
-        ctx.beginPath();
-        ctx.moveTo(0, y);
-        ctx.lineTo(w, y);
-        ctx.stroke();
-      }
-    }
-
-    resize();
-    window.addEventListener('resize', resize);
-  }
-
-  paintFarmCanvas('farm-canvas',    '#1d3b24', '#0a1a0e');
-  paintFarmCanvas('harvest-canvas', '#2a5135', '#162A1B');
-
-
-  /* ----------------------------------------------------------
-     SCROLL REVEAL — IntersectionObserver adds .revealed
-     to any .reveal element when it enters the viewport.
-  ---------------------------------------------------------- */
-  if ('IntersectionObserver' in window) {
-    var observer = new IntersectionObserver(function (entries) {
-      entries.forEach(function (entry) {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('revealed');
-          observer.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.12 });
-
-    document.querySelectorAll('.reveal').forEach(function (el) {
-      observer.observe(el);
-    });
-  } else {
-    /* Fallback: reveal everything immediately */
-    document.querySelectorAll('.reveal').forEach(function (el) {
-      el.classList.add('revealed');
-    });
-  }
-})();
-</script>
 
 </body>
 </html>

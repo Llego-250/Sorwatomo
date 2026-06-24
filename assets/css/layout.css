@@ -1,110 +1,115 @@
 /* ============================================================
-   LAYOUT UTILITIES
-   Container, section padding, grid helpers, stack, cluster.
+   LAYOUT UTILITIES — MOBILE FIRST
+   Base styles target mobile. min-width queries add complexity
+   for larger screens.
    ============================================================ */
 
 /* ----------------------------------------------------------
    CONTAINER
    ---------------------------------------------------------- */
 .container {
+  width: 100%;
   max-width: var(--container);
   margin-inline: auto;
-  padding-inline: clamp(1rem, 4vw, 2.5rem);
+  padding-inline: 1rem;
 }
 
 .container--narrow {
+  width: 100%;
   max-width: var(--container-narrow);
   margin-inline: auto;
-  padding-inline: clamp(1rem, 4vw, 2.5rem);
+  padding-inline: 1rem;
+}
+
+@media (min-width: 480px) {
+  .container,
+  .container--narrow {
+    padding-inline: 1.5rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .container,
+  .container--narrow {
+    padding-inline: clamp(1.5rem, 4vw, 2.5rem);
+  }
 }
 
 /* ----------------------------------------------------------
-   SECTION PADDING
+   SECTION PADDING — small on mobile, grows up
    ---------------------------------------------------------- */
-.section {
-  padding-block: var(--space-2xl);
-}
+.section      { padding-block: var(--space-xl); }
+.section--sm  { padding-block: var(--space-lg); }
+.section--lg  { padding-block: var(--space-xl); }
 
-.section--sm {
-  padding-block: var(--space-xl);
-}
-
-.section--lg {
-  padding-block: var(--space-3xl);
+@media (min-width: 768px) {
+  .section      { padding-block: var(--space-2xl); }
+  .section--sm  { padding-block: var(--space-xl); }
+  .section--lg  { padding-block: var(--space-3xl); }
 }
 
 /* ----------------------------------------------------------
-   GRID HELPERS
+   GRID HELPERS — 1 col mobile → expands up
    ---------------------------------------------------------- */
 
 /* Two columns */
 .grid-2 {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: var(--space-lg);
+  grid-template-columns: 1fr;
+  gap: var(--space-md);
+}
+
+@media (min-width: 640px) {
+  .grid-2 {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-lg);
+  }
 }
 
 /* Three columns */
 .grid-3 {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: var(--space-lg);
+  grid-template-columns: 1fr;
+  gap: var(--space-md);
+}
+
+@media (min-width: 560px) {
+  .grid-3 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 900px) {
+  .grid-3 {
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-lg);
+  }
 }
 
 /* Four columns */
 .grid-4 {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: 1fr;
   gap: var(--space-md);
 }
 
-/* --- Responsive breakdowns --- */
-
-/* grid-2 → single column below 640 px */
-@media (max-width: 640px) {
-  .grid-2 {
-    grid-template-columns: 1fr;
-  }
-}
-
-/* grid-3 → two columns at ≤768px, one column at ≤480px */
-@media (max-width: 768px) {
-  .grid-3 {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (max-width: 480px) {
-  .grid-3 {
-    grid-template-columns: 1fr;
-  }
-}
-
-/* grid-4 → two columns at ≤768px, one column at ≤480px */
-@media (max-width: 768px) {
+@media (min-width: 480px) {
   .grid-4 {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
-@media (max-width: 480px) {
+@media (min-width: 1024px) {
   .grid-4 {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(4, 1fr);
   }
 }
 
 /* ----------------------------------------------------------
    STACK — vertical flex column with gap
    ---------------------------------------------------------- */
-.stack {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-md);
-}
-
-.stack--sm {
-  gap: var(--space-sm);
-}
+.stack     { display: flex; flex-direction: column; gap: var(--space-md); }
+.stack--sm { gap: var(--space-sm); }
 
 /* ----------------------------------------------------------
    CLUSTER — horizontal flex wrap

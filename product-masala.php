@@ -4,7 +4,7 @@ $page_description = 'Sorwatom Royal Pilau Masala Blend — a hand-ground heritag
 $page_css         = ['pages/products.css'];
 $body_class       = 'product-page product-masala';
 $current_page     = 'products';
-include '_head.php';
+include 'partials/_head.php';
 ?>
 <style>
 /* ── Product Detail Layout ─────────────────────────────────────────── */
@@ -204,13 +204,14 @@ include '_head.php';
 </style>
 <body class="<?php echo htmlspecialchars($body_class); ?>">
 
-<?php include 'nav_bar.html'; ?>
+<?php include 'partials/nav.php'; ?>
 
 <!-- Hero -->
-<section class="product-hero">
-    <div class="container">
-        <span class="eyebrow">SPICES &middot; HAND-GROUND HERITAGE BLEND</span>
-        <h1>Pilau <em>Masala</em></h1>
+<section class="hero hero--half product-hero" aria-label="Pilau Masala">
+    <img class="hero__bg" src="assets/img/slider/collection-flatlay.jpg" alt="" aria-hidden="true" fetchpriority="high" loading="eager">
+    <div class="hero__content container">
+        <span class="eyebrow eyebrow--light">SPICES &middot; HAND-GROUND HERITAGE BLEND</span>
+        <h1 class="hero__title">Pilau <em>Masala</em></h1>
     </div>
 </section>
 
@@ -223,7 +224,7 @@ include '_head.php';
             <div class="product-detail__gallery">
                 <div class="product-img-main">
                     <img
-                        src='/assets/img/products/masala.png'
+                        src="assets/img/products/masala.png"
                         alt="Sorwatom Royal Pilau Masala Blend 50g Spice Pouch"
                         loading="eager"
                         class="product-main-img">
@@ -242,8 +243,8 @@ include '_head.php';
                     <li><span class="feat-check">&#10003;</span> 50g &amp; 100g available</li>
                 </ul>
                 <div class="product-detail__actions">
-                    <a href="contact-us.php?inquiry=masala" class="btn-primary-green">Request a Quote &rarr;</a>
-                    <a href="products.php" class="btn-outline-dark">View All Products</a>
+                    <a href="/contact?inquiry=masala" class="btn-primary-green">Request a Quote &rarr;</a>
+                    <a href="/products" class="btn-outline-dark">View All Products</a>
                 </div>
             </div>
 
@@ -257,9 +258,9 @@ include '_head.php';
         <p class="section-eyebrow">YOU MIGHT ALSO LIKE</p>
         <div class="related-grid">
 
-            <a href="product-tomato-paste.php" class="related-card">
+            <a href="/product-tomato-paste" class="related-card">
                 <div class="related-card__img">
-                    <img src="img/product/tomatoes_paste_70g.png" alt="Sorwatom Tomato Paste">
+                    <img src="assets/img/products/tomatoes_paste_70g.png" alt="Sorwatom Tomato Paste">
                 </div>
                 <div class="related-card__body">
                     <span class="related-card__label">Pasta &middot; Double Concentrated</span>
@@ -268,9 +269,9 @@ include '_head.php';
                 </div>
             </a>
 
-            <a href="product-ketchup.php" class="related-card">
+            <a href="/product-ketchup" class="related-card">
                 <div class="related-card__img">
-                    <img src='img/product/ketchup.png' alt="Sorwatom Heirloom Ketchup">
+                    <img src="assets/img/products/ketchup.png" alt="Sorwatom Heirloom Ketchup">
                 </div>
                 <div class="related-card__body">
                     <span class="related-card__label">Condiments &middot; Glass Bottle</span>
@@ -279,9 +280,9 @@ include '_head.php';
                 </div>
             </a>
 
-            <a href="product-vinegar.php" class="related-card">
+            <a href="/product-vinegar" class="related-card">
                 <div class="related-card__img">
-                    <img src="img/product/vinegar.png" alt="Sorwatom Pure Vinegar">
+                    <img src="assets/img/products/vinegar.png" alt="Sorwatom Pure Vinegar">
                 </div>
                 <div class="related-card__body">
                     <span class="related-card__label">Condiments &middot; Glass Bottle</span>
@@ -299,14 +300,12 @@ include '_head.php';
     <div class="container">
         <h2>Ready to stock Sorwatom products?</h2>
         <p>Get in touch with our sales team for pricing, bulk orders, and distribution enquiries.</p>
-        <a href="contact-us.php" class="btn-primary-green">Get in Touch &rarr;</a>
+        <a href="/contact" class="btn-primary-green">Get in Touch &rarr;</a>
     </div>
 </section>
 
-<?php include 'footer.html'; ?>
+<?php include 'partials/footer.php'; ?>
 
-<a href="javascript:void(0)" id="back-top"><i class="fa fa-angle-up fa-2x"></i></a>
-
-<?php include '_scripts.php'; ?>
+<?php include 'partials/_scripts.php'; ?>
 </body>
 </html>

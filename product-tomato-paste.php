@@ -4,7 +4,7 @@ $page_description = 'Sorwatom Double Concentrated Tomato Paste — made from sun
 $page_css         = ['pages/products.css'];
 $body_class       = 'product-page product-tomato-paste';
 $current_page     = 'products';
-include '_head.php';
+include 'partials/_head.php';
 ?>
 <style>
 /* ── Product Detail Layout ─────────────────────────────────────────── */
@@ -239,10 +239,11 @@ include '_head.php';
 <?php include 'partials/nav.php'; ?>
 
 <!-- Hero -->
-<section class="product-hero">
-    <div class="container">
-        <span class="eyebrow">PASTA &middot; DOUBLE CONCENTRATED</span>
-        <h1>Sorwatom <em>Tomato Paste</em></h1>
+<section class="hero hero--half product-hero" aria-label="Tomato Paste">
+    <img class="hero__bg" src="assets/img/slider/collection-flatlay.jpg" alt="" aria-hidden="true" fetchpriority="high" loading="eager">
+    <div class="hero__content container">
+        <span class="eyebrow eyebrow--light">PASTA &middot; DOUBLE CONCENTRATED</span>
+        <h1 class="hero__title">Sorwatom <em>Tomato Paste</em></h1>
     </div>
 </section>
 
@@ -352,9 +353,7 @@ include '_head.php';
 
 <?php include 'partials/footer.php'; ?>
 
-<a href="javascript:void(0)" id="back-top"><i class="fa fa-angle-up fa-2x"></i></a>
-
-<?php include '_scripts.php'; ?>
+<?php include 'partials/_scripts.php'; ?>
 
 <script>
 function switchImg(thumb) {

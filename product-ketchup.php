@@ -4,7 +4,7 @@ $page_description = 'Sorwatom Heirloom Tomato Ketchup — made from vine-ripened
 $page_css         = ['pages/products.css'];
 $body_class       = 'product-page product-ketchup';
 $current_page     = 'products';
-include '_head.php';
+include 'partials/_head.php';
 ?>
 <style>
 /* ── Product Detail Layout ─────────────────────────────────────────── */
@@ -207,10 +207,11 @@ include '_head.php';
 <?php include 'partials/nav.php'; ?>
 
 <!-- Hero -->
-<section class="product-hero">
-    <div class="container">
-        <span class="eyebrow">CONDIMENTS &middot; GLASS BOTTLE</span>
-        <h1>Heirloom <em>Ketchup</em></h1>
+<section class="hero hero--half product-hero" aria-label="Heirloom Ketchup">
+    <img class="hero__bg" src="assets/img/slider/collection-flatlay.jpg" alt="" aria-hidden="true" fetchpriority="high" loading="eager">
+    <div class="hero__content container">
+        <span class="eyebrow eyebrow--light">CONDIMENTS &middot; GLASS BOTTLE</span>
+        <h1 class="hero__title">Heirloom <em>Ketchup</em></h1>
     </div>
 </section>
 
@@ -305,8 +306,6 @@ include '_head.php';
 
 <?php include 'partials/footer.php'; ?>
 
-<a href="javascript:void(0)" id="back-top"><i class="fa fa-angle-up fa-2x"></i></a>
-
-<?php include '_scripts.php'; ?>
+<?php include 'partials/_scripts.php'; ?>
 </body>
 </html>

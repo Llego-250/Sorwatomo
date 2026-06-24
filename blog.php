@@ -25,7 +25,7 @@ include 'partials/_head.php';
 
   <!-- HERO -->
   <section class="hero hero--half" aria-label="Journal">
-    <div class="hero__bg hero__bg--pattern" aria-hidden="true"></div>
+    <img class="hero__bg" src="assets/img/slider/story-field.jpg" alt="" aria-hidden="true" fetchpriority="high" loading="eager">
     <div class="hero__content container">
       <p class="eyebrow eyebrow--light">The Sorwatom Journal</p>
       <h1 class="hero__title">Stories from the <em>field.</em></h1>

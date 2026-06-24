@@ -19,8 +19,7 @@ include 'partials/_head.php';
        ============================================================ -->
   <section class="hero hero--half" aria-label="Contact page introduction">
 
-    <!-- Background texture — dark ground colour with subtle radial highlight -->
-    <div class="hero__bg-texture" aria-hidden="true"></div>
+    <img class="hero__bg" src="assets/img/slider/contact-map.jpg" alt="" aria-hidden="true" fetchpriority="high" loading="eager">
 
     <div class="hero__content container">
 

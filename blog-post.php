@@ -31,7 +31,7 @@ include 'partials/_head.php';
 
   <!-- POST HERO -->
   <section class="post-hero hero hero--half" aria-label="Article header">
-    <div class="hero__bg hero__bg--pattern" aria-hidden="true"></div>
+    <img class="hero__bg" src="assets/img/slider/story-field.jpg" alt="" aria-hidden="true" fetchpriority="high" loading="eager">
     <div class="hero__content container">
       <nav class="post-breadcrumb" aria-label="Breadcrumb">
         <a href="/blog">Journal</a>

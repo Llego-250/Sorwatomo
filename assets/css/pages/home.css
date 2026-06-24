@@ -98,11 +98,16 @@
   transform: translateX(4px);
 }
 
-@media (max-width: 640px) {
+/* Mobile: stack section header vertically */
+.section-header {
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+@media (min-width: 640px) {
   .section-header {
-    flex-direction: column;
-    align-items: flex-start;
-    margin-bottom: var(--space-lg);
+    flex-direction: row;
+    align-items: flex-end;
   }
 }
 
@@ -140,26 +145,22 @@
   line-height: 1.7;
 }
 
-/* Responsive: grid-4 is handled by layout.css (2×2 → 1 col)
-   but we fine-tune the pillar border behaviour here. */
-@media (max-width: 768px) {
-  /* When pillars wrap to 2 columns, remove top border from
-     second row items — the visual weight is sufficient. */
-  .grid-4 .pillar:nth-child(n+3) {
-    padding-top: var(--space-lg);
-  }
+/* Mobile single-col: add bottom divider between pillars */
+.grid-4 .pillar {
+  padding-bottom: var(--space-lg);
+  border-bottom: 1px solid var(--col-border);
 }
 
-@media (max-width: 480px) {
-  /* Single-column: add a bottom divider so items don't blur together */
-  .grid-4 .pillar {
-    padding-bottom: var(--space-lg);
-    border-bottom: 1px solid var(--col-border);
-  }
+.grid-4 .pillar:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
 
-  .grid-4 .pillar:last-child {
-    border-bottom: none;
+/* Two-col and above: remove bottom borders, top borders carry */
+@media (min-width: 480px) {
+  .grid-4 .pillar {
     padding-bottom: 0;
+    border-bottom: none;
   }
 }
 
