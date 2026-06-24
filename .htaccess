@@ -14,10 +14,13 @@ RewriteOptions inherit
     Header always set X-XSS-Protection "1; mode=block"
 </IfModule>
 
-# ── Block direct access to template and config files ────────
+# ── Block direct access to sensitive / deployment files ─────
 <FilesMatch "^(about|product)-template\.php$">
     Order deny,allow
     Deny from all
+</FilesMatch>
+<FilesMatch "^(error_log|Dockerfile|fly\.toml|router\.php)$">
+    Require all denied
 </FilesMatch>
 
 # ── Browser caching for static assets ───────────────────────

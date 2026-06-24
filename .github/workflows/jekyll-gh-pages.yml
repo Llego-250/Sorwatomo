@@ -1,4 +1,4 @@
-name: Deploy to Shared Hosting
+name: Deploy to Fly.io
 
 on:
   push:
@@ -7,23 +7,31 @@ on:
 
 jobs:
   deploy:
+    name: Deploy
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository
+      - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Deploy via FTP
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
         with:
-          server: ${{ secrets.FTP_SERVER }}
-          username: ${{ secrets.FTP_USERNAME }}
-          password: ${{ secrets.FTP_PASSWORD }}
-          local-dir: public_html/
-          server-dir: ${{ secrets.FTP_SERVER_DIR }}
-          exclude: |
-            **/.git*
-            **/.git*/**
-            **/node_modules/**
-            **/.env
-            **/smtp_config.php
+          php-version: "8.2"
+
+      - name: Validate PHP syntax
+        run: |
+          find . -name "*.php" \
+            -not -path "./.github/*" \
+            -not -path "./mailer_contact/mailer/*" \
+          | while read -r file; do
+              php -l "$file" || exit 1
+            done
+
+      - name: Setup flyctl
+        uses: superfly/flyctl-actions/setup-flyctl@master
+
+      - name: Deploy
+        run: flyctl deploy --remote-only
+        env:
+          FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }}

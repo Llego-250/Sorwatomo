@@ -11,7 +11,7 @@ class mail {
         $mail->SMTPAuth   = true;
         $mail->Host       = SMTP_HOST;
         $mail->Port       = SMTP_PORT;
-        $mail->Username   = SMTP_EMAIL;
+        $mail->Username   = defined('SMTP_USERNAME') ? SMTP_USERNAME : SMTP_EMAIL;
         $mail->Password   = SMTP_PASSWORD;
         $mail->setFrom(SMTP_EMAIL);
         $mail->addAddress($email);
