@@ -260,7 +260,7 @@ include 'partials/_head.php';
 
             <a href="/product-tomato-paste" class="related-card">
                 <div class="related-card__img">
-                    <img src="assets/img/products/tomatoes_paste_70g.png" alt="Sorwatom Tomato Paste">
+                    <img src="assets/img/products/tomatoes_paste_70g.png" alt="Sorwatom Tomato Paste" loading="lazy" decoding="async">
                 </div>
                 <div class="related-card__body">
                     <span class="related-card__label">Pasta &middot; Double Concentrated</span>
@@ -271,7 +271,7 @@ include 'partials/_head.php';
 
             <a href="/product-masala" class="related-card">
                 <div class="related-card__img">
-                    <img src="assets/img/products/masala.png" alt="Sorwatom Pilau Masala">
+                    <img src="assets/img/products/masala.png" alt="Sorwatom Pilau Masala" loading="lazy" decoding="async">
                 </div>
                 <div class="related-card__body">
                     <span class="related-card__label">Spices &middot; Hand-Ground Heritage Blend</span>
@@ -282,7 +282,7 @@ include 'partials/_head.php';
 
             <a href="/product-vinegar" class="related-card">
                 <div class="related-card__img">
-                    <img src="assets/img/products/vinegar.png" alt="Sorwatom Pure Vinegar">
+                    <img src="assets/img/products/vinegar.png" alt="Sorwatom Pure Vinegar" loading="lazy" decoding="async">
                 </div>
                 <div class="related-card__body">
                     <span class="related-card__label">Condiments &middot; Glass Bottle</span>
