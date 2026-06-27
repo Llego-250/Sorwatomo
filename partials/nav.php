@@ -7,7 +7,7 @@
 
       <!-- Logo -->
       <a href="/" class="nav-logo" aria-label="Sorwatomo — Home">
-        <img src="assets/img/logo.png" alt="Sorwatom" class="nav-logo__img" width="140" height="48" loading="eager" decoding="async">
+        <img src="/assets/img/logo.png" alt="Sorwatom" class="nav-logo__img" width="140" height="48" loading="eager" decoding="async">
       </a>
 
       <!-- Desktop navigation -->
@@ -34,6 +34,7 @@
       <!-- Mobile hamburger toggle -->
       <button
         class="nav-toggle"
+        id="nav-toggle"
         aria-label="Open menu"
         aria-expanded="false"
         aria-controls="mobile-nav"
@@ -46,37 +47,40 @@
 
     </div>
   </div>
-
-  <!-- Mobile full-screen overlay nav -->
-  <div class="mobile-nav" id="mobile-nav" aria-hidden="true" role="dialog" aria-label="Main navigation">
-    <button class="mobile-nav__close" aria-label="Close menu" type="button">
-      <span></span>
-      <span></span>
-    </button>
-    <ul role="list">
-      <li>
-        <a href="/"<?= ($current_page ?? '') === 'home' ? ' aria-current="page"' : '' ?>>Home</a>
-      </li>
-      <li>
-        <a href="/products"<?= ($current_page ?? '') === 'products' ? ' aria-current="page"' : '' ?>>Collection</a>
-      </li>
-      <li>
-        <a href="/about"<?= ($current_page ?? '') === 'about' ? ' aria-current="page"' : '' ?>>Our Story</a>
-      </li>
-      <li>
-        <a href="/blog"<?= ($current_page ?? '') === 'blog' ? ' aria-current="page"' : '' ?>>Journal</a>
-      </li>
-      <li>
-        <a href="/contact"<?= ($current_page ?? '') === 'contact' ? ' aria-current="page"' : '' ?>>Contact</a>
-      </li>
-    </ul>
-  </div>
 </header>
+
+<!-- ─────────────────────────────────────────────────────────
+     Mobile full-screen overlay — placed OUTSIDE <header> so
+     it lives in the root stacking context and can properly
+     cover the entire viewport at z-index 9999.
+───────────────────────────────────────────────────────── -->
+<div class="mobile-nav" id="mobile-nav" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Main navigation">
+  <button class="mobile-nav__close" id="mobile-nav-close" aria-label="Close menu" type="button">
+    <span></span>
+    <span></span>
+  </button>
+  <ul role="list">
+    <li>
+      <a href="/"<?= ($current_page ?? '') === 'home' ? ' aria-current="page"' : '' ?>>Home</a>
+    </li>
+    <li>
+      <a href="/products"<?= ($current_page ?? '') === 'products' ? ' aria-current="page"' : '' ?>>Collection</a>
+    </li>
+    <li>
+      <a href="/about"<?= ($current_page ?? '') === 'about' ? ' aria-current="page"' : '' ?>>Our Story</a>
+    </li>
+    <li>
+      <a href="/blog"<?= ($current_page ?? '') === 'blog' ? ' aria-current="page"' : '' ?>>Journal</a>
+    </li>
+    <li>
+      <a href="/contact"<?= ($current_page ?? '') === 'contact' ? ' aria-current="page"' : '' ?>>Contact</a>
+    </li>
+  </ul>
+</div>
 
 <style>
 /* -------------------------------------------------------
-   NAV LOGO — inline so the wordmark renders even before
-   components.css finishes parsing on slow connections.
+   NAV LOGO
 ------------------------------------------------------- */
 .nav-logo {
   display: flex;
@@ -93,42 +97,35 @@
 }
 
 /* -------------------------------------------------------
-   MOBILE OVERLAY NAV
+   MOBILE OVERLAY — root stacking context, z-index 9999
 ------------------------------------------------------- */
 .mobile-nav {
   position: fixed;
   inset: 0;
-  background: var(--col-ground);
+  background: var(--col-ground, #0d1e12);
   z-index: 9999;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   opacity: 0;
-  transform: translateY(-8px);
-  pointer-events: none;
   visibility: hidden;
-  transition:
-    opacity 0.25s ease,
-    transform 0.25s ease,
-    visibility 0s linear 0.25s;
+  pointer-events: none;
+  transition: opacity 0.28s ease, visibility 0s linear 0.28s;
 }
 
-.mobile-nav.open {
+.mobile-nav.is-open {
   opacity: 1;
-  transform: translateY(0);
-  pointer-events: auto;
   visibility: visible;
-  transition:
-    opacity 0.25s ease,
-    transform 0.25s ease,
-    visibility 0s linear 0s;
+  pointer-events: auto;
+  transition: opacity 0.28s ease, visibility 0s linear 0s;
 }
 
+/* Close button (×) */
 .mobile-nav__close {
   position: absolute;
-  top: 20px;
-  right: 20px;
+  top: 18px;
+  right: 18px;
   width: 44px;
   height: 44px;
   background: none;
@@ -138,19 +135,21 @@
   align-items: center;
   justify-content: center;
   padding: 0;
+  touch-action: manipulation;
 }
 
 .mobile-nav__close span {
   position: absolute;
-  width: 24px;
+  width: 22px;
   height: 2px;
-  background: rgba(255, 255, 255, 0.8);
+  background: rgba(255, 255, 255, 0.85);
   border-radius: 2px;
 }
 
 .mobile-nav__close span:first-child { transform: rotate(45deg); }
 .mobile-nav__close span:last-child  { transform: rotate(-45deg); }
 
+/* Nav links inside overlay */
 .mobile-nav ul {
   list-style: none;
   margin: 0;
@@ -158,81 +157,82 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: var(--space-lg);
+  gap: var(--space-lg, 2rem);
 }
 
 .mobile-nav a {
-  font-family: var(--font-display);
-  font-size: var(--step-3);
+  font-family: var(--font-display, serif);
+  font-size: clamp(1.75rem, 8vw, 2.5rem);
   color: white;
   text-decoration: none;
   opacity: 0.85;
-  transition: opacity var(--dur-fast), color var(--dur-fast);
+  transition: opacity 0.15s, color 0.15s;
   letter-spacing: -0.01em;
 }
 
 .mobile-nav a:hover,
 .mobile-nav a[aria-current="page"] {
   opacity: 1;
-  color: var(--col-accent);
+  color: var(--col-accent, #c8923a);
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .mobile-nav {
-    transition: none;
-  }
+  .mobile-nav { transition: none; }
 }
 </style>
 
 <script>
-(function () {
+document.addEventListener('DOMContentLoaded', function () {
   var header   = document.getElementById('site-nav');
-  var toggle   = header  && header.querySelector('.nav-toggle');
+  var toggle   = document.getElementById('nav-toggle');
   var overlay  = document.getElementById('mobile-nav');
-  var closeBtn = overlay && overlay.querySelector('.mobile-nav__close');
+  var closeBtn = document.getElementById('mobile-nav-close');
 
-  if (!header || !toggle || !overlay) return;
+  if (!toggle || !overlay) return;
 
-  /* ---- Scroll: add .scrolled to header ---- */
-  function onScroll() {
-    header.classList.toggle('scrolled', window.scrollY > 60);
+  /* ── Scroll: darken header after 60px ── */
+  if (header) {
+    function onScroll() {
+      header.classList.toggle('scrolled', window.scrollY > 60);
+    }
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
   }
-  window.addEventListener('scroll', onScroll, { passive: true });
-  onScroll();
 
-  /* ---- Open / Close ---- */
+  /* ── Open ── */
   function openMenu() {
-    overlay.classList.add('open');
+    overlay.classList.add('is-open');
     overlay.setAttribute('aria-hidden', 'false');
     toggle.setAttribute('aria-expanded', 'true');
     toggle.setAttribute('aria-label', 'Close menu');
     document.body.style.overflow = 'hidden';
   }
 
+  /* ── Close ── */
   function closeMenu() {
-    overlay.classList.remove('open');
+    overlay.classList.remove('is-open');
     overlay.setAttribute('aria-hidden', 'true');
     toggle.setAttribute('aria-expanded', 'false');
     toggle.setAttribute('aria-label', 'Open menu');
     document.body.style.overflow = '';
   }
 
-  /* Hamburger button */
+  /* Hamburger tap */
   toggle.addEventListener('click', function () {
-    toggle.getAttribute('aria-expanded') === 'true' ? closeMenu() : openMenu();
+    overlay.classList.contains('is-open') ? closeMenu() : openMenu();
   });
 
-  /* × close button inside overlay */
+  /* × button inside overlay */
   if (closeBtn) closeBtn.addEventListener('click', closeMenu);
 
-  /* Close when a nav link is tapped */
-  overlay.querySelectorAll('a').forEach(function (link) {
-    link.addEventListener('click', closeMenu);
+  /* Tap a nav link → close */
+  overlay.querySelectorAll('a').forEach(function (a) {
+    a.addEventListener('click', closeMenu);
   });
 
-  /* Close on Escape key */
+  /* Escape key → close */
   document.addEventListener('keydown', function (e) {
     if (e.key === 'Escape') closeMenu();
   });
-})();
+});
 </script>
