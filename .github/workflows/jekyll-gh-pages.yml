@@ -1,4 +1,4 @@
-name: Deploy to Fly.io
+name: Deploy to InfinityFree
 
 on:
   push:
@@ -28,10 +28,17 @@ jobs:
               php -l "$file" || exit 1
             done
 
-      - name: Setup flyctl
-        uses: superfly/flyctl-actions/setup-flyctl@master
-
-      - name: Deploy
-        run: flyctl deploy --remote-only
-        env:
-          FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }}
+      - name: Deploy via FTP
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          server-dir: /htdocs/
+          exclude: |
+            **/.git*
+            **/.git*/**
+            .github/**
+            Dockerfile
+            fly.toml
+            router.php
