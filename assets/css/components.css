@@ -143,39 +143,12 @@
 @media (max-width: 768px) {
   .nav-toggle {
     display: flex;
+    touch-action: manipulation;
   }
 
-  .nav-links {
-    position: fixed;
-    inset: 0;
-    background: var(--col-ground);
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: var(--space-lg);
-    opacity: 0;
-    pointer-events: none;
-    transform: translateX(100%);
-    transition:
-      opacity var(--dur-base) var(--ease-out),
-      transform var(--dur-base) var(--ease-out);
-    z-index: 99;
-  }
-
-  .nav-links.open {
-    opacity: 1;
-    pointer-events: auto;
-    transform: translateX(0);
-  }
-
-  .nav-links a {
-    font-size: var(--step-2);
-    opacity: 0.9;
-  }
-
-  .nav-cta {
-    font-size: var(--step-1);
-    padding: 14px 32px;
+  /* Hide the desktop nav entirely on mobile — the mobile-nav overlay takes over */
+  .site-nav__inner > nav {
+    display: none;
   }
 }
 

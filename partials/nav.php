@@ -99,7 +99,7 @@
   position: fixed;
   inset: 0;
   background: var(--col-ground);
-  z-index: 98;
+  z-index: 9999;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -107,15 +107,22 @@
   opacity: 0;
   transform: translateY(-8px);
   pointer-events: none;
+  visibility: hidden;
   transition:
-    opacity var(--dur-base) var(--ease-out),
-    transform var(--dur-base) var(--ease-out);
+    opacity 0.25s ease,
+    transform 0.25s ease,
+    visibility 0s linear 0.25s;
 }
 
 .mobile-nav.open {
   opacity: 1;
   transform: translateY(0);
   pointer-events: auto;
+  visibility: visible;
+  transition:
+    opacity 0.25s ease,
+    transform 0.25s ease,
+    visibility 0s linear 0s;
 }
 
 .mobile-nav__close {
@@ -179,27 +186,27 @@
 
 <script>
 (function () {
-  var header  = document.getElementById('site-nav');
-  var toggle  = header.querySelector('.nav-toggle');
-  var overlay = document.getElementById('mobile-nav');
-  var focusable = 'a[href], button:not([disabled])';
-  var scrollThreshold = 60;
+  var header   = document.getElementById('site-nav');
+  var toggle   = header  && header.querySelector('.nav-toggle');
+  var overlay  = document.getElementById('mobile-nav');
+  var closeBtn = overlay && overlay.querySelector('.mobile-nav__close');
 
-  /* ---- Scroll: add/remove .scrolled class ---- */
+  if (!header || !toggle || !overlay) return;
+
+  /* ---- Scroll: add .scrolled to header ---- */
   function onScroll() {
-    header.classList.toggle('scrolled', window.scrollY > scrollThreshold);
+    header.classList.toggle('scrolled', window.scrollY > 60);
   }
   window.addEventListener('scroll', onScroll, { passive: true });
   onScroll();
 
-  /* ---- Mobile menu open/close ---- */
+  /* ---- Open / Close ---- */
   function openMenu() {
     overlay.classList.add('open');
-    overlay.removeAttribute('aria-hidden');
+    overlay.setAttribute('aria-hidden', 'false');
     toggle.setAttribute('aria-expanded', 'true');
     toggle.setAttribute('aria-label', 'Close menu');
     document.body.style.overflow = 'hidden';
-    trapFocus(overlay);
   }
 
   function closeMenu() {
@@ -208,46 +215,24 @@
     toggle.setAttribute('aria-expanded', 'false');
     toggle.setAttribute('aria-label', 'Open menu');
     document.body.style.overflow = '';
-    toggle.focus();
   }
 
+  /* Hamburger button */
   toggle.addEventListener('click', function () {
     toggle.getAttribute('aria-expanded') === 'true' ? closeMenu() : openMenu();
   });
 
-  var closeBtn = overlay.querySelector('.mobile-nav__close');
+  /* × close button inside overlay */
   if (closeBtn) closeBtn.addEventListener('click', closeMenu);
 
-  /* Close on Escape */
-  document.addEventListener('keydown', function (e) {
-    if (e.key === 'Escape' && overlay.classList.contains('open')) closeMenu();
-  });
-
-  /* Close on overlay link click */
+  /* Close when a nav link is tapped */
   overlay.querySelectorAll('a').forEach(function (link) {
     link.addEventListener('click', closeMenu);
   });
 
-  /* ---- Focus trap ---- */
-  function trapFocus(el) {
-    var nodes = Array.from(el.querySelectorAll(focusable));
-    if (!nodes.length) return;
-    nodes[0].focus();
-    el.addEventListener('keydown', function cycle(e) {
-      if (e.key !== 'Tab') return;
-      if (e.shiftKey) {
-        if (document.activeElement === nodes[0]) {
-          e.preventDefault();
-          nodes[nodes.length - 1].focus();
-        }
-      } else {
-        if (document.activeElement === nodes[nodes.length - 1]) {
-          e.preventDefault();
-          nodes[0].focus();
-        }
-      }
-      if (!overlay.classList.contains('open')) el.removeEventListener('keydown', cycle);
-    });
-  }
+  /* Close on Escape key */
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') closeMenu();
+  });
 })();
 </script>
