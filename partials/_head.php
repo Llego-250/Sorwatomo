@@ -29,5 +29,13 @@
   <link rel="stylesheet" href="assets/css/<?= htmlspecialchars($css) ?>">
   <?php endforeach; ?>
 
+  <!-- Preload LCP hero image — set $hero_img = 'filename-without-ext' in each page -->
+  <?php if (!empty($hero_img)): $h = htmlspecialchars($hero_img); ?>
+  <link rel="preload" as="image"
+    href="/assets/img/slider/<?= $h ?>.webp"
+    imagesrcset="/assets/img/slider/<?= $h ?>-sm.webp 768w, /assets/img/slider/<?= $h ?>-md.webp 1280w, /assets/img/slider/<?= $h ?>.webp 1920w"
+    imagesizes="100vw">
+  <?php endif; ?>
+
   <script>document.documentElement.classList.remove('no-js');</script>
 </head>
