@@ -23,6 +23,26 @@ RewriteOptions inherit
     Require all denied
 </FilesMatch>
 
+# ── Gzip / Deflate compression ──────────────────────────────
+<IfModule mod_deflate.c>
+    AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css
+    AddOutputFilterByType DEFLATE application/javascript application/json
+    AddOutputFilterByType DEFLATE font/woff font/woff2
+</IfModule>
+
+# ── Serve WebP to browsers that support it ──────────────────
+# slider/ and products/ images all have .webp counterparts.
+AddType image/webp .webp
+<IfModule mod_rewrite.c>
+  RewriteCond %{HTTP_ACCEPT} image/webp
+  RewriteRule ^(assets/img/(?:slider|products)/[^/]+)\.(jpe?g|png)$ /$1.webp [T=image/webp,L,NC]
+</IfModule>
+<IfModule mod_headers.c>
+  <FilesMatch "\.(jpe?g|png)$">
+    Header append Vary Accept
+  </FilesMatch>
+</IfModule>
+
 # ── Browser caching for static assets ───────────────────────
 <IfModule mod_expires.c>
     ExpiresActive On
@@ -30,6 +50,7 @@ RewriteOptions inherit
     ExpiresByType application/javascript    "access plus 1 month"
     ExpiresByType image/png                 "access plus 6 months"
     ExpiresByType image/jpeg                "access plus 6 months"
+    ExpiresByType image/webp                "access plus 6 months"
     ExpiresByType image/svg+xml             "access plus 6 months"
     ExpiresByType font/woff                 "access plus 1 year"
     ExpiresByType font/woff2                "access plus 1 year"
