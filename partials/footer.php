@@ -44,7 +44,7 @@
       <div class="footer-col footer-newsletter">
         <h4>Stay Close</h4>
         <p class="footer-newsletter__intro">
-          Recipes, harvest updates, and new product launches — delivered to your inbox.
+          New products, brand updates, and exclusive launches — delivered to your inbox.
         </p>
         <form action="#" method="post" novalidate aria-label="Newsletter signup">
           <div class="footer-newsletter__row">
