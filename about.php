@@ -4,6 +4,7 @@ $page_description = 'Forty years of pure craft — Sorwatom\'s story from 1984 t
 $page_css         = ['pages/about.css'];
 $body_class       = 'page-about';
 $current_page     = 'about';
+$hero_img         = 'story-field';
 include 'partials/_head.php';
 ?>
 <body class="<?= htmlspecialchars($body_class) ?>">
@@ -16,7 +17,11 @@ include 'partials/_head.php';
        SECTION 1 — Hero
        ============================================================ -->
   <section class="hero hero--half" aria-label="Page introduction">
-    <img class="hero__bg" src="assets/img/slider/story-field.jpg" alt="" aria-hidden="true" fetchpriority="high" loading="eager">
+    <img class="hero__bg"
+      src="/assets/img/slider/story-field.webp"
+      srcset="/assets/img/slider/story-field-sm.webp 768w, /assets/img/slider/story-field-md.webp 1280w, /assets/img/slider/story-field.webp 1920w"
+      sizes="100vw"
+      alt="" aria-hidden="true" fetchpriority="high" loading="eager" decoding="async">
 
     <div class="container hero__content">
       <span class="eyebrow eyebrow--light reveal" data-delay="1">EST. 1984</span>

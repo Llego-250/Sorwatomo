@@ -5,6 +5,7 @@ $page_css         = ['pages/contact.css'];
 $page_js          = ['contact.js'];
 $body_class       = 'page-contact';
 $current_page     = 'contact';
+$hero_img         = 'contact-map';
 include 'partials/_head.php';
 ?>
 
@@ -19,7 +20,11 @@ include 'partials/_head.php';
        ============================================================ -->
   <section class="hero hero--half" aria-label="Contact page introduction">
 
-    <img class="hero__bg" src="assets/img/slider/contact-map.jpg" alt="" aria-hidden="true" fetchpriority="high" loading="eager">
+    <img class="hero__bg"
+      src="/assets/img/slider/contact-map.webp"
+      srcset="/assets/img/slider/contact-map-sm.webp 768w, /assets/img/slider/contact-map-md.webp 1280w, /assets/img/slider/contact-map.webp 1920w"
+      sizes="100vw"
+      alt="" aria-hidden="true" fetchpriority="high" loading="eager" decoding="async">
 
     <div class="hero__content container">
 

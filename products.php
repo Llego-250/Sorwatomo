@@ -5,6 +5,7 @@ $page_css         = ['pages/products.css'];
 $body_class       = 'page-products';
 $current_page     = 'products';
 $page_js          = [];
+$hero_img         = 'collection-flatlay';
 include 'partials/_head.php';
 ?>
 <body class="<?= htmlspecialchars($body_class) ?>">
@@ -17,7 +18,11 @@ include 'partials/_head.php';
        SECTION 1 — HERO
        ============================================================ -->
   <section class="hero hero--half" aria-label="Page introduction">
-    <img class="hero__bg" src="assets/img/slider/collection-flatlay.jpg" alt="" aria-hidden="true" fetchpriority="high" loading="eager">
+    <img class="hero__bg"
+      src="/assets/img/slider/collection-flatlay.webp"
+      srcset="/assets/img/slider/collection-flatlay-sm.webp 768w, /assets/img/slider/collection-flatlay-md.webp 1280w, /assets/img/slider/collection-flatlay.webp 1920w"
+      sizes="100vw"
+      alt="" aria-hidden="true" fetchpriority="high" loading="eager" decoding="async">
     <div class="hero__overlay" aria-hidden="true"></div>
 
     <div class="hero__content container">
