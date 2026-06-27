@@ -37,8 +37,8 @@ jobs:
           FTP_USER: ${{ secrets.FTP_USERNAME }}
           FTP_PASS: ${{ secrets.FTP_PASSWORD }}
         run: |
-          lftp -d \
-            -e "set ftp:ssl-allow no; set ftp:passive-mode yes; set net:timeout 15; open ftp://$FTP_SERVER; user $FTP_USER $FTP_PASS; ls; bye"
+          lftp -d -u "$FTP_USER","$FTP_PASS" "$FTP_SERVER" \
+            -e "set ftp:ssl-allow no; set ftp:passive-mode yes; set net:timeout 15; ls; bye"
 
       - name: Deploy via FTP
         env:
@@ -46,14 +46,11 @@ jobs:
           FTP_USER: ${{ secrets.FTP_USERNAME }}
           FTP_PASS: ${{ secrets.FTP_PASSWORD }}
         run: |
-          cat > /tmp/lftp_deploy.sh << 'SCRIPT'
+          lftp -u "$FTP_USER","$FTP_PASS" "$FTP_SERVER" << 'EOF'
           set ftp:ssl-allow no
           set ftp:passive-mode yes
           set net:timeout 30
           set net:max-retries 3
-          set mirror:use-pget-n 3
-          open ftp://$FTP_SERVER
-          user $FTP_USER $FTP_PASS
           mirror -R --delete --verbose=3 \
             --exclude-glob .git/ \
             --exclude-glob .github/ \
@@ -62,5 +59,4 @@ jobs:
             --exclude-glob router.php \
             . /htdocs/
           bye
-          SCRIPT
-          envsubst < /tmp/lftp_deploy.sh | lftp
+          EOF
