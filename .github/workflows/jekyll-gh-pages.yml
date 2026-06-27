@@ -31,27 +31,36 @@ jobs:
       - name: Install lftp
         run: sudo apt-get install -y lftp
 
+      - name: Test FTP connection
+        env:
+          FTP_SERVER: ${{ secrets.FTP_SERVER }}
+          FTP_USER: ${{ secrets.FTP_USERNAME }}
+          FTP_PASS: ${{ secrets.FTP_PASSWORD }}
+        run: |
+          lftp -d \
+            -e "set ftp:ssl-allow no; set ftp:passive-mode yes; set net:timeout 15; open ftp://$FTP_SERVER; user $FTP_USER $FTP_PASS; ls; bye"
+
       - name: Deploy via FTP
         env:
           FTP_SERVER: ${{ secrets.FTP_SERVER }}
           FTP_USER: ${{ secrets.FTP_USERNAME }}
           FTP_PASS: ${{ secrets.FTP_PASSWORD }}
         run: |
-          lftp -c "
-            set ftp:ssl-allow no;
-            set ftp:passive-mode yes;
-            set net:timeout 30;
-            set net:max-retries 3;
-            set net:reconnect-interval-base 5;
-            open ftp://$FTP_USER:$FTP_PASS@$FTP_SERVER;
-            mirror -R \
-              --delete \
-              --verbose \
-              --exclude-glob .git \
-              --exclude-glob .github \
-              --exclude-glob Dockerfile \
-              --exclude-glob fly.toml \
-              --exclude-glob router.php \
-              . /htdocs/;
-            bye;
-          "
+          cat > /tmp/lftp_deploy.sh << 'SCRIPT'
+          set ftp:ssl-allow no
+          set ftp:passive-mode yes
+          set net:timeout 30
+          set net:max-retries 3
+          set mirror:use-pget-n 3
+          open ftp://$FTP_SERVER
+          user $FTP_USER $FTP_PASS
+          mirror -R --delete --verbose=3 \
+            --exclude-glob .git/ \
+            --exclude-glob .github/ \
+            --exclude-glob Dockerfile \
+            --exclude-glob fly.toml \
+            --exclude-glob router.php \
+            . /htdocs/
+          bye
+          SCRIPT
+          envsubst < /tmp/lftp_deploy.sh | lftp
