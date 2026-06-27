@@ -210,6 +210,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
   /* ── Close ── */
   function closeMenu() {
+    toggle.focus();
     overlay.classList.remove('is-open');
     overlay.setAttribute('aria-hidden', 'true');
     toggle.setAttribute('aria-expanded', 'false');
