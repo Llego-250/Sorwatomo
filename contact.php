@@ -31,7 +31,7 @@ include 'partials/_head.php';
 
       <p class="hero__subtitle reveal" data-delay="3">
         Distribution, export, or partnership — our team across Rwanda, Burundi
-        and the DRC is ready to help you grow.
+        and the DRC is ready to help your business succeed.
       </p>
 
       <!-- Country flags row -->

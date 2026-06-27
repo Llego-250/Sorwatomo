@@ -49,6 +49,10 @@
 
   <!-- Mobile full-screen overlay nav -->
   <div class="mobile-nav" id="mobile-nav" aria-hidden="true" role="dialog" aria-label="Main navigation">
+    <button class="mobile-nav__close" aria-label="Close menu" type="button">
+      <span></span>
+      <span></span>
+    </button>
     <ul role="list">
       <li>
         <a href="/"<?= ($current_page ?? '') === 'home' ? ' aria-current="page"' : '' ?>>Home</a>
@@ -113,6 +117,32 @@
   transform: translateY(0);
   pointer-events: auto;
 }
+
+.mobile-nav__close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 44px;
+  height: 44px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+}
+
+.mobile-nav__close span {
+  position: absolute;
+  width: 24px;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 2px;
+}
+
+.mobile-nav__close span:first-child { transform: rotate(45deg); }
+.mobile-nav__close span:last-child  { transform: rotate(-45deg); }
 
 .mobile-nav ul {
   list-style: none;
@@ -184,6 +214,9 @@
   toggle.addEventListener('click', function () {
     toggle.getAttribute('aria-expanded') === 'true' ? closeMenu() : openMenu();
   });
+
+  var closeBtn = overlay.querySelector('.mobile-nav__close');
+  if (closeBtn) closeBtn.addEventListener('click', closeMenu);
 
   /* Close on Escape */
   document.addEventListener('keydown', function (e) {

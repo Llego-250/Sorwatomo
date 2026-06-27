@@ -77,7 +77,7 @@ include 'partials/_head.php';
       <!-- Section header -->
       <span class="eyebrow">Why Sorwatom</span>
       <h2 id="why-heading" style="max-width:560px; margin-bottom:var(--space-xl);">
-        Grown with intention, <em>delivered with pride.</em>
+        Crafted with precision, <em>delivered with pride.</em>
       </h2>
 
       <!-- Four-pillar grid -->
@@ -86,25 +86,25 @@ include 'partials/_head.php';
         <article class="pillar reveal" data-delay="1">
           <span class="pillar__num" aria-hidden="true">01</span>
           <h3 class="pillar__title">100% Natural</h3>
-          <p class="pillar__desc">No synthetic additives or preservatives. Just pure sun-ripened ingredients.</p>
+          <p class="pillar__desc">No synthetic additives, no preservatives. Nothing artificial — ever.</p>
         </article>
 
         <article class="pillar reveal" data-delay="2">
           <span class="pillar__num" aria-hidden="true">02</span>
-          <h3 class="pillar__title">Always Fresh</h3>
-          <p class="pillar__desc">Daily harvests ensure the peak of flavour in every packet and jar we produce.</p>
+          <h3 class="pillar__title">Italian Precision</h3>
+          <p class="pillar__desc">State-of-the-art Italian processing technology ensures peak quality in every batch we make.</p>
         </article>
 
         <article class="pillar reveal" data-delay="3">
           <span class="pillar__num" aria-hidden="true">03</span>
-          <h3 class="pillar__title">Traceable Origin</h3>
-          <p class="pillar__desc">Know exactly which farm your spice and paste comes from with full transparency.</p>
+          <h3 class="pillar__title">Certified Quality</h3>
+          <p class="pillar__desc">ISO certified processes meeting the highest international food safety benchmarks.</p>
         </article>
 
         <article class="pillar reveal" data-delay="4">
           <span class="pillar__num" aria-hidden="true">04</span>
           <h3 class="pillar__title">Global Standards</h3>
-          <p class="pillar__desc">Rigorous quality control meeting international food safety benchmarks.</p>
+          <p class="pillar__desc">Rigorous quality control aligned with international food industry requirements.</p>
         </article>
 
       </div><!-- /.grid-4 -->
@@ -206,7 +206,7 @@ include 'partials/_head.php';
         <div class="story-img-wrap reveal" data-delay="1">
           <img
             src="assets/img/slider/story-field.jpg"
-            alt="Sorwatom farm workers harvesting tomatoes in the Great Lakes region"
+            alt="Great Lakes region, the home of Sorwatom"
             loading="lazy"
             width="600"
             height="750"
@@ -221,27 +221,25 @@ include 'partials/_head.php';
         <div class="story-text reveal" data-delay="2">
 
           <div>
-            <span class="eyebrow">Our Journey</span>
+            <span class="eyebrow">Our Story</span>
             <h2 id="story-heading">
-              Cultivating a sustainable future for the <em>Great Lakes region.</em>
+              Eastern Africa's leading <em>agribusiness manufacturer.</em>
             </h2>
           </div>
 
           <p>
-            Founded in 1984 by a group of visionary investors, Sorwatom identified an opportunity
-            to transform locally grown fresh tomatoes into premium tomato paste and serve the
-            rapidly growing demand across East Africa. From a single product line, we became
-            Eastern Africa's leading agribusiness manufacturer — driven by an uncompromising
-            commitment to quality and community.
+            Created in 1984 by visionary investors who saw an opportunity to transform
+            locally grown fresh tomatoes into world-class paste, Sorwatom has spent four
+            decades perfecting what it means to produce food with integrity — from the
+            soil of the Great Lakes to tables across East and Central Africa.
           </p>
 
           <p>
-            In 2004 we upgraded our facilities with the finest Italian processing and packaging
-            technology, becoming the only sub-Saharan African paste manufacturer to pack in
-            flexible four-layer film sachets — keeping product fresher for longer, safer, and
-            more hygienic than traditional metal containers. Today, under professional management
-            with over 60 years of combined African agribusiness expertise, Sorwatom continues to
-            expand its reach across Rwanda, Burundi, Eastern DRC, and beyond.
+            In 2004 we upgraded to the best available Italian processing and packing
+            technology, becoming the only sub-Saharan paste manufacturer to use flexible
+            four-layer film sachets. Today, under professional management with over 80
+            years of combined African agribusiness expertise, Sorwatom continues to expand
+            its reach — anchored by the same commitment to purity that started it all.
           </p>
 
           <a href="/about" class="btn--text">Read Our Heritage</a>
@@ -255,7 +253,7 @@ include 'partials/_head.php';
 
 
   <!-- ============================================================
-       SECTION 6 — CTA BANNER
+       SECTION 6 — CONTACT CTA
        ============================================================ -->
   <section class="section section--cta" aria-labelledby="cta-heading">
     <div class="container">
@@ -263,20 +261,18 @@ include 'partials/_head.php';
       <div class="cta-block">
 
         <div class="cta-block__text">
-          <span class="cta-block__eyebrow">For Distribution &amp; Retail</span>
+          <span class="cta-block__eyebrow">Get in Touch</span>
           <h2 class="cta-block__title" id="cta-heading">
-            Bring the <em>harvest</em> home.
+            We'd love to <em>hear from you.</em>
           </h2>
           <p class="cta-block__body">
-            Partner with Sorwatom to bring 100% natural Great Lakes produce to your retail
-            shelves or distribution network. We work with partners across East and Central
-            Africa to deliver consistent quality, competitive terms, and full supply-chain
-            transparency.
+            Whether you're a retailer, distributor, or simply curious about our products —
+            our team is ready to help.
           </p>
         </div>
 
         <div class="cta-block__actions">
-          <a href="/contact" class="btn btn--primary">Get in Touch</a>
+          <a href="/contact" class="btn btn--primary">Contact Us</a>
         </div>
 
       </div><!-- /.cta-block -->

@@ -40,14 +40,13 @@
   opacity: 0.42;
 }
 
-/* Scroll indicator — positioned below hero content */
+/* Scroll indicator — centered at the bottom of the hero */
 .hero__scroll {
-  position: relative;
+  position: absolute;
+  bottom: var(--space-xl);
+  left: 50%;
+  transform: translateX(-50%);
   z-index: 1;
-  padding-bottom: var(--space-lg);
-  display: flex;
-  justify-content: flex-start;
-  padding-left: clamp(1rem, 4vw, 2.5rem);
 }
 
 

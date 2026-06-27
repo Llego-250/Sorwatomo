@@ -1,6 +1,6 @@
 <?php
 $page_title       = 'Our Heritage — Sorwatom';
-$page_description = 'Forty years of pure harvest — Sorwatom\'s story from 1984 to today. East Africa\'s leading agribusiness manufacturer.';
+$page_description = 'Forty years of pure craft — Sorwatom\'s story from 1984 to today. East Africa\'s leading agribusiness manufacturer.';
 $page_css         = ['pages/about.css'];
 $body_class       = 'page-about';
 $current_page     = 'about';
@@ -21,11 +21,11 @@ include 'partials/_head.php';
     <div class="container hero__content">
       <span class="eyebrow eyebrow--light reveal" data-delay="1">EST. 1984</span>
       <h1 class="hero__title reveal" data-delay="2">
-        Forty years of <em>pure harvest,</em><br>rooted in the Great Lakes.
+        Forty years of <em>pure craft,</em><br>rooted in the Great Lakes.
       </h1>
       <p class="hero__subtitle reveal" data-delay="3">
         From a single processing line to a regional powerhouse — this is the story
-        of soil, science, and the people in between.
+        of science, precision, and the people who make it possible.
       </p>
     </div>
   </section>
@@ -187,9 +187,8 @@ include 'partials/_head.php';
           <span class="principle-card__num" aria-hidden="true">03</span>
           <h3 class="principle-card__title">Community</h3>
           <p class="principle-card__desc">
-            Partnering with thousands of smallholder farmers across our
-            region — because a great product starts with the people who
-            grow it.
+            Building lasting partnerships across our region — because
+            great products start with the right people behind them.
           </p>
         </article>
 
@@ -252,22 +251,22 @@ include 'partials/_head.php';
           <div class="story-double-img">
             <img
               src="assets/img/slider/story-field.jpg"
-              alt="Sorwatom partner farm in the Great Lakes region"
+              alt="Great Lakes region, home of Sorwatom production"
               class="story-double-img__primary"
               loading="lazy"
             >
             <img
               src="assets/img/slider/hero-tomato.jpg"
-              alt="Sun-ripened tomatoes at a Sorwatom partner farm"
+              alt="Fresh tomatoes used in Sorwatom products"
               class="story-double-img__secondary"
               loading="lazy"
             >
           </div>
 
           <!-- Floating credential -->
-          <div class="story-badge" aria-label="3,200 plus partner farms">
-            <span class="story-badge__value">3,200+</span>
-            <span class="story-badge__label">Partner Farms</span>
+          <div class="story-badge" aria-label="ISO certified quality standard">
+            <span class="story-badge__value">ISO</span>
+            <span class="story-badge__label">Certified Quality</span>
           </div>
         </div>
 
