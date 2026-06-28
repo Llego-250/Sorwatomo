@@ -14,7 +14,7 @@ $related = blog_get_related((int) $post['id'], (int) $post['category_id']);
 
 $page_title       = htmlspecialchars($post['title']) . ' — Sorwatom Journal';
 $page_description = htmlspecialchars($post['excerpt'] ?? '');
-$page_css         = ['pages/blog.css'];
+$page_css         = 'pages/blog.css';
 $body_class       = 'page-blog-post';
 $current_page     = 'blog';
 
