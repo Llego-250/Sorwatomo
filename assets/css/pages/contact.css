@@ -172,24 +172,32 @@
 
 
 /* ----------------------------------------------------------
-   HERO HALF-HEIGHT — min-height for contact page
-   Overrides hero--half to give more vertical breathing room
-   when country flags are present below the subtitle.
+   HERO — blur + dark overlay so text reads clearly over the map
    ---------------------------------------------------------- */
 
-.page-contact .hero--half {
-  min-height: 58vh;
+/* Blur the map image; scale slightly to hide edge artifacts */
+.page-contact .hero__bg {
+  filter: blur(1px);
+  transform: scale(1.06);
+  opacity: 0.55;
 }
 
-/* Mobile: shorter hero and tighter card padding */
-.page-contact .hero--half {
-  min-height: 72vh;
+/* Dark gradient overlay between image and content */
+.page-contact .hero::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    160deg,
+    rgba(13, 30, 18, 0.55) 0%,
+    rgba(13, 30, 18, 0.75) 100%
+  );
+  z-index: 1;
 }
 
-@media (min-width: 640px) {
-  .page-contact .hero--half {
-    min-height: 58vh;
-  }
+/* Lift content above the overlay */
+.page-contact .hero__content {
+  z-index: 2;
 }
 
 .form-card {

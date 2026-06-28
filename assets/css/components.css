@@ -955,7 +955,16 @@
   min-height: 100svh;
 }
 
-/* Background image */
+/* Background image — works on both bare <img> and <img> inside <picture> */
+.hero picture {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+
 .hero__bg {
   position: absolute;
   inset: 0;

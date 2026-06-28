@@ -5,31 +5,29 @@
 
 
 /* ----------------------------------------------------------
-   HERO OVERLAY GRADIENT
-   Darkens the bottom-left corner where copy sits; leaves the
-   food photography legible on the right.
+   HERO
    ---------------------------------------------------------- */
-.page-products .hero--half {
-  min-height: 60vh;
+
+.page-products .hero__bg {
+  filter: blur(1px);
+  transform: scale(1.06);
+  opacity: 0.55;
 }
 
-.page-products .hero--half .hero__bg {
-  opacity: 0.45;
-}
-
-.page-products .hero__overlay {
+.page-products .hero::after {
+  content: '';
   position: absolute;
   inset: 0;
-  z-index: 0;
   background: linear-gradient(
-    120deg,
-    rgba(13, 30, 18, 0.82) 0%,
-    rgba(13, 30, 18, 0.30) 60%,
-    transparent 100%
+    160deg,
+    rgba(13, 30, 18, 0.55) 0%,
+    rgba(13, 30, 18, 0.75) 100%
   );
+  z-index: 1;
 }
 
 .page-products .hero__content {
+  z-index: 2;
   padding-bottom: var(--space-3xl);
 }
 

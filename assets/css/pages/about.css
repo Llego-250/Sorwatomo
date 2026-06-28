@@ -5,10 +5,29 @@
 
 
 /* ----------------------------------------------------------
-   HERO — scale back title for the half-height hero
+   HERO
    ---------------------------------------------------------- */
-.page-about .hero--half {
-  min-height: 56vh;
+
+.page-about .hero__bg {
+  filter: blur(1px);
+  transform: scale(1.06);
+  opacity: 0.55;
+}
+
+.page-about .hero::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    160deg,
+    rgba(13, 30, 18, 0.55) 0%,
+    rgba(13, 30, 18, 0.75) 100%
+  );
+  z-index: 1;
+}
+
+.page-about .hero__content {
+  z-index: 2;
 }
 
 .page-about .hero__title {
