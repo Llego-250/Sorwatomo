@@ -16,7 +16,7 @@ $error = '';
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $pw = $_POST['password'] ?? '';
     if (password_verify($pw, ADMIN_PASSWORD_HASH)) {
-        session_regenerate_id(true);
+        @session_regenerate_id(true);
         $_SESSION['admin_authed'] = true;
         header('Location: /admin');
         exit;
