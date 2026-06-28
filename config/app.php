@@ -1,10 +1,10 @@
 <?php
 // ─── Database ─────────────────────────────────────────────────────────────────
 // Fill in your MySQL credentials. Or set environment variables on the server.
-define('DB_HOST',    getenv('DB_HOST')    ?: 'localhost');
-define('DB_NAME',    getenv('DB_NAME')    ?: 'sorwatom_blog');
-define('DB_USER',    getenv('DB_USER')    ?: 'root');
-define('DB_PASS',    getenv('DB_PASS')    ?: '');
+define('DB_HOST',    getenv('DB_HOST')    ?: 'sql306.infinityfree.com');
+define('DB_NAME',    getenv('DB_NAME')    ?: 'if0_42285005_XXX'); // ← replace XXX with your database name
+define('DB_USER',    getenv('DB_USER')    ?: 'if0_42285005');
+define('DB_PASS',    getenv('DB_PASS')    ?: 'Llego12345aze');
 define('DB_CHARSET', 'utf8mb4');
 
 // ─── Site ─────────────────────────────────────────────────────────────────────
