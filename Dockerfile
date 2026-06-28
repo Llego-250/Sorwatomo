@@ -1,5 +1,8 @@
 FROM php:8.2-apache
 
+# PHP extensions required for MySQL
+RUN docker-php-ext-install pdo pdo_mysql
+
 # Enable Apache modules required by .htaccess
 RUN a2enmod rewrite headers expires
 
