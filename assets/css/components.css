@@ -956,13 +956,7 @@
 }
 
 .hero--half {
-  min-height: 52vh;
-}
-
-@media (max-width: 767px) {
-  .hero--half {
-    min-height: 100svh;
-  }
+  min-height: 100svh;
 }
 
 /* Background image */
