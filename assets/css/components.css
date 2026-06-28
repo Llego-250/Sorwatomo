@@ -959,6 +959,12 @@
   min-height: 52vh;
 }
 
+@media (max-width: 767px) {
+  .hero--half {
+    min-height: 100svh;
+  }
+}
+
 /* Background image */
 .hero__bg {
   position: absolute;

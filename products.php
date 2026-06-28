@@ -6,6 +6,7 @@ $body_class       = 'page-products';
 $current_page     = 'products';
 $page_js          = [];
 $hero_img         = 'collection-flatlay';
+$hero_img_mobile  = 'collection-flatlay.png';
 include 'partials/_head.php';
 ?>
 <body class="<?= htmlspecialchars($body_class) ?>">

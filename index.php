@@ -5,6 +5,7 @@ $page_css         = ['pages/home.css'];
 $body_class       = 'page-home';
 $current_page     = 'home';
 $hero_img         = 'hero-tomato';
+$hero_img_mobile  = 'hero_tomato.png';
 include 'partials/_head.php';
 ?>
 <body class="<?= $body_class ?>">
@@ -19,11 +20,12 @@ include 'partials/_head.php';
   <section class="hero hero--full" aria-label="Homepage hero">
 
     <!-- Decorative hero background -->
-    <img class="hero__bg"
-      src="/assets/img/slider/hero-tomato.webp"
-      srcset="/assets/img/slider/hero-tomato-sm.webp 768w, /assets/img/slider/hero-tomato-md.webp 1280w, /assets/img/slider/hero-tomato.webp 1920w"
-      sizes="100vw"
-      alt="" aria-hidden="true" fetchpriority="high" loading="eager" decoding="async">
+    <picture>
+      <source media="(max-width: 767px)" srcset="/assets/img/slider/Mobile/hero_tomato.png">
+      <img class="hero__bg"
+        src="/assets/img/slider/hero-tomato.webp"
+        alt="" aria-hidden="true" fetchpriority="high" loading="eager" decoding="async">
+    </picture>
 
     <!-- Skip link (keyboard users) -->
     <a href="#main" class="skip-link">Skip to content</a>

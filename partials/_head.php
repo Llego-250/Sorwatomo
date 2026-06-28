@@ -29,12 +29,14 @@
   <link rel="stylesheet" href="assets/css/<?= htmlspecialchars($css) ?>">
   <?php endforeach; ?>
 
-  <!-- Preload LCP hero image — set $hero_img = 'filename-without-ext' in each page -->
+  <!-- Preload LCP hero image — set $hero_img (desktop webp) and optionally $hero_img_mobile (Mobile/ png filename) -->
+  <?php if (!empty($hero_img_mobile)): $hm = htmlspecialchars($hero_img_mobile); ?>
+  <link rel="preload" as="image" media="(max-width: 767px)"
+    href="/assets/img/slider/Mobile/<?= $hm ?>">
+  <?php endif; ?>
   <?php if (!empty($hero_img)): $h = htmlspecialchars($hero_img); ?>
-  <link rel="preload" as="image"
-    href="/assets/img/slider/<?= $h ?>.webp"
-    imagesrcset="/assets/img/slider/<?= $h ?>-sm.webp 768w, /assets/img/slider/<?= $h ?>-md.webp 1280w, /assets/img/slider/<?= $h ?>.webp 1920w"
-    imagesizes="100vw">
+  <link rel="preload" as="image" media="(min-width: 768px)"
+    href="/assets/img/slider/<?= $h ?>.webp">
   <?php endif; ?>
 
   <script>document.documentElement.classList.remove('no-js');</script>
