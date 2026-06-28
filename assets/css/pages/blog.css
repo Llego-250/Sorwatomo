@@ -12,11 +12,6 @@
 .page-blog .hero      { min-height: 60svh; }
 .page-blog-post .hero { min-height: 70svh; }
 
-/* Listing page: soft dark gradient (same pattern as contact/about) */
-.page-blog .hero__bg {
-  opacity: 0.45;
-}
-
 .page-blog .hero::after {
   content: '';
   position: absolute;
