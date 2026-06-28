@@ -58,6 +58,8 @@ AddType image/webp .webp
 
 # ── Clean URL routing ──────────────────────────────────────
 # Redirect /page.php → /page (removes .php from browser bar)
+# Skip POST requests — a 301 would convert POST to GET and lose form data
+RewriteCond %{REQUEST_METHOD} !POST
 RewriteCond %{THE_REQUEST} \s/+(.+?)\.php[\s?] [NC]
 RewriteRule ^ /%1 [R=301,L,NE]
 
