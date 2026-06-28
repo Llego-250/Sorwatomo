@@ -10,8 +10,9 @@
    a full viewport push-down before content starts.
    ---------------------------------------------------------- */
 .page-blog .hero      { min-height: 60svh; }
-.page-blog-post .hero { min-height: 70svh; }
+.page-blog-post .hero { min-height: 52svh; }
 
+/* Blog listing overlay */
 .page-blog .hero::after {
   content: '';
   position: absolute;
@@ -20,27 +21,64 @@
   z-index: 1;
 }
 
-.page-blog .hero__content { z-index: 2; }
+.page-blog .hero__content  { z-index: 2; }
 
-/* Post hero: visible image + strong bottom-to-top gradient for readability */
-.page-blog-post .hero__bg {
-  opacity: 0.6;
-}
-
+/* Blog post hero — pattern only, subtle depth gradient */
 .page-blog-post .hero::after {
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(
-    to top,
-    rgba(13,30,18,.92) 0%,
-    rgba(13,30,18,.55) 40%,
-    rgba(13,30,18,.18) 100%
-  );
+  background: linear-gradient(160deg, rgba(13,30,18,.25) 0%, rgba(13,30,18,.5) 100%);
   z-index: 1;
 }
 
 .page-blog-post .hero__content { z-index: 2; }
+
+
+/* ----------------------------------------------------------
+   POST HERO — excerpt + category badge
+   ---------------------------------------------------------- */
+.post-hero__excerpt {
+  font-size: var(--step-0);
+  color: rgba(255,255,255,.75);
+  max-width: 640px;
+  line-height: 1.65;
+  margin-top: var(--space-sm);
+}
+
+.post-hero__sep {
+  opacity: .4;
+}
+
+
+/* ----------------------------------------------------------
+   FEATURED IMAGE — appears at top of article body
+   Breaks slightly outside the narrow column on large screens
+   for an editorial feel.
+   ---------------------------------------------------------- */
+.post-featured-img {
+  margin: 0 0 var(--space-xl);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  aspect-ratio: 16 / 9;
+  box-shadow: 0 12px 40px rgba(0,0,0,.12);
+}
+
+@media (min-width: 800px) {
+  .post-featured-img {
+    margin-left: -3rem;
+    margin-right: -3rem;
+    border-radius: var(--radius-xl);
+  }
+}
+
+.post-featured-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform var(--dur-slow) var(--ease-out);
+}
 
 
 /* ----------------------------------------------------------

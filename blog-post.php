@@ -14,7 +14,7 @@ $related = blog_get_related((int) $post['id'], (int) $post['category_id']);
 
 $page_title       = htmlspecialchars($post['title']) . ' — Sorwatom Journal';
 $page_description = htmlspecialchars($post['excerpt'] ?? '');
-$page_css         = 'pages/blog.css';
+$page_css         = ['pages/blog.css'];
 $body_class       = 'page-blog-post';
 $current_page     = 'blog';
 
@@ -49,17 +49,10 @@ if (!empty($post['image_url'])) $json_ld['image'] = $post['image_url'];
 <main id="main-content">
 
   <!-- ============================================================
-       POST HERO
+       POST HERO — clean pattern background, no photo
        ============================================================ -->
   <section class="hero hero--full post-hero" aria-label="Article header">
-    <?php if (!empty($post['image_url'])): ?>
-    <img class="hero__bg"
-         src="<?= htmlspecialchars($post['image_url']) ?>"
-         alt="" aria-hidden="true"
-         fetchpriority="high" loading="eager" decoding="async">
-    <?php else: ?>
     <div class="hero__bg hero__bg--pattern" aria-hidden="true"></div>
-    <?php endif; ?>
 
     <div class="hero__content">
       <div class="container">
@@ -70,18 +63,32 @@ if (!empty($post['image_url'])) $json_ld['image'] = $post['image_url'];
           <a href="/blog?category=<?= htmlspecialchars($post['category_slug']) ?>">
             <?= htmlspecialchars($post['category_name']) ?>
           </a>
+          <span aria-hidden="true">/</span>
           <?php endif; ?>
         </nav>
+
+        <?php if (!empty($post['category_name'])): ?>
+        <span class="post-hero__cat badge badge--accent"
+              style="background:<?= htmlspecialchars($post['category_color'] ?? '#c8923a') ?>;margin-bottom:var(--space-sm);display:inline-block;">
+          <?= htmlspecialchars($post['category_name']) ?>
+        </span>
+        <?php endif; ?>
+
         <h1 class="hero__title post-hero__title"><?= htmlspecialchars($post['title']) ?></h1>
+
+        <?php if (!empty($post['excerpt'])): ?>
+        <p class="post-hero__excerpt"><?= htmlspecialchars($post['excerpt']) ?></p>
+        <?php endif; ?>
+
         <div class="post-hero__meta">
           <?php if (!empty($post['author_name'])): ?>
           <span class="post-hero__author"><?= htmlspecialchars($post['author_name']) ?></span>
-          <span aria-hidden="true">·</span>
+          <span class="post-hero__sep" aria-hidden="true">·</span>
           <?php endif; ?>
           <time datetime="<?= htmlspecialchars($post['published_at']) ?>">
             <?= htmlspecialchars($post['date_formatted']) ?>
           </time>
-          <span aria-hidden="true">·</span>
+          <span class="post-hero__sep" aria-hidden="true">·</span>
           <span><?= $post['reading_time'] ?> min read</span>
         </div>
       </div>
@@ -94,6 +101,15 @@ if (!empty($post['image_url'])) $json_ld['image'] = $post['image_url'];
        ============================================================ -->
   <article class="section post-body" aria-label="Article content">
     <div class="container container--narrow">
+
+      <!-- Featured image -->
+      <?php if (!empty($post['image_url'])): ?>
+      <figure class="post-featured-img">
+        <img src="<?= htmlspecialchars($post['image_url']) ?>"
+             alt="<?= htmlspecialchars($post['title']) ?>"
+             loading="eager" fetchpriority="high" decoding="async">
+      </figure>
+      <?php endif; ?>
 
       <!-- Tags -->
       <?php if (!empty($post['tags'])): ?>
