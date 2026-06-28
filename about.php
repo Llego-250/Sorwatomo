@@ -16,18 +16,20 @@ include 'partials/_head.php';
   <!-- ============================================================
        SECTION 1 — Hero
        ============================================================ -->
-  <section class="hero hero--half" aria-label="Page introduction">
+  <section class="hero hero--full" aria-label="Page introduction">
     <div class="hero__bg hero__bg--pattern" aria-hidden="true"></div>
 
-    <div class="container hero__content">
-      <span class="eyebrow eyebrow--light reveal" data-delay="1">EST. 1984</span>
-      <h1 class="hero__title reveal" data-delay="2">
-        Forty years of <em>pure craft,</em><br>rooted in the Great Lakes.
-      </h1>
-      <p class="hero__subtitle reveal" data-delay="3">
-        From a single processing line to a regional powerhouse — this is the story
-        of science, precision, and the people who make it possible.
-      </p>
+    <div class="hero__content">
+      <div class="container">
+        <span class="eyebrow eyebrow--light reveal" data-delay="1">EST. 1984</span>
+        <h1 class="hero__title reveal" data-delay="2">
+          Forty years of <em>pure craft,</em><br>rooted in the Great Lakes.
+        </h1>
+        <p class="hero__subtitle reveal" data-delay="3">
+          From a single processing line to a regional powerhouse — this is the story
+          of science, precision, and the people who make it possible.
+        </p>
+      </div>
     </div>
   </section>
 

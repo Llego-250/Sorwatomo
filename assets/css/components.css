@@ -955,10 +955,6 @@
   min-height: 100svh;
 }
 
-.hero--half {
-  min-height: 100svh;
-}
-
 /* Background image */
 .hero__bg {
   position: absolute;

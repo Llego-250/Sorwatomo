@@ -18,18 +18,19 @@ include 'partials/_head.php';
   <!-- ============================================================
        SECTION 1 — HERO
        ============================================================ -->
-  <section class="hero hero--half" aria-label="Page introduction">
+  <section class="hero hero--full" aria-label="Page introduction">
     <picture>
       <source media="(max-width: 767px)" srcset="/assets/img/slider/Mobile/collection-flatlay.png">
       <img class="hero__bg"
         src="/assets/img/slider/collection-flatlay.webp"
         alt="" aria-hidden="true" fetchpriority="high" loading="eager" decoding="async">
     </picture>
-    <div class="hero__overlay" aria-hidden="true"></div>
 
-    <div class="hero__content container">
-      <p class="eyebrow eyebrow--light">The Collection &middot; Six Essentials</p>
-      <h1 class="hero__title">Every kitchen essential, <em>perfected.</em></h1>
+    <div class="hero__content">
+      <div class="container">
+        <p class="eyebrow eyebrow--light">The Collection &middot; Six Essentials</p>
+        <h1 class="hero__title">Every kitchen essential, <em>perfected.</em></h1>
+      </div>
     </div>
   </section>
 

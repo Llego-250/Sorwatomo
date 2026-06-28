@@ -19,7 +19,7 @@ include 'partials/_head.php';
   <!-- ============================================================
        SECTION 1 — HERO
        ============================================================ -->
-  <section class="hero hero--half" aria-label="Contact page introduction">
+  <section class="hero hero--full" aria-label="Contact page introduction">
 
     <picture>
       <source media="(max-width: 767px)" srcset="/assets/img/slider/Mobile/contact-map.png">
@@ -28,26 +28,28 @@ include 'partials/_head.php';
         alt="" aria-hidden="true" fetchpriority="high" loading="eager" decoding="async">
     </picture>
 
-    <div class="hero__content container">
+    <div class="hero__content">
+      <div class="container">
 
-      <p class="eyebrow eyebrow--light reveal" data-delay="1">GET IN TOUCH</p>
+        <p class="eyebrow eyebrow--light reveal" data-delay="1">GET IN TOUCH</p>
 
-      <h1 class="hero__title reveal" data-delay="2">
-        Let's start a <em>conversation.</em>
-      </h1>
+        <h1 class="hero__title reveal" data-delay="2">
+          Let's start a <em>conversation.</em>
+        </h1>
 
-      <p class="hero__subtitle reveal" data-delay="3">
-        Distribution, export, or partnership — our team across Rwanda, Burundi
-        and the DRC is ready to help your business succeed.
-      </p>
+        <p class="hero__subtitle reveal" data-delay="3">
+          Distribution, export, or partnership — our team across Rwanda, Burundi
+          and the DRC is ready to help your business succeed.
+        </p>
 
-      <!-- Country flags row -->
-      <div class="cluster reveal" data-delay="4" aria-label="Countries we operate in">
-        <span class="country-flag">🇷🇼 <span>Rwanda</span></span>
-        <span class="country-flag">🇧🇮 <span>Burundi</span></span>
-        <span class="country-flag">🇨🇩 <span>DRC</span></span>
+        <!-- Country flags row -->
+        <div class="cluster reveal" data-delay="4" aria-label="Countries we operate in">
+          <span class="country-flag">🇷🇼 <span>Rwanda</span></span>
+          <span class="country-flag">🇧🇮 <span>Burundi</span></span>
+          <span class="country-flag">🇨🇩 <span>DRC</span></span>
+        </div>
+
       </div>
-
     </div>
   </section>
 
