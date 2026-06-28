@@ -8,6 +8,15 @@
 
   <title><?= htmlspecialchars($page_title ?? 'Sorwatomo — Great Lakes Agribusiness') ?></title>
 
+  <!-- Open Graph -->
+  <meta property="og:type"        content="<?= htmlspecialchars($og_type        ?? 'website') ?>">
+  <meta property="og:title"       content="<?= htmlspecialchars($og_title       ?? $page_title ?? 'Sorwatom') ?>">
+  <meta property="og:description" content="<?= htmlspecialchars($og_description ?? $page_description ?? '') ?>">
+  <meta property="og:image"       content="<?= htmlspecialchars($og_image       ?? (defined('SITE_URL') ? SITE_URL : 'https://www.sorwatom.com') . '/assets/img/logo.png') ?>">
+  <meta property="og:url"         content="<?= htmlspecialchars($og_url         ?? (defined('SITE_URL') ? SITE_URL : 'https://www.sorwatom.com') . $_SERVER['REQUEST_URI']) ?>">
+  <meta property="og:site_name"   content="Sorwatom">
+  <meta name="twitter:card"       content="summary_large_image">
+
   <!-- Hero image preloads — highest priority, before everything else -->
   <?php if (!empty($hero_img_mobile)): $hm = htmlspecialchars($hero_img_mobile); ?>
   <link rel="preload" as="image" fetchpriority="high" media="(max-width: 767px)"

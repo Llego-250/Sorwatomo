@@ -1,9 +1,8 @@
 <?php
-require_once 'data/posts.php';
-$data_dir = __DIR__ . '/data';
+require_once __DIR__ . '/data/blog.php';
 
 $slug = $_GET['slug'] ?? '';
-$post = get_post_by_slug($slug, $data_dir);
+$post = blog_get_by_slug($slug);
 
 if (!$post) {
     http_response_code(404);
@@ -11,45 +10,88 @@ if (!$post) {
     exit;
 }
 
-// Related posts: same category, excluding current
-$all_posts    = load_posts($data_dir);
-$related      = array_values(array_filter($all_posts, fn($p) => $p['slug'] !== $slug && $p['category'] === $post['category']));
-$related      = array_slice($related, 0, 3);
+$related = blog_get_related((int) $post['id'], (int) $post['category_id']);
 
 $page_title       = htmlspecialchars($post['title']) . ' — Sorwatom Journal';
-$page_description = htmlspecialchars($post['excerpt']);
+$page_description = htmlspecialchars($post['excerpt'] ?? '');
 $page_css         = ['pages/blog.css'];
 $body_class       = 'page-blog-post';
 $current_page     = 'blog';
+
+// Open Graph
+$og_type        = 'article';
+$og_title       = $post['title'];
+$og_description = $post['excerpt'] ?? '';
+$og_image       = !empty($post['image_url']) ? $post['image_url'] : SITE_URL . '/assets/img/logo.png';
+$og_url         = SITE_URL . '/blog/' . $post['slug'];
+
 include 'partials/_head.php';
+
+// JSON-LD structured data
+$json_ld = [
+    '@context'      => 'https://schema.org',
+    '@type'         => 'Article',
+    'headline'      => $post['title'],
+    'description'   => $post['excerpt'] ?? '',
+    'datePublished' => $post['published_at'],
+    'dateModified'  => $post['updated_at'] ?? $post['published_at'],
+    'author'        => ['@type' => 'Person', 'name' => $post['author_name'] ?? 'Sorwatom'],
+    'publisher'     => ['@type' => 'Organization', 'name' => 'Sorwatom',
+                        'logo' => ['@type' => 'ImageObject', 'url' => SITE_URL . '/assets/img/logo.png']],
+];
+if (!empty($post['image_url'])) $json_ld['image'] = $post['image_url'];
 ?>
+<script type="application/ld+json"><?= json_encode($json_ld, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE) ?></script>
 <body class="<?= htmlspecialchars($body_class) ?>">
 
 <?php include 'partials/nav.php'; ?>
 
 <main id="main-content">
 
-  <!-- POST HERO -->
-  <section class="post-hero hero hero--half" aria-label="Article header">
-    <img class="hero__bg" src="assets/img/slider/story-field.jpg" alt="" aria-hidden="true" fetchpriority="high" loading="eager">
-    <div class="hero__content container">
-      <nav class="post-breadcrumb" aria-label="Breadcrumb">
-        <a href="/blog">Journal</a>
-        <span aria-hidden="true"> / </span>
-        <span class="post-card__category"><?= htmlspecialchars($post['category']) ?></span>
-      </nav>
-      <h1 class="hero__title post-hero__title"><?= htmlspecialchars($post['title']) ?></h1>
-      <div class="post-hero__meta">
-        <span class="post-hero__author"><?= htmlspecialchars($post['author']) ?></span>
-        <span aria-hidden="true">·</span>
-        <time datetime="<?= htmlspecialchars($post['date']) ?>">
-          <?= htmlspecialchars($post['date_formatted']) ?>
-        </time>
+  <!-- ============================================================
+       POST HERO
+       ============================================================ -->
+  <section class="hero hero--full post-hero" aria-label="Article header">
+    <?php if (!empty($post['image_url'])): ?>
+    <img class="hero__bg"
+         src="<?= htmlspecialchars($post['image_url']) ?>"
+         alt="" aria-hidden="true"
+         fetchpriority="high" loading="eager" decoding="async">
+    <?php else: ?>
+    <div class="hero__bg hero__bg--pattern" aria-hidden="true"></div>
+    <?php endif; ?>
+
+    <div class="hero__content">
+      <div class="container">
+        <nav class="post-breadcrumb" aria-label="Breadcrumb">
+          <a href="/blog">Journal</a>
+          <span aria-hidden="true">/</span>
+          <?php if (!empty($post['category_name'])): ?>
+          <a href="/blog?category=<?= htmlspecialchars($post['category_slug']) ?>">
+            <?= htmlspecialchars($post['category_name']) ?>
+          </a>
+          <?php endif; ?>
+        </nav>
+        <h1 class="hero__title post-hero__title"><?= htmlspecialchars($post['title']) ?></h1>
+        <div class="post-hero__meta">
+          <?php if (!empty($post['author_name'])): ?>
+          <span class="post-hero__author"><?= htmlspecialchars($post['author_name']) ?></span>
+          <span aria-hidden="true">·</span>
+          <?php endif; ?>
+          <time datetime="<?= htmlspecialchars($post['published_at']) ?>">
+            <?= htmlspecialchars($post['date_formatted']) ?>
+          </time>
+          <span aria-hidden="true">·</span>
+          <span><?= $post['reading_time'] ?> min read</span>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- POST BODY -->
+
+  <!-- ============================================================
+       POST BODY
+       ============================================================ -->
   <article class="section post-body" aria-label="Article content">
     <div class="container container--narrow">
 
@@ -67,6 +109,47 @@ include 'partials/_head.php';
         <?= $post['content'] ?>
       </div>
 
+      <!-- Share -->
+      <div class="post-share" aria-label="Share this article">
+        <span class="post-share__label">Share</span>
+        <a href="https://wa.me/?text=<?= rawurlencode($post['title'] . ' — ' . SITE_URL . '/blog/' . $post['slug']) ?>"
+           target="_blank" rel="noopener" class="share-btn share-btn--whatsapp"
+           aria-label="Share on WhatsApp">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+          </svg>
+          WhatsApp
+        </a>
+        <button class="share-btn share-btn--copy" onclick="copyLink(this)"
+                aria-label="Copy link to article">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/>
+            <path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/>
+          </svg>
+          Copy link
+        </button>
+      </div>
+
+      <!-- Author bio -->
+      <?php if (!empty($post['author_name'])): ?>
+      <div class="author-bio">
+        <div class="author-bio__avatar" aria-hidden="true">
+          <?php if (!empty($post['author_avatar'])): ?>
+          <img src="<?= htmlspecialchars($post['author_avatar']) ?>"
+               alt="<?= htmlspecialchars($post['author_name']) ?>">
+          <?php else: ?>
+          <span><?= htmlspecialchars(substr($post['author_name'], 0, 1)) ?></span>
+          <?php endif; ?>
+        </div>
+        <div class="author-bio__body">
+          <p class="author-bio__name"><?= htmlspecialchars($post['author_name']) ?></p>
+          <?php if (!empty($post['author_bio'])): ?>
+          <p class="author-bio__text"><?= htmlspecialchars($post['author_bio']) ?></p>
+          <?php endif; ?>
+        </div>
+      </div>
+      <?php endif; ?>
+
       <!-- Back link -->
       <div class="post-footer-nav">
         <a href="/blog" class="btn--text">← Back to Journal</a>
@@ -75,26 +158,43 @@ include 'partials/_head.php';
     </div>
   </article>
 
-  <!-- RELATED POSTS -->
+
+  <!-- ============================================================
+       RELATED POSTS
+       ============================================================ -->
   <?php if (!empty($related)): ?>
-  <section class="section section--sm related-posts" style="background:var(--col-surface-2);" aria-labelledby="related-heading">
+  <section class="section section--sm related-posts"
+           style="background:var(--col-surface-2);"
+           aria-labelledby="related-heading">
     <div class="container">
       <p class="eyebrow">More from the Journal</p>
-      <h2 id="related-heading" style="margin-bottom:var(--space-xl);">You might also <em>enjoy.</em></h2>
+      <h2 id="related-heading" style="margin-bottom:var(--space-xl);">
+        You might also <em>enjoy.</em>
+      </h2>
       <div class="blog-grid blog-grid--related">
         <?php foreach ($related as $i => $r): ?>
         <article class="post-card reveal" data-delay="<?= $i + 1 ?>">
-          <a href="/blog/<?= htmlspecialchars($r['slug']) ?>" class="post-card__link" aria-label="Read: <?= htmlspecialchars($r['title']) ?>">
+          <a href="/blog/<?= htmlspecialchars($r['slug']) ?>"
+             class="post-card__link"
+             aria-label="Read: <?= htmlspecialchars($r['title']) ?>">
             <div class="post-card__img-wrap">
-              <?php if (!empty($r['image'])): ?>
-              <img src="<?= htmlspecialchars($r['image']) ?>" alt="" loading="lazy">
+              <?php if (!empty($r['image_url'])): ?>
+              <img src="<?= htmlspecialchars($r['image_url']) ?>" alt="" loading="lazy">
               <?php else: ?>
               <div class="post-card__img-placeholder" aria-hidden="true"></div>
               <?php endif; ?>
-              <span class="post-card__category"><?= htmlspecialchars($r['category']) ?></span>
+              <?php if (!empty($r['category_name'])): ?>
+              <span class="post-card__category"
+                    style="background:<?= htmlspecialchars($r['category_color'] ?? '#0d1e12') ?>">
+                <?= htmlspecialchars($r['category_name']) ?>
+              </span>
+              <?php endif; ?>
             </div>
             <div class="post-card__body">
-              <time class="post-card__date" datetime="<?= htmlspecialchars($r['date']) ?>"><?= htmlspecialchars($r['date_formatted']) ?></time>
+              <time class="post-card__date"
+                    datetime="<?= htmlspecialchars($r['published_at']) ?>">
+                <?= htmlspecialchars($r['date_formatted']) ?>
+              </time>
               <h3 class="post-card__title"><?= htmlspecialchars($r['title']) ?></h3>
               <span class="post-card__read-more" aria-hidden="true">Read article →</span>
             </div>
@@ -110,5 +210,15 @@ include 'partials/_head.php';
 
 <?php include 'partials/footer.php'; ?>
 <?php include 'partials/_scripts.php'; ?>
+
+<script>
+function copyLink(btn) {
+  navigator.clipboard.writeText(window.location.href).then(() => {
+    const svg = btn.querySelector('svg').outerHTML;
+    btn.innerHTML = svg + ' Copied!';
+    setTimeout(() => { btn.innerHTML = svg + ' Copy link'; }, 2500);
+  });
+}
+</script>
 </body>
 </html>

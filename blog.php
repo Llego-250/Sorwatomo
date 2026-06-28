@@ -1,14 +1,18 @@
 <?php
-require_once 'data/posts.php';
-$data_dir = __DIR__ . '/data';
+require_once __DIR__ . '/data/blog.php';
 
-$active_cat = $_GET['category'] ?? 'all';
-$all_posts  = load_posts($data_dir);
-$categories = get_all_categories($data_dir);
+$per_page    = 9;
+$active_cat  = $_GET['category'] ?? 'all';
+$page        = max(1, (int) ($_GET['page'] ?? 1));
 
-$posts = ($active_cat === 'all')
-    ? $all_posts
-    : array_values(get_posts_by_category($active_cat, $data_dir));
+$categories  = blog_get_categories();
+$total_posts = blog_count_posts($active_cat);
+$total_pages = (int) ceil($total_posts / $per_page);
+$featured    = ($page === 1 && $active_cat === 'all') ? blog_get_featured() : null;
+
+// Skip featured post from the grid on page 1 to avoid duplication
+$grid_posts = blog_get_posts($page, $per_page + ($featured ? 1 : 0), $active_cat);
+if ($featured && $page === 1) array_shift($grid_posts);
 
 $page_title       = 'Journal — Sorwatom';
 $page_description = 'Stories from the field, recipes from the kitchen, and news from the Great Lakes region.';
@@ -23,61 +27,110 @@ include 'partials/_head.php';
 
 <main id="main-content">
 
-  <!-- HERO -->
-  <section class="hero hero--half" aria-label="Journal">
-    <img class="hero__bg" src="assets/img/slider/story-field.jpg" alt="" aria-hidden="true" fetchpriority="high" loading="eager">
-    <div class="hero__content container">
-      <p class="eyebrow eyebrow--light">The Sorwatom Journal</p>
-      <h1 class="hero__title">Stories from the <em>field.</em></h1>
-      <p class="hero__subtitle">Recipes, harvest notes, and news from the Great Lakes region.</p>
+  <!-- ============================================================
+       HERO
+       ============================================================ -->
+  <section class="hero hero--full" aria-label="Journal">
+    <div class="hero__bg hero__bg--pattern" aria-hidden="true"></div>
+    <div class="hero__content">
+      <div class="container">
+        <p class="eyebrow eyebrow--light">The Sorwatom Journal</p>
+        <h1 class="hero__title">Stories from the <em>field.</em></h1>
+        <p class="hero__subtitle">Recipes, harvest notes, and news from the Great Lakes region.</p>
+      </div>
     </div>
   </section>
 
-  <!-- FILTER + POSTS -->
+
+  <!-- ============================================================
+       FILTER + POSTS
+       ============================================================ -->
   <section class="section" aria-labelledby="blog-heading">
     <div class="container">
 
       <!-- Category filter -->
-      <div class="blog-filter" role="group" aria-label="Filter posts by category">
-        <a
-          href="/blog"
-          class="filter-pill <?= $active_cat === 'all' ? 'active' : '' ?>"
-          aria-pressed="<?= $active_cat === 'all' ? 'true' : 'false' ?>"
-        >All</a>
+      <div class="blog-filter" role="group" aria-label="Filter by category">
+        <a href="/blog" class="filter-pill <?= $active_cat === 'all' ? 'active' : '' ?>">All</a>
         <?php foreach ($categories as $cat): ?>
-        <a
-          href="/blog?category=<?= urlencode($cat) ?>"
-          class="filter-pill <?= $active_cat === $cat ? 'active' : '' ?>"
-          aria-pressed="<?= $active_cat === $cat ? 'true' : 'false' ?>"
-        ><?= htmlspecialchars($cat) ?></a>
+        <a href="/blog?category=<?= urlencode($cat['slug']) ?>"
+           class="filter-pill <?= $active_cat === $cat['slug'] ? 'active' : '' ?>">
+          <?= htmlspecialchars($cat['name']) ?>
+          <span class="filter-pill__count"><?= $cat['post_count'] ?></span>
+        </a>
         <?php endforeach; ?>
       </div>
 
-      <!-- Post grid -->
-      <?php if (empty($posts)): ?>
-      <p class="blog-empty">No posts in this category yet.</p>
-      <?php else: ?>
-      <div class="blog-grid" id="blog-grid">
-        <?php foreach ($posts as $i => $post): ?>
-        <article class="post-card reveal" data-delay="<?= ($i % 3) + 1 ?>">
-          <a href="/blog/<?= htmlspecialchars($post['slug']) ?>" class="post-card__link" aria-label="Read: <?= htmlspecialchars($post['title']) ?>">
+      <!-- Featured post (page 1, no category filter only) -->
+      <?php if ($featured): ?>
+      <a href="/blog/<?= htmlspecialchars($featured['slug']) ?>"
+         class="featured-post reveal"
+         aria-label="Featured: <?= htmlspecialchars($featured['title']) ?>">
+        <div class="featured-post__img-wrap">
+          <?php if (!empty($featured['image_url'])): ?>
+          <img src="<?= htmlspecialchars($featured['image_url']) ?>"
+               alt="" loading="eager" fetchpriority="high">
+          <?php else: ?>
+          <div class="post-card__img-placeholder" aria-hidden="true"></div>
+          <?php endif; ?>
+          <span class="featured-post__label">Latest</span>
+        </div>
+        <div class="featured-post__body">
+          <?php if (!empty($featured['category_name'])): ?>
+          <span class="post-card__category featured-post__cat"
+                style="background:<?= htmlspecialchars($featured['category_color'] ?? '#0d1e12') ?>">
+            <?= htmlspecialchars($featured['category_name']) ?>
+          </span>
+          <?php endif; ?>
+          <h2 class="featured-post__title"><?= htmlspecialchars($featured['title']) ?></h2>
+          <?php if (!empty($featured['excerpt'])): ?>
+          <p class="featured-post__excerpt"><?= htmlspecialchars($featured['excerpt']) ?></p>
+          <?php endif; ?>
+          <div class="featured-post__meta">
+            <time datetime="<?= htmlspecialchars($featured['published_at']) ?>">
+              <?= htmlspecialchars($featured['date_formatted']) ?>
+            </time>
+            <span aria-hidden="true">·</span>
+            <span><?= $featured['reading_time'] ?> min read</span>
+          </div>
+        </div>
+      </a>
+      <?php endif; ?>
 
-            <!-- Image / placeholder -->
+      <!-- Post grid -->
+      <?php if (empty($grid_posts) && !$featured): ?>
+      <p class="blog-empty">No posts in this category yet.</p>
+      <?php elseif (!empty($grid_posts)): ?>
+      <div class="blog-grid" id="blog-grid">
+        <?php foreach ($grid_posts as $i => $post): ?>
+        <article class="post-card reveal" data-delay="<?= ($i % 3) + 1 ?>">
+          <a href="/blog/<?= htmlspecialchars($post['slug']) ?>"
+             class="post-card__link"
+             aria-label="Read: <?= htmlspecialchars($post['title']) ?>">
+
             <div class="post-card__img-wrap">
-              <?php if (!empty($post['image'])): ?>
-              <img src="<?= htmlspecialchars($post['image']) ?>" alt="" loading="lazy">
+              <?php if (!empty($post['image_url'])): ?>
+              <img src="<?= htmlspecialchars($post['image_url']) ?>" alt="" loading="lazy">
               <?php else: ?>
               <div class="post-card__img-placeholder" aria-hidden="true"></div>
               <?php endif; ?>
-              <span class="post-card__category"><?= htmlspecialchars($post['category']) ?></span>
+              <?php if (!empty($post['category_name'])): ?>
+              <span class="post-card__category"
+                    style="background:<?= htmlspecialchars($post['category_color'] ?? '#0d1e12') ?>">
+                <?= htmlspecialchars($post['category_name']) ?>
+              </span>
+              <?php endif; ?>
             </div>
 
             <div class="post-card__body">
-              <time class="post-card__date" datetime="<?= htmlspecialchars($post['date']) ?>">
-                <?= htmlspecialchars($post['date_formatted']) ?>
-              </time>
+              <div class="post-card__meta">
+                <time datetime="<?= htmlspecialchars($post['published_at']) ?>">
+                  <?= htmlspecialchars($post['date_formatted']) ?>
+                </time>
+                <span class="post-card__dot" aria-hidden="true">·</span>
+                <span><?= $post['reading_time'] ?> min read</span>
+              </div>
               <h2 class="post-card__title"><?= htmlspecialchars($post['title']) ?></h2>
-              <p class="post-card__excerpt"><?= htmlspecialchars($post['excerpt']) ?></p>
+              <p class="post-card__excerpt"><?= htmlspecialchars($post['excerpt'] ?? '') ?></p>
               <span class="post-card__read-more" aria-hidden="true">Read article →</span>
             </div>
 
@@ -85,6 +138,21 @@ include 'partials/_head.php';
         </article>
         <?php endforeach; ?>
       </div>
+      <?php endif; ?>
+
+      <!-- Pagination -->
+      <?php if ($total_pages > 1): ?>
+      <nav class="pagination" aria-label="Blog pagination">
+        <?php if ($page > 1): ?>
+        <a href="/blog?<?= http_build_query(array_merge($_GET, ['page' => $page - 1])) ?>"
+           class="pagination__btn">← Prev</a>
+        <?php endif; ?>
+        <span class="pagination__info">Page <?= $page ?> of <?= $total_pages ?></span>
+        <?php if ($page < $total_pages): ?>
+        <a href="/blog?<?= http_build_query(array_merge($_GET, ['page' => $page + 1])) ?>"
+           class="pagination__btn">Next →</a>
+        <?php endif; ?>
+      </nav>
       <?php endif; ?>
 
     </div>

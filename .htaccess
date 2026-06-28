@@ -61,6 +61,9 @@ AddType image/webp .webp
 RewriteCond %{THE_REQUEST} \s/+(.+?)\.php[\s?] [NC]
 RewriteRule ^ /%1 [R=301,L,NE]
 
+# RSS feed: /feed → feed.php
+RewriteRule ^feed/?$ feed.php [L]
+
 # Blog post: /blog/slug → blog-post.php?slug=slug
 RewriteRule ^blog/([a-zA-Z0-9_-]+)/?$ blog-post.php?slug=$1 [L,QSA]
 
