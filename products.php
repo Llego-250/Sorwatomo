@@ -6,7 +6,7 @@ $body_class       = 'page-products';
 $current_page     = 'products';
 $page_js          = [];
 $hero_img         = 'collection-flatlay';
-$hero_img_mobile  = 'collection-flatlay.png';
+$hero_img_mobile  = 'collection-flatlay.webp';
 include 'partials/_head.php';
 ?>
 <body class="<?= htmlspecialchars($body_class) ?>">
@@ -20,7 +20,7 @@ include 'partials/_head.php';
        ============================================================ -->
   <section class="hero hero--full" aria-label="Page introduction">
     <picture>
-      <source media="(max-width: 767px)" srcset="/assets/img/slider/Mobile/collection-flatlay.png">
+      <source media="(max-width: 767px)" srcset="/assets/img/slider/Mobile/collection-flatlay.webp" type="image/webp">
       <img class="hero__bg"
         src="/assets/img/slider/collection-flatlay.webp"
         alt="" aria-hidden="true" fetchpriority="high" loading="eager" decoding="async">

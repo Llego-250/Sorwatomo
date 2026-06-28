@@ -5,7 +5,7 @@ $page_css         = ['pages/home.css'];
 $body_class       = 'page-home';
 $current_page     = 'home';
 $hero_img         = 'hero-tomato';
-$hero_img_mobile  = 'hero_tomato.png';
+$hero_img_mobile  = 'hero_tomato.webp';
 include 'partials/_head.php';
 ?>
 <body class="<?= $body_class ?>">
@@ -21,7 +21,7 @@ include 'partials/_head.php';
 
     <!-- Decorative hero background -->
     <picture>
-      <source media="(max-width: 767px)" srcset="/assets/img/slider/Mobile/hero_tomato.png">
+      <source media="(max-width: 767px)" srcset="/assets/img/slider/Mobile/hero_tomato.webp" type="image/webp">
       <img class="hero__bg"
         src="/assets/img/slider/hero-tomato.webp"
         alt="" aria-hidden="true" fetchpriority="high" loading="eager" decoding="async">

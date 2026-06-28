@@ -6,7 +6,7 @@ $page_js          = ['contact.js'];
 $body_class       = 'page-contact';
 $current_page     = 'contact';
 $hero_img         = 'contact-map';
-$hero_img_mobile  = 'contact-map.png';
+$hero_img_mobile  = 'contact-map.webp';
 include 'partials/_head.php';
 ?>
 
@@ -22,7 +22,7 @@ include 'partials/_head.php';
   <section class="hero hero--full" aria-label="Contact page introduction">
 
     <picture>
-      <source media="(max-width: 767px)" srcset="/assets/img/slider/Mobile/contact-map.png">
+      <source media="(max-width: 767px)" srcset="/assets/img/slider/Mobile/contact-map.webp" type="image/webp">
       <img class="hero__bg"
         src="/assets/img/slider/contact-map.webp"
         alt="" aria-hidden="true" fetchpriority="high" loading="eager" decoding="async">
