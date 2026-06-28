@@ -8,6 +8,16 @@
 
   <title><?= htmlspecialchars($page_title ?? 'Sorwatomo — Great Lakes Agribusiness') ?></title>
 
+  <!-- Hero image preloads — highest priority, before everything else -->
+  <?php if (!empty($hero_img_mobile)): $hm = htmlspecialchars($hero_img_mobile); ?>
+  <link rel="preload" as="image" fetchpriority="high" media="(max-width: 767px)"
+    href="/assets/img/slider/Mobile/<?= $hm ?>">
+  <?php endif; ?>
+  <?php if (!empty($hero_img)): $h = htmlspecialchars($hero_img); ?>
+  <link rel="preload" as="image" fetchpriority="high" media="(min-width: 768px)"
+    href="/assets/img/slider/<?= $h ?>.webp">
+  <?php endif; ?>
+
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="assets/img/favicon.png">
   <link rel="apple-touch-icon" href="assets/img/favicon.png">
@@ -28,16 +38,6 @@
   <?php foreach ($page_css ?? [] as $css): ?>
   <link rel="stylesheet" href="assets/css/<?= htmlspecialchars($css) ?>">
   <?php endforeach; ?>
-
-  <!-- Preload LCP hero image — set $hero_img (desktop webp) and optionally $hero_img_mobile (Mobile/ png filename) -->
-  <?php if (!empty($hero_img_mobile)): $hm = htmlspecialchars($hero_img_mobile); ?>
-  <link rel="preload" as="image" media="(max-width: 767px)"
-    href="/assets/img/slider/Mobile/<?= $hm ?>">
-  <?php endif; ?>
-  <?php if (!empty($hero_img)): $h = htmlspecialchars($hero_img); ?>
-  <link rel="preload" as="image" media="(min-width: 768px)"
-    href="/assets/img/slider/<?= $h ?>.webp">
-  <?php endif; ?>
 
   <script>document.documentElement.classList.remove('no-js');</script>
 </head>
