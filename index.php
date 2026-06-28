@@ -212,7 +212,7 @@ include 'partials/_head.php';
         <!-- Left: image + floating badge -->
         <div class="story-img-wrap reveal" data-delay="1">
           <img
-            src="assets/img/slider/story-field.jpg"
+            src="assets/img/slider/Mobile/collection-flatlay.png"
             alt="Great Lakes region, the home of Sorwatom"
             loading="lazy"
             width="600"
