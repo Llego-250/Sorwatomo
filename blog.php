@@ -61,7 +61,15 @@ include 'partials/_head.php';
       </div>
 
       <!-- Featured post (page 1, no category filter only) -->
-      <?php if ($featured): ?>
+      <?php if ($featured):
+        // Strip HTML from content, grab first ~320 chars as a body preview
+        $feat_preview = '';
+        if (!empty($featured['content'])) {
+            $stripped = preg_replace('/\s+/', ' ', trim(strip_tags($featured['content'])));
+            $feat_preview = mb_substr($stripped, 0, 320);
+            if (mb_strlen($stripped) > 320) $feat_preview .= '…';
+        }
+      ?>
       <a href="/blog/<?= htmlspecialchars($featured['slug']) ?>"
          class="featured-post reveal"
          aria-label="Featured: <?= htmlspecialchars($featured['title']) ?>">
@@ -82,7 +90,9 @@ include 'partials/_head.php';
           </span>
           <?php endif; ?>
           <h2 class="featured-post__title"><?= htmlspecialchars($featured['title']) ?></h2>
-          <?php if (!empty($featured['excerpt'])): ?>
+          <?php if ($feat_preview): ?>
+          <p class="featured-post__preview"><?= htmlspecialchars($feat_preview) ?></p>
+          <?php elseif (!empty($featured['excerpt'])): ?>
           <p class="featured-post__excerpt"><?= htmlspecialchars($featured['excerpt']) ?></p>
           <?php endif; ?>
           <div class="featured-post__meta">
