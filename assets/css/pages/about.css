@@ -8,6 +8,18 @@
    HERO
    ---------------------------------------------------------- */
 
+/* Stretch hero__content to fill the full hero height so the stats
+   wrapper can sit flush at the bottom via margin-top: auto */
+.page-about .hero {
+  align-items: stretch;
+}
+
+.page-about .hero__content {
+  display: flex;
+  flex-direction: column;
+  padding-top: var(--space-4xl);
+}
+
 .page-about .hero__bg {
   filter: blur(1px);
   transform: scale(1.06);
@@ -44,7 +56,6 @@
 /* Wrapper sits at the bottom of hero__content */
 .hero__stats-wrap {
   margin-top: auto;
-  padding-top: var(--space-2xl);
   width: 100%;
 }
 
