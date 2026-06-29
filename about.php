@@ -37,7 +37,7 @@ include 'partials/_head.php';
           <div class="stats-bar stats-bar--hero" role="list">
 
             <div class="stats-bar__item" role="listitem">
-              <span class="stats-bar__value" data-count="40" data-suffix="+">0</span>
+              <span class="stats-bar__value" data-count="<?= date('Y') - 1984 ?>" data-suffix="+">0</span>
               <span class="stats-bar__label">Years of Heritage</span>
             </div>
 
