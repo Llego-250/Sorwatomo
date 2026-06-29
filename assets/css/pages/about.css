@@ -37,12 +37,38 @@
 
 
 /* ----------------------------------------------------------
-   STATS BAR — no changes needed; component covers it.
-   Override only the value colour on this page so the
-   amber pops against the warm surface.
+   STATS BAR — pinned to the bottom of the hero section.
+   All colours flip to work on the dark green background.
    ---------------------------------------------------------- */
-.page-about .stats-bar__value {
-  color: var(--col-ground);
+
+/* Wrapper sits at the bottom of hero__content */
+.hero__stats-wrap {
+  margin-top: auto;
+  padding-top: var(--space-2xl);
+  width: 100%;
+}
+
+/* Dark-mode colour overrides for stats inside hero */
+.stats-bar--hero {
+  border-top-color:    rgba(255, 255, 255, 0.15);
+  border-bottom-color: rgba(255, 255, 255, 0.15);
+}
+
+.stats-bar--hero .stats-bar__item {
+  border-right-color: rgba(255, 255, 255, 0.15);
+}
+
+.stats-bar--hero .stats-bar__item:nth-child(3),
+.stats-bar--hero .stats-bar__item:nth-child(4) {
+  border-top-color: rgba(255, 255, 255, 0.15);
+}
+
+.stats-bar--hero .stats-bar__value {
+  color: var(--col-accent);
+}
+
+.stats-bar--hero .stats-bar__label {
+  color: rgba(255, 255, 255, 0.60);
 }
 
 

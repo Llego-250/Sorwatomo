@@ -140,39 +140,7 @@ include 'partials/_head.php';
 
 
   <!-- ============================================================
-       SECTION 3 — Stats Bar (counts up from zero on scroll)
-       ============================================================ -->
-  <section class="section--sm" aria-label="Key figures">
-    <div class="container">
-      <div class="stats-bar" role="list">
-
-        <div class="stats-bar__item" role="listitem">
-          <span class="stats-bar__value" data-count="40" data-suffix="+">0</span>
-          <span class="stats-bar__label">Years of Heritage</span>
-        </div>
-
-        <div class="stats-bar__item" role="listitem">
-          <span class="stats-bar__value" data-count="3" data-suffix="">0</span>
-          <span class="stats-bar__label">Countries Served</span>
-        </div>
-
-        <div class="stats-bar__item" role="listitem">
-          <span class="stats-bar__value" data-count="100" data-suffix="%">0</span>
-          <span class="stats-bar__label">Natural Ingredients</span>
-        </div>
-
-        <div class="stats-bar__item" role="listitem">
-          <span class="stats-bar__value" data-count="28" data-suffix="–30%">0</span>
-          <span class="stats-bar__label">Paste Concentration</span>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-
-  <!-- ============================================================
-       SECTION 4 — Brand Statement
+       SECTION 3 — Brand Statement
        ============================================================ -->
   <section class="section brand-statement-section" aria-label="Brand statement">
     <div class="container--narrow brand-statement-inner">
