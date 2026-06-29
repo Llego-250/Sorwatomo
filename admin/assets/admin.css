@@ -50,7 +50,7 @@ body {
   letter-spacing: .03em;
 }
 
-.admin-brand img { filter: brightness(0) invert(1); height: 28px; }
+.admin-brand img { height: 28px; }
 
 .admin-nav {
   display: flex;
@@ -404,7 +404,6 @@ textarea { resize: vertical; }
 .login-logo {
   height: 40px;
   margin-bottom: 1.5rem;
-  filter: brightness(0);
 }
 
 .login-card h1 { font-size: 1.2rem; margin-bottom: 1.5rem; font-weight: 600; }
