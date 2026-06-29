@@ -235,12 +235,25 @@
 }
 
 .story-text .btn--text {
-  margin-top: var(--space-md);
   color: var(--col-accent);
   font-weight: 500;
   letter-spacing: 0.06em;
   text-transform: uppercase;
   font-size: var(--step--1);
+}
+
+/* Two-button row: "Partner With Us" + "Meet Our Team →" */
+.about-cta-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-md);
+  align-items: center;
+  margin-top: var(--space-lg);
+}
+
+.btn--text-accent {
+  color: var(--col-accent);
+  font-weight: 600;
 }
 
 /* Badge region pills */
