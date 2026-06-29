@@ -282,6 +282,68 @@
 
 
 /* ----------------------------------------------------------
+   TEAM SECTION
+   ---------------------------------------------------------- */
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-lg);
+  margin-top: var(--space-xl);
+}
+
+@media (max-width: 900px) {
+  .team-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 560px) {
+  .team-grid { grid-template-columns: 1fr; }
+}
+
+.team-card {
+  background: var(--col-surface);
+  border: 1px solid var(--col-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-xl) var(--space-lg);
+  position: relative;
+  overflow: hidden;
+}
+
+.team-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: var(--col-accent);
+}
+
+.team-card__role {
+  display: block;
+  font-size: var(--step--1);
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--col-accent);
+  margin-bottom: var(--space-xs);
+}
+
+.team-card__name {
+  font-family: var(--font-display);
+  font-size: var(--step-2);
+  font-weight: 400;
+  color: var(--col-text);
+  margin: 0 0 var(--space-md);
+  line-height: 1.2;
+}
+
+.team-card__bio {
+  font-size: var(--step--1);
+  color: var(--col-text-muted);
+  line-height: 1.75;
+  margin: 0;
+}
+
+
+/* ----------------------------------------------------------
    RESPONSIVE — mobile adjustments
    ---------------------------------------------------------- */
 @media (max-width: 768px) {
