@@ -14,7 +14,7 @@ include 'partials/_head.php';
 <main id="main-content">
 
   <!-- ============================================================
-       SECTION 1 — Hero
+       SECTION 1 — Hero + Stats
        ============================================================ -->
   <section class="hero hero--full" aria-label="Page introduction">
     <div class="hero__bg hero__bg--pattern" aria-hidden="true"></div>
@@ -29,6 +29,35 @@ include 'partials/_head.php';
           From a single processing line to a regional powerhouse — this is the story
           of science, precision, and the people who make it possible.
         </p>
+      </div>
+
+      <!-- Stats bar anchored at the bottom of the hero -->
+      <div class="hero__stats-wrap" aria-label="Key figures">
+        <div class="container">
+          <div class="stats-bar stats-bar--hero" role="list">
+
+            <div class="stats-bar__item" role="listitem">
+              <span class="stats-bar__value" data-count="40" data-suffix="+">0</span>
+              <span class="stats-bar__label">Years of Heritage</span>
+            </div>
+
+            <div class="stats-bar__item" role="listitem">
+              <span class="stats-bar__value" data-count="3" data-suffix="">0</span>
+              <span class="stats-bar__label">Countries Served</span>
+            </div>
+
+            <div class="stats-bar__item" role="listitem">
+              <span class="stats-bar__value" data-count="100" data-suffix="%">0</span>
+              <span class="stats-bar__label">Natural Ingredients</span>
+            </div>
+
+            <div class="stats-bar__item" role="listitem">
+              <span class="stats-bar__value" data-count="28" data-suffix="–30%">0</span>
+              <span class="stats-bar__label">Paste Concentration</span>
+            </div>
+
+          </div>
+        </div>
       </div>
     </div>
   </section>
