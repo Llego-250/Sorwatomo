@@ -342,15 +342,6 @@ include 'partials/_head.php';
     </div>
 </section>
 
-<!-- CTA -->
-<section class="cta-block">
-    <div class="container">
-        <h2>Ready to stock Sorwatom products?</h2>
-        <p>Get in touch with our sales team for pricing, bulk orders, and distribution enquiries.</p>
-        <a href="/contact" class="btn-primary-green">Get in Touch &rarr;</a>
-    </div>
-</section>
-
 <?php include 'partials/footer.php'; ?>
 
 <?php include 'partials/_scripts.php'; ?>
