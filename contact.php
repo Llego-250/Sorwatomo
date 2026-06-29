@@ -68,15 +68,6 @@ include 'partials/_head.php';
           <p class="eyebrow eyebrow--accent">INQUIRY FORM</p>
           <h2 id="contact-form-heading">Send us a message</h2>
 
-          <!-- Inquiry type pills -->
-          <div class="inquiry-pills" role="group" aria-label="Select inquiry type">
-            <button class="inquiry-pill active" type="button" data-type="distribution">Distribution</button>
-            <button class="inquiry-pill" type="button" data-type="wholesale">Wholesale &amp; Export</button>
-            <button class="inquiry-pill" type="button" data-type="media">Media &amp; Press</button>
-            <button class="inquiry-pill" type="button" data-type="careers">Careers</button>
-            <button class="inquiry-pill" type="button" data-type="general">General Inquiry</button>
-          </div>
-
           <form id="contact-form" novalidate>
 
             <input type="hidden" name="inquiry_type" id="inquiry_type" value="distribution">
@@ -182,7 +173,7 @@ include 'partials/_head.php';
             <p class="office-card__number">+250 787 160 000</p>
             <div class="office-card__detail">
               <a href="mailto:info@sorwatom.com">info@sorwatom.com</a><br>
-              Kigali Special Economic Zone, Rwanda<br>
+              Kigali, Ndera - Mulindi<br>
               <span>MON–FRI &middot; 8:00–17:00</span>
             </div>
           </article>
@@ -196,7 +187,6 @@ include 'partials/_head.php';
             <p class="office-card__number">+257 76 779 999</p>
             <div class="office-card__detail">
               <a href="mailto:info@sorwatom.com">info@sorwatom.com</a><br>
-              Quartier Industriel, Bujumbura<br>
               <span>MON–FRI &middot; 8:00–17:00</span>
             </div>
           </article>
@@ -210,7 +200,6 @@ include 'partials/_head.php';
             <p class="office-card__number">+243 999 906 50</p>
             <div class="office-card__detail">
               <a href="mailto:info@sorwatom.com">info@sorwatom.com</a><br>
-              Avenue de l'Industrie, Goma<br>
               <span>MON–FRI &middot; 8:00–17:00</span>
             </div>
           </article>
