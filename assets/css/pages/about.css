@@ -291,13 +291,8 @@
 
 
 /* ----------------------------------------------------------
-   STATS BAR — responsive already handled in components.css;
-   add a small top accent line unique to this page.
+   STATS BAR — responsive already handled in components.css
    ---------------------------------------------------------- */
-.page-about .stats-bar {
-  border-top: 3px solid var(--col-accent);
-}
-
 .page-about .stats-bar__value em {
   font-style: normal;
   color: var(--col-accent);
