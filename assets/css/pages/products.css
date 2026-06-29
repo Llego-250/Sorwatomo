@@ -36,37 +36,6 @@
 }
 
 
-/* ----------------------------------------------------------
-   PROCESS STRIP — products page variant
-   Keeps the global .process-strip grid but adds a subtle
-   tinted background to distinguish it from plain white.
-   ---------------------------------------------------------- */
-.page-products .process-strip {
-  background: var(--col-surface-2);
-  border-radius: var(--radius-md);
-  border: 1px solid var(--col-border);
-  overflow: hidden;
-}
-
-.page-products .process-strip__item {
-  padding: var(--space-lg) var(--space-lg);
-}
-
-.page-products .process-strip__label {
-  letter-spacing: 0.16em;
-  color: var(--col-accent);
-}
-
-.page-products .process-strip__text {
-  font-size: var(--step-1);
-  color: var(--col-text);
-}
-
-@media (max-width: 640px) {
-  .page-products .process-strip {
-    border-radius: var(--radius-sm);
-  }
-}
 
 
 /* ----------------------------------------------------------

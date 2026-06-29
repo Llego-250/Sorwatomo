@@ -571,63 +571,6 @@
 }
 
 
-/* ============================================================
-   PROCESS STRIP
-   Three-column landmark strip, light dividers.
-   ============================================================ */
-
-.process-strip {
-  display: grid;
-  grid-template-columns: 1fr;
-  border-top: 1px solid var(--col-border);
-  border-bottom: 1px solid var(--col-border);
-}
-
-@media (min-width: 640px) {
-  .process-strip {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-
-.process-strip__item {
-  padding: var(--space-md);
-  text-align: center;
-  border-bottom: 1px solid var(--col-border);
-}
-
-.process-strip__item:last-child {
-  border-bottom: none;
-}
-
-@media (min-width: 640px) {
-  .process-strip__item {
-    padding: var(--space-lg) var(--space-md);
-    border-right: 1px solid var(--col-border);
-    border-bottom: none;
-  }
-
-  .process-strip__item:last-child {
-    border-right: none;
-  }
-}
-
-.process-strip__label {
-  font-family: var(--font-body);
-  font-size: var(--step--1);
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  font-weight: 500;
-  color: var(--col-text-muted);
-  display: block;
-  margin-bottom: var(--space-xs);
-}
-
-.process-strip__text {
-  font-family: var(--font-display);
-  font-size: var(--step-2);
-  color: var(--col-text);
-  line-height: 1.2;
-}
 
 
 

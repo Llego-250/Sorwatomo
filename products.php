@@ -36,42 +36,13 @@ include 'partials/_head.php';
 
 
   <!-- ============================================================
-       SECTION 2 — PROCESS STRIP
-       ============================================================ -->
-  <section class="section--sm" aria-label="Our process">
-    <div class="container">
-      <div class="process-strip" role="list">
-
-        <div class="process-strip__item" role="listitem">
-          <span class="process-strip__label">Sourced</span>
-          <p class="process-strip__text">From smallholder partner farms</p>
-        </div>
-
-        <div class="process-strip__item" role="listitem">
-          <span class="process-strip__label">Processed</span>
-          <p class="process-strip__text">On Italian state-of-the-art lines</p>
-        </div>
-
-        <div class="process-strip__item" role="listitem">
-          <span class="process-strip__label">Packed</span>
-          <p class="process-strip__text">In four-layer protective film &amp; glass</p>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-
-  <!-- ============================================================
-       SECTION 3 — FILTER + PRODUCT GRID
+       SECTION 2 — FILTER + PRODUCT GRID
        ============================================================ -->
   <section class="section" id="collection" aria-labelledby="collection-heading">
     <div class="container">
 
       <!-- Filter + label row -->
       <div class="products-filter-row">
-        <p class="section-heading" id="collection-heading" aria-hidden="true">Six products</p>
-
         <div class="filter-pills" role="group" aria-label="Filter products by category">
           <button class="filter-pill active" data-filter="all" aria-pressed="true">All</button>
           <button class="filter-pill" data-filter="paste" aria-pressed="false">Paste</button>
