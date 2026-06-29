@@ -1,5 +1,6 @@
+<?php require_once __DIR__ . '/_lang.php'; ?>
 <!doctype html>
-<html lang="en" class="no-js">
+<html lang="<?= htmlspecialchars($LANG_CODE) ?>" class="no-js">
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">

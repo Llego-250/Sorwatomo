@@ -9,44 +9,100 @@ $hero_img         = 'contact-map';
 $hero_img_mobile  = 'contact-map.webp';
 include 'partials/_head.php';
 ?>
-
 <body class="<?= htmlspecialchars($body_class) ?>">
 
 <?php include 'partials/nav.php'; ?>
 
 <main id="main-content">
 
-  <!-- ============================================================
-       SECTION 1 — HERO
-       ============================================================ -->
+  <!-- SECTION 1 — HERO -->
   <section class="hero hero--full" aria-label="Contact page introduction">
-
     <picture>
       <source media="(max-width: 767px)" srcset="/assets/img/slider/Mobile/contact-map.webp" type="image/webp">
-      <img class="hero__bg"
-        src="/assets/img/slider/contact-map.webp"
-        alt="" aria-hidden="true" fetchpriority="high" loading="eager" decoding="async">
+      <img class="hero__bg" src="/assets/img/slider/contact-map.webp" alt="" aria-hidden="true" fetchpriority="high" loading="eager" decoding="async">
     </picture>
-
     <div class="hero__content">
       <div class="container">
-
-        <p class="eyebrow eyebrow--light reveal" data-delay="1">GET IN TOUCH</p>
-
-        <h1 class="hero__title reveal" data-delay="2">
-          Let's start a <em>conversation.</em>
-        </h1>
-
-        <p class="hero__subtitle reveal" data-delay="3">
-          Distribution, export, or partnership — our team across Rwanda, Burundi
-          and the DRC is ready to help your business succeed.
-        </p>
-
-        <!-- Country flags row -->
+        <p class="eyebrow eyebrow--light reveal" data-delay="1"><?= __t('contact.hero.eyebrow') ?></p>
+        <h1 class="hero__title reveal" data-delay="2"><?= __r('contact.hero.title') ?></h1>
+        <p class="hero__subtitle reveal" data-delay="3"><?= __t('contact.hero.subtitle') ?></p>
         <div class="cluster reveal" data-delay="4" aria-label="Countries we operate in">
           <span class="country-flag">🇷🇼 <span>Rwanda</span></span>
           <span class="country-flag">🇧🇮 <span>Burundi</span></span>
           <span class="country-flag">🇨🇩 <span>DRC</span></span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- SECTION 2 — FORM + OFFICES -->
+  <section class="section" aria-labelledby="contact-form-heading">
+    <div class="container">
+      <div class="contact-grid">
+
+        <div class="form-card reveal">
+          <p class="eyebrow eyebrow--accent"><?= __t('contact.form.eyebrow') ?></p>
+          <h2 id="contact-form-heading"><?= __t('contact.form.heading') ?></h2>
+          <form id="contact-form" novalidate>
+            <input type="hidden" name="inquiry_type" id="inquiry_type" value="distribution">
+            <div class="form-grid">
+              <div class="form-field">
+                <label for="name"><?= __t('contact.form.name') ?> <span aria-hidden="true">*</span></label>
+                <input type="text" id="name" name="name" required autocomplete="name" placeholder="<?= __t('contact.form.placeholder.name') ?>">
+              </div>
+              <div class="form-field">
+                <label for="company"><?= __t('contact.form.company') ?> <span class="label-optional"><?= __t('contact.form.optional') ?></span></label>
+                <input type="text" id="company" name="company" autocomplete="organization" placeholder="<?= __t('contact.form.placeholder.company') ?>">
+              </div>
+              <div class="form-field">
+                <label for="email"><?= __t('contact.form.email') ?> <span aria-hidden="true">*</span></label>
+                <input type="email" id="email" name="email" required autocomplete="email" placeholder="<?= __t('contact.form.placeholder.email') ?>">
+              </div>
+              <div class="form-field">
+                <label for="mobile"><?= __t('contact.form.mobile') ?></label>
+                <input type="tel" id="mobile" name="mobile" autocomplete="tel" placeholder="<?= __t('contact.form.placeholder.mobile') ?>">
+              </div>
+              <div class="form-field form-field--full">
+                <label for="message"><?= __t('contact.form.message') ?> <span aria-hidden="true">*</span></label>
+                <textarea id="message" name="message" required rows="5" placeholder="<?= __t('contact.form.placeholder.message') ?>"></textarea>
+              </div>
+            </div>
+            <div class="form-feedback" id="form-feedback" role="alert" aria-live="polite"></div>
+            <button type="submit" class="btn btn--primary" id="form-submit">
+              <span class="btn-label"><?= __t('contact.form.submit') ?></span>
+              <span class="btn-arrow" aria-hidden="true">→</span>
+            </button>
+          </form>
+        </div>
+
+        <div class="offices-col reveal" data-delay="1">
+          <p class="eyebrow"><?= __t('contact.offices.eyebrow') ?></p>
+          <article class="office-card office-card--hq" aria-label="Rwanda headquarters">
+            <div class="office-card__country"><span class="office-card__flag" aria-hidden="true">🇷🇼</span><?= __t('contact.offices.rw') ?></div>
+            <p class="office-card__number">+250 787 160 000</p>
+            <div class="office-card__detail">
+              <a href="mailto:info@sorwatom.com">info@sorwatom.com</a><br>
+              Kigali, Ndera - Mulindi<br>
+              <span><?= __t('contact.offices.hours') ?></span>
+            </div>
+          </article>
+          <article class="office-card" aria-label="Burundi office">
+            <div class="office-card__country"><span class="office-card__flag" aria-hidden="true">🇧🇮</span><?= __t('contact.offices.bi') ?></div>
+            <p class="office-card__number">+257 76 779 999</p>
+            <div class="office-card__detail">
+              <a href="mailto:info@sorwatom.com">info@sorwatom.com</a><br>
+              <span><?= __t('contact.offices.hours') ?></span>
+            </div>
+          </article>
+          <article class="office-card" aria-label="DRC office">
+            <div class="office-card__country"><span class="office-card__flag" aria-hidden="true">🇨🇩</span><?= __t('contact.offices.cd') ?></div>
+            <p class="office-card__number">+243 999 906 50</p>
+            <div class="office-card__detail">
+              <a href="mailto:info@sorwatom.com">info@sorwatom.com</a><br>
+              <span><?= __t('contact.offices.hours') ?></span>
+            </div>
+          </article>
         </div>
 
       </div>
@@ -54,300 +110,34 @@ include 'partials/_head.php';
   </section>
 
 
-  <!-- ============================================================
-       SECTION 2 — FORM + OFFICES
-       ============================================================ -->
-  <section class="section" aria-labelledby="contact-form-heading">
-    <div class="container">
-
-      <div class="contact-grid">
-
-        <!-- ---- LEFT: Contact Form ---- -->
-        <div class="form-card reveal">
-
-          <p class="eyebrow eyebrow--accent">INQUIRY FORM</p>
-          <h2 id="contact-form-heading">Send us a message</h2>
-
-          <form id="contact-form" novalidate>
-
-            <input type="hidden" name="inquiry_type" id="inquiry_type" value="distribution">
-
-            <div class="form-grid">
-
-              <div class="form-field">
-                <label for="name">
-                  Full Name <span aria-hidden="true">*</span>
-                </label>
-                <input
-                  type="text"
-                  id="name"
-                  name="name"
-                  required
-                  autocomplete="name"
-                  placeholder="Your full name"
-                >
-              </div>
-
-              <div class="form-field">
-                <label for="company">
-                  Company <span class="label-optional">(optional)</span>
-                </label>
-                <input
-                  type="text"
-                  id="company"
-                  name="company"
-                  autocomplete="organization"
-                  placeholder="Company name"
-                >
-              </div>
-
-              <div class="form-field">
-                <label for="email">
-                  Email <span aria-hidden="true">*</span>
-                </label>
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  required
-                  autocomplete="email"
-                  placeholder="your@email.com"
-                >
-              </div>
-
-              <div class="form-field">
-                <label for="mobile">Mobile</label>
-                <input
-                  type="tel"
-                  id="mobile"
-                  name="mobile"
-                  autocomplete="tel"
-                  placeholder="+250 7xx xxx xxx"
-                >
-              </div>
-
-              <div class="form-field form-field--full">
-                <label for="message">
-                  Message <span aria-hidden="true">*</span>
-                </label>
-                <textarea
-                  id="message"
-                  name="message"
-                  required
-                  rows="5"
-                  placeholder="Tell us about your inquiry…"
-                ></textarea>
-              </div>
-
-            </div><!-- /.form-grid -->
-
-            <!-- Feedback message — populated by contact.js -->
-            <div
-              class="form-feedback"
-              id="form-feedback"
-              role="alert"
-              aria-live="polite"
-            ></div>
-
-            <button type="submit" class="btn btn--primary" id="form-submit">
-              <span class="btn-label">Send Message</span>
-              <span class="btn-arrow" aria-hidden="true">→</span>
-            </button>
-
-          </form>
-
-        </div><!-- /.form-card -->
-
-
-        <!-- ---- RIGHT: Regional Offices ---- -->
-        <div class="offices-col reveal" data-delay="1">
-
-          <p class="eyebrow">REGIONAL OFFICES</p>
-
-          <!-- Rwanda HQ -->
-          <article class="office-card office-card--hq" aria-label="Rwanda headquarters">
-            <div class="office-card__country">
-              <span class="office-card__flag" aria-hidden="true">🇷🇼</span>
-              RWANDA &middot; HQ
-            </div>
-            <p class="office-card__number">+250 787 160 000</p>
-            <div class="office-card__detail">
-              <a href="mailto:info@sorwatom.com">info@sorwatom.com</a><br>
-              Kigali, Ndera - Mulindi<br>
-              <span>MON–FRI &middot; 8:00–17:00</span>
-            </div>
-          </article>
-
-          <!-- Burundi -->
-          <article class="office-card" aria-label="Burundi office">
-            <div class="office-card__country">
-              <span class="office-card__flag" aria-hidden="true">🇧🇮</span>
-              BURUNDI
-            </div>
-            <p class="office-card__number">+257 76 779 999</p>
-            <div class="office-card__detail">
-              <a href="mailto:info@sorwatom.com">info@sorwatom.com</a><br>
-              <span>MON–FRI &middot; 8:00–17:00</span>
-            </div>
-          </article>
-
-          <!-- DRC -->
-          <article class="office-card" aria-label="DRC office">
-            <div class="office-card__country">
-              <span class="office-card__flag" aria-hidden="true">🇨🇩</span>
-              DRC
-            </div>
-            <p class="office-card__number">+243 999 906 50</p>
-            <div class="office-card__detail">
-              <a href="mailto:info@sorwatom.com">info@sorwatom.com</a><br>
-              <span>MON–FRI &middot; 8:00–17:00</span>
-            </div>
-          </article>
-
-        </div><!-- /.offices-col -->
-
-      </div><!-- /.contact-grid -->
-
-    </div><!-- /.container -->
-  </section>
-
-
-  <!-- ============================================================
-       SECTION 3 — FAQ
-       Dark green background, two-column layout.
-       ============================================================ -->
+  <!-- SECTION 3 — FAQ -->
   <section class="section section--faq on-dark" aria-labelledby="faq-heading">
     <div class="container">
-
       <div class="faq-grid">
-
-        <!-- Left: prompt copy -->
         <div class="faq-prompt reveal">
-          <p class="eyebrow eyebrow--light">QUICK ANSWERS</p>
-          <h2 id="faq-heading">
-            Before you write, you might be<br>
-            looking for&hellip;
-          </h2>
+          <p class="eyebrow eyebrow--light"><?= __t('contact.faq.eyebrow') ?></p>
+          <h2 id="faq-heading"><?= __r('contact.faq.heading') ?></h2>
         </div>
-
-        <!-- Right: accordion -->
         <div class="accordion reveal" data-delay="1" role="list">
-
-          <!-- Q1 -->
+          <?php foreach (['q1','q2','q3','q4'] as $i => $q): $n = $i+1; ?>
           <div class="accordion__item" role="listitem">
-            <button
-              class="accordion__trigger"
-              type="button"
-              aria-expanded="false"
-              aria-controls="faq-body-1"
-              id="faq-trigger-1"
-            >
-              Where can I buy Sorwatom?
+            <button class="accordion__trigger" type="button" aria-expanded="false" aria-controls="faq-body-<?= $n ?>" id="faq-trigger-<?= $n ?>">
+              <?= __t('contact.faq.'.$q.'.q') ?>
               <span class="accordion__icon" aria-hidden="true">+</span>
             </button>
-            <div
-              class="accordion__body"
-              id="faq-body-1"
-              role="region"
-              aria-labelledby="faq-trigger-1"
-            >
-              <div class="accordion__content">
-                Sorwatom products are available in supermarkets, grocery stores, and
-                distributors across Rwanda, Burundi, and the DRC. Contact us to find
-                your nearest stockist.
-              </div>
+            <div class="accordion__body" id="faq-body-<?= $n ?>" role="region" aria-labelledby="faq-trigger-<?= $n ?>">
+              <div class="accordion__content"><?= __t('contact.faq.'.$q.'.a') ?></div>
             </div>
           </div>
-
-          <!-- Q2 -->
-          <div class="accordion__item" role="listitem">
-            <button
-              class="accordion__trigger"
-              type="button"
-              aria-expanded="false"
-              aria-controls="faq-body-2"
-              id="faq-trigger-2"
-            >
-              Do you ship internationally?
-              <span class="accordion__icon" aria-hidden="true">+</span>
-            </button>
-            <div
-              class="accordion__body"
-              id="faq-body-2"
-              role="region"
-              aria-labelledby="faq-trigger-2"
-            >
-              <div class="accordion__content">
-                Yes. We supply distributors across sub-Saharan Africa and accept
-                international export orders with a minimum quantity. Contact our sales
-                team for export pricing.
-              </div>
-            </div>
-          </div>
-
-          <!-- Q3 -->
-          <div class="accordion__item" role="listitem">
-            <button
-              class="accordion__trigger"
-              type="button"
-              aria-expanded="false"
-              aria-controls="faq-body-3"
-              id="faq-trigger-3"
-            >
-              Are products certified?
-              <span class="accordion__icon" aria-hidden="true">+</span>
-            </button>
-            <div
-              class="accordion__body"
-              id="faq-body-3"
-              role="region"
-              aria-labelledby="faq-trigger-3"
-            >
-              <div class="accordion__content">
-                All Sorwatom products meet international food safety standards. We are
-                ISO certified and comply with East African Community (EAC) food standards.
-              </div>
-            </div>
-          </div>
-
-          <!-- Q4 -->
-          <div class="accordion__item" role="listitem">
-            <button
-              class="accordion__trigger"
-              type="button"
-              aria-expanded="false"
-              aria-controls="faq-body-4"
-              id="faq-trigger-4"
-            >
-              Private label / co-pack?
-              <span class="accordion__icon" aria-hidden="true">+</span>
-            </button>
-            <div
-              class="accordion__body"
-              id="faq-body-4"
-              role="region"
-              aria-labelledby="faq-trigger-4"
-            >
-              <div class="accordion__content">
-                Yes, we offer private label and co-packing services for retail and
-                food-service clients. Custom packaging in our standard sachet, tin, and
-                bottle formats. Minimum orders apply.
-              </div>
-            </div>
-          </div>
-
-        </div><!-- /.accordion -->
-
-      </div><!-- /.faq-grid -->
-
-    </div><!-- /.container -->
+          <?php endforeach; ?>
+        </div>
+      </div>
+    </div>
   </section>
 
-</main><!-- /#main-content -->
-
+</main>
 
 <?php include 'partials/footer.php'; ?>
-
 <?php include 'partials/_scripts.php'; ?>
 
 </body>

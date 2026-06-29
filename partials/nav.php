@@ -14,19 +14,19 @@
       <nav aria-label="Main navigation">
         <ul class="nav-links" id="nav-links" role="list">
           <li>
-            <a href="/"<?= ($current_page ?? '') === 'home' ? ' aria-current="page"' : '' ?>>Home</a>
+            <a href="/"<?= ($current_page ?? '') === 'home' ? ' aria-current="page"' : '' ?>><?= __t('nav.home') ?></a>
           </li>
           <li>
-            <a href="/products"<?= ($current_page ?? '') === 'products' ? ' aria-current="page"' : '' ?>>Collection</a>
+            <a href="/products"<?= ($current_page ?? '') === 'products' ? ' aria-current="page"' : '' ?>><?= __t('nav.collection') ?></a>
           </li>
           <li>
-            <a href="/about"<?= ($current_page ?? '') === 'about' ? ' aria-current="page"' : '' ?>>Our Story</a>
+            <a href="/about"<?= ($current_page ?? '') === 'about' ? ' aria-current="page"' : '' ?>><?= __t('nav.story') ?></a>
           </li>
           <li>
-            <a href="/blog"<?= ($current_page ?? '') === 'blog' ? ' aria-current="page"' : '' ?>>Journal</a>
+            <a href="/blog"<?= ($current_page ?? '') === 'blog' ? ' aria-current="page"' : '' ?>><?= __t('nav.journal') ?></a>
           </li>
           <li>
-            <a href="/contact" class="nav-cta"<?= ($current_page ?? '') === 'contact' ? ' aria-current="page"' : '' ?>>Contact</a>
+            <a href="/contact" class="nav-cta"<?= ($current_page ?? '') === 'contact' ? ' aria-current="page"' : '' ?>><?= __t('nav.contact') ?></a>
           </li>
         </ul>
       </nav>
@@ -35,7 +35,7 @@
       <button
         class="nav-toggle"
         id="nav-toggle"
-        aria-label="Open menu"
+        aria-label="<?= __t('nav.open_menu') ?>"
         aria-expanded="false"
         aria-controls="mobile-nav"
         type="button"
@@ -49,136 +49,43 @@
   </div>
 </header>
 
-<!-- ─────────────────────────────────────────────────────────
-     Mobile full-screen overlay — placed OUTSIDE <header> so
-     it lives in the root stacking context and can properly
-     cover the entire viewport at z-index 9999.
-───────────────────────────────────────────────────────── -->
 <div class="mobile-nav" id="mobile-nav" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Main navigation">
-  <button class="mobile-nav__close" id="mobile-nav-close" aria-label="Close menu" type="button">
+  <button class="mobile-nav__close" id="mobile-nav-close" aria-label="<?= __t('nav.close_menu') ?>" type="button">
     <span></span>
     <span></span>
   </button>
   <ul role="list">
     <li>
-      <a href="/"<?= ($current_page ?? '') === 'home' ? ' aria-current="page"' : '' ?>>Home</a>
+      <a href="/"<?= ($current_page ?? '') === 'home' ? ' aria-current="page"' : '' ?>><?= __t('nav.home') ?></a>
     </li>
     <li>
-      <a href="/products"<?= ($current_page ?? '') === 'products' ? ' aria-current="page"' : '' ?>>Collection</a>
+      <a href="/products"<?= ($current_page ?? '') === 'products' ? ' aria-current="page"' : '' ?>><?= __t('nav.collection') ?></a>
     </li>
     <li>
-      <a href="/about"<?= ($current_page ?? '') === 'about' ? ' aria-current="page"' : '' ?>>Our Story</a>
+      <a href="/about"<?= ($current_page ?? '') === 'about' ? ' aria-current="page"' : '' ?>><?= __t('nav.story') ?></a>
     </li>
     <li>
-      <a href="/blog"<?= ($current_page ?? '') === 'blog' ? ' aria-current="page"' : '' ?>>Journal</a>
+      <a href="/blog"<?= ($current_page ?? '') === 'blog' ? ' aria-current="page"' : '' ?>><?= __t('nav.journal') ?></a>
     </li>
     <li>
-      <a href="/contact"<?= ($current_page ?? '') === 'contact' ? ' aria-current="page"' : '' ?>>Contact</a>
+      <a href="/contact"<?= ($current_page ?? '') === 'contact' ? ' aria-current="page"' : '' ?>><?= __t('nav.contact') ?></a>
     </li>
   </ul>
 </div>
 
 <style>
-/* -------------------------------------------------------
-   NAV LOGO
-------------------------------------------------------- */
-.nav-logo {
-  display: flex;
-  align-items: center;
-  text-decoration: none;
-  flex-shrink: 0;
-}
-
-.nav-logo__img {
-  height: 44px;
-  width: auto;
-  object-fit: contain;
-  display: block;
-}
-
-/* -------------------------------------------------------
-   MOBILE OVERLAY — root stacking context, z-index 9999
-------------------------------------------------------- */
-.mobile-nav {
-  position: fixed;
-  inset: 0;
-  background: var(--col-ground, #0d1e12);
-  z-index: 9999;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  opacity: 0;
-  visibility: hidden;
-  pointer-events: none;
-  transition: opacity 0.28s ease, visibility 0s linear 0.28s;
-}
-
-.mobile-nav.is-open {
-  opacity: 1;
-  visibility: visible;
-  pointer-events: auto;
-  transition: opacity 0.28s ease, visibility 0s linear 0s;
-}
-
-/* Close button (×) */
-.mobile-nav__close {
-  position: absolute;
-  top: 18px;
-  right: 18px;
-  width: 44px;
-  height: 44px;
-  background: none;
-  border: none;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0;
-  touch-action: manipulation;
-}
-
-.mobile-nav__close span {
-  position: absolute;
-  width: 22px;
-  height: 2px;
-  background: rgba(255, 255, 255, 0.85);
-  border-radius: 2px;
-}
-
-.mobile-nav__close span:first-child { transform: rotate(45deg); }
-.mobile-nav__close span:last-child  { transform: rotate(-45deg); }
-
-/* Nav links inside overlay */
-.mobile-nav ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: var(--space-lg, 2rem);
-}
-
-.mobile-nav a {
-  font-family: var(--font-display, serif);
-  font-size: clamp(1.75rem, 8vw, 2.5rem);
-  color: white;
-  text-decoration: none;
-  opacity: 0.85;
-  transition: opacity 0.15s, color 0.15s;
-  letter-spacing: -0.01em;
-}
-
-.mobile-nav a:hover,
-.mobile-nav a[aria-current="page"] {
-  opacity: 1;
-  color: var(--col-accent, #c8923a);
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .mobile-nav { transition: none; }
-}
+.nav-logo { display:flex; align-items:center; text-decoration:none; flex-shrink:0; }
+.nav-logo__img { height:44px; width:auto; object-fit:contain; display:block; }
+.mobile-nav { position:fixed; inset:0; background:var(--col-ground,#0d1e12); z-index:9999; display:flex; flex-direction:column; justify-content:center; align-items:center; opacity:0; visibility:hidden; pointer-events:none; transition:opacity .28s ease,visibility 0s linear .28s; }
+.mobile-nav.is-open { opacity:1; visibility:visible; pointer-events:auto; transition:opacity .28s ease,visibility 0s linear 0s; }
+.mobile-nav__close { position:absolute; top:18px; right:18px; width:44px; height:44px; background:none; border:none; cursor:pointer; display:flex; align-items:center; justify-content:center; padding:0; touch-action:manipulation; }
+.mobile-nav__close span { position:absolute; width:22px; height:2px; background:rgba(255,255,255,.85); border-radius:2px; }
+.mobile-nav__close span:first-child { transform:rotate(45deg); }
+.mobile-nav__close span:last-child  { transform:rotate(-45deg); }
+.mobile-nav ul { list-style:none; margin:0; padding:0; display:flex; flex-direction:column; align-items:center; gap:var(--space-lg,2rem); }
+.mobile-nav a { font-family:var(--font-display,serif); font-size:clamp(1.75rem,8vw,2.5rem); color:white; text-decoration:none; opacity:.85; transition:opacity .15s,color .15s; letter-spacing:-.01em; }
+.mobile-nav a:hover, .mobile-nav a[aria-current="page"] { opacity:1; color:var(--col-accent,#c8923a); }
+@media (prefers-reduced-motion:reduce) { .mobile-nav { transition:none; } }
 </style>
 
 <script>
@@ -187,53 +94,17 @@ document.addEventListener('DOMContentLoaded', function () {
   var toggle   = document.getElementById('nav-toggle');
   var overlay  = document.getElementById('mobile-nav');
   var closeBtn = document.getElementById('mobile-nav-close');
-
   if (!toggle || !overlay) return;
-
-  /* ── Scroll: darken header after 60px ── */
   if (header) {
-    function onScroll() {
-      header.classList.toggle('scrolled', window.scrollY > 60);
-    }
+    function onScroll() { header.classList.toggle('scrolled', window.scrollY > 60); }
     window.addEventListener('scroll', onScroll, { passive: true });
     onScroll();
   }
-
-  /* ── Open ── */
-  function openMenu() {
-    overlay.classList.add('is-open');
-    overlay.setAttribute('aria-hidden', 'false');
-    toggle.setAttribute('aria-expanded', 'true');
-    toggle.setAttribute('aria-label', 'Close menu');
-    document.body.style.overflow = 'hidden';
-  }
-
-  /* ── Close ── */
-  function closeMenu() {
-    toggle.focus();
-    overlay.classList.remove('is-open');
-    overlay.setAttribute('aria-hidden', 'true');
-    toggle.setAttribute('aria-expanded', 'false');
-    toggle.setAttribute('aria-label', 'Open menu');
-    document.body.style.overflow = '';
-  }
-
-  /* Hamburger tap */
-  toggle.addEventListener('click', function () {
-    overlay.classList.contains('is-open') ? closeMenu() : openMenu();
-  });
-
-  /* × button inside overlay */
+  function openMenu()  { overlay.classList.add('is-open'); overlay.setAttribute('aria-hidden','false'); toggle.setAttribute('aria-expanded','true');  document.body.style.overflow='hidden'; }
+  function closeMenu() { toggle.focus(); overlay.classList.remove('is-open'); overlay.setAttribute('aria-hidden','true'); toggle.setAttribute('aria-expanded','false'); document.body.style.overflow=''; }
+  toggle.addEventListener('click', function () { overlay.classList.contains('is-open') ? closeMenu() : openMenu(); });
   if (closeBtn) closeBtn.addEventListener('click', closeMenu);
-
-  /* Tap a nav link → close */
-  overlay.querySelectorAll('a').forEach(function (a) {
-    a.addEventListener('click', closeMenu);
-  });
-
-  /* Escape key → close */
-  document.addEventListener('keydown', function (e) {
-    if (e.key === 'Escape') closeMenu();
-  });
+  overlay.querySelectorAll('a').forEach(function (a) { a.addEventListener('click', closeMenu); });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeMenu(); });
 });
 </script>
