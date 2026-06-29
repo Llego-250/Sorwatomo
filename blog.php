@@ -124,15 +124,15 @@ include 'partials/_head.php';
               <?php else: ?>
               <div class="post-card__img-placeholder" aria-hidden="true"></div>
               <?php endif; ?>
+            </div>
+
+            <div class="post-card__body">
               <?php if (!empty($post['category_name'])): ?>
               <span class="post-card__category"
                     style="background:<?= htmlspecialchars($post['category_color'] ?? '#0d1e12') ?>">
                 <?= htmlspecialchars($post['category_name']) ?>
               </span>
               <?php endif; ?>
-            </div>
-
-            <div class="post-card__body">
               <div class="post-card__meta">
                 <time datetime="<?= htmlspecialchars($post['published_at']) ?>">
                   <?= htmlspecialchars($post['date_formatted']) ?>
