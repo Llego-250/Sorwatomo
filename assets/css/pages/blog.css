@@ -61,14 +61,15 @@
   border-radius: var(--radius-lg);
   overflow: hidden;
   aspect-ratio: 16 / 9;
-  box-shadow: 0 12px 40px rgba(0,0,0,.12);
+  box-shadow: 0 8px 32px rgba(0,0,0,.1);
 }
 
-@media (min-width: 800px) {
+@media (min-width: 900px) {
   .post-featured-img {
-    margin-left: -3rem;
-    margin-right: -3rem;
+    margin-left: -2rem;
+    margin-right: -2rem;
     border-radius: var(--radius-xl);
+    aspect-ratio: 2 / 1;
   }
 }
 
@@ -77,7 +78,6 @@
   height: 100%;
   object-fit: cover;
   display: block;
-  transition: transform var(--dur-slow) var(--ease-out);
 }
 
 
@@ -110,38 +110,42 @@
 
 
 /* ----------------------------------------------------------
-   FEATURED POST — full-width hero card
+   FEATURED POST — editorial card, proportional on all screens
    ---------------------------------------------------------- */
 .featured-post {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 5fr 4fr;
   border-radius: var(--radius-lg);
   overflow: hidden;
   background: var(--col-ground);
   color: white;
   text-decoration: none;
   margin-bottom: var(--space-2xl);
-  min-height: 440px;
   transition: transform var(--dur-base) var(--ease-out),
               box-shadow  var(--dur-base) var(--ease-out);
 }
 
 .featured-post:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 20px 56px rgba(0,0,0,.18);
+  transform: translateY(-3px);
+  box-shadow: 0 16px 48px rgba(0,0,0,.18);
 }
 
 @media (max-width: 768px) {
   .featured-post {
     grid-template-columns: 1fr;
-    min-height: auto;
   }
 }
 
 .featured-post__img-wrap {
   position: relative;
   overflow: hidden;
-  min-height: 280px;
+  aspect-ratio: 4 / 3;
+}
+
+@media (max-width: 768px) {
+  .featured-post__img-wrap {
+    aspect-ratio: 16 / 9;
+  }
 }
 
 .featured-post__img-wrap img {
@@ -158,8 +162,8 @@
 
 .featured-post__label {
   position: absolute;
-  top: 16px;
-  left: 16px;
+  top: 14px;
+  left: 14px;
   background: var(--col-accent);
   color: white;
   font-size: 10px;
@@ -171,16 +175,16 @@
 }
 
 .featured-post__body {
-  padding: var(--space-2xl) var(--space-xl);
+  padding: var(--space-xl) var(--space-lg);
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
+  justify-content: center;
   gap: var(--space-sm);
 }
 
 @media (max-width: 768px) {
   .featured-post__body {
-    padding: var(--space-lg) var(--space-md);
+    padding: var(--space-md);
   }
 }
 
@@ -192,15 +196,15 @@
 
 .featured-post__title {
   font-family: var(--font-display);
-  font-size: var(--step-3);
+  font-size: var(--step-2);
   font-weight: 400;
-  line-height: 1.15;
+  line-height: 1.2;
   color: white;
 }
 
 .featured-post__excerpt {
-  color: rgba(255,255,255,.7);
-  font-size: var(--step-0);
+  color: rgba(255,255,255,.65);
+  font-size: var(--step--1);
   line-height: 1.65;
   display: -webkit-box;
   -webkit-line-clamp: 3;
@@ -213,7 +217,7 @@
   align-items: center;
   gap: var(--space-xs);
   font-size: var(--step--1);
-  color: rgba(255,255,255,.55);
+  color: rgba(255,255,255,.45);
   margin-top: var(--space-xs);
 }
 
@@ -446,6 +450,15 @@
    SINGLE POST — CONTENT TYPOGRAPHY
    ---------------------------------------------------------- */
 .post-tags {
+  margin-bottom: var(--space-lg);
+}
+
+/* First paragraph after the featured image gets a larger lead-in size */
+.post-content > p:first-child {
+  font-size: var(--step-1);
+  line-height: 1.75;
+  color: var(--col-text);
+  font-weight: 300;
   margin-bottom: var(--space-lg);
 }
 

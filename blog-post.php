@@ -99,7 +99,7 @@ if (!empty($post['image_url'])) $json_ld['image'] = $post['image_url'];
   <!-- ============================================================
        POST BODY
        ============================================================ -->
-  <article class="section post-body" aria-label="Article content">
+  <article class="section post-body" aria-label="Article content" style="background:white;border-top:1px solid var(--col-border);">
     <div class="container container--narrow">
 
       <!-- Featured image -->
