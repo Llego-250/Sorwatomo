@@ -68,8 +68,8 @@
     <div class="footer-bottom">
       <p>&copy; 2026 SORWATOMO AGRIBUSINESS. ALL RIGHTS RESERVED.</p>
       <nav class="footer-social" aria-label="Social and legal links">
-        <a href="#" rel="noopener noreferrer" aria-label="Sorwatomo on Instagram">INSTAGRAM</a>
-        <a href="#" rel="noopener noreferrer" aria-label="Sorwatomo on LinkedIn">LINKEDIN</a>
+        <a href="https://www.instagram.com/sorwatom_rw/" rel="noopener noreferrer" aria-label="Sorwatomo on Instagram">INSTAGRAM</a>
+        <a href="https://www.linkedin.com/in/sorwatom-ltd-6b2a48177/" rel="noopener noreferrer" aria-label="Sorwatomo on LinkedIn">LINKEDIN</a>
         <a href="#">PRIVACY</a>
       </nav>
     </div>
