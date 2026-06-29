@@ -207,7 +207,43 @@ include 'partials/_head.php';
 
 
   <!-- ============================================================
-       SECTION 6 — Product Promise
+       SECTION 6 — Team
+       ============================================================ -->
+  <section class="section team-section" aria-labelledby="team-heading">
+    <div class="container">
+
+      <header class="section-header reveal">
+        <span class="eyebrow">The People Behind It</span>
+        <h2 id="team-heading">Leadership &amp; <em>Ownership.</em></h2>
+      </header>
+
+      <div class="team-grid">
+
+        <article class="team-card reveal" data-delay="1">
+          <span class="team-card__role">Shareholder</span>
+          <h3 class="team-card__name">Dillux SA</h3>
+          <p class="team-card__bio">A Mauritius-based private equity company founded in May 2009, with a focus on East and Central Africa. Dillux invests in high-growth industries that have a strong track record of profitability or strong prospects for future growth.</p>
+        </article>
+
+        <article class="team-card reveal" data-delay="2">
+          <span class="team-card__role">Chairman</span>
+          <h3 class="team-card__name">James Kibera</h3>
+          <p class="team-card__bio">Started his career with Citibank Kenya as a Trainee Manager in 1992 and became a full manager within two years. Responsible for bank asset and liability strategy, credit structuring, and foreign exchange management across agriculture, industry, and services sectors.</p>
+        </article>
+
+        <article class="team-card reveal" data-delay="3">
+          <span class="team-card__role">Managing Director</span>
+          <h3 class="team-card__name">Vip Kumar</h3>
+          <p class="team-card__bio">Over 25 years of professional leadership and management expertise at multinational, corporate, SME, and developmental levels across Sub-Saharan Africa.</p>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       SECTION 7 — Product Promise
        story-grid reversed: text left, images right on desktop
        ============================================================ -->
   <section class="section" aria-labelledby="promise-heading">
