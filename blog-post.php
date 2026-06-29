@@ -49,36 +49,22 @@ if (!empty($post['image_url'])) $json_ld['image'] = $post['image_url'];
 <main id="main-content">
 
   <!-- ============================================================
-       POST HERO — clean pattern background, no photo
+       POST HERO
        ============================================================ -->
-  <section class="hero hero--full post-hero" aria-label="Article header">
+  <section class="hero post-hero" aria-label="Article header">
     <div class="hero__bg hero__bg--pattern" aria-hidden="true"></div>
 
     <div class="hero__content">
       <div class="container">
-        <nav class="post-breadcrumb" aria-label="Breadcrumb">
-          <a href="/blog">Journal</a>
-          <span aria-hidden="true">/</span>
-          <?php if (!empty($post['category_name'])): ?>
-          <a href="/blog?category=<?= htmlspecialchars($post['category_slug']) ?>">
-            <?= htmlspecialchars($post['category_name']) ?>
-          </a>
-          <span aria-hidden="true">/</span>
-          <?php endif; ?>
-        </nav>
 
         <?php if (!empty($post['category_name'])): ?>
-        <span class="post-hero__cat badge badge--accent"
-              style="background:<?= htmlspecialchars($post['category_color'] ?? '#c8923a') ?>;margin-bottom:var(--space-sm);display:inline-block;">
+        <span class="post-hero__cat"
+              style="background:<?= htmlspecialchars($post['category_color'] ?? '#c8923a') ?>">
           <?= htmlspecialchars($post['category_name']) ?>
         </span>
         <?php endif; ?>
 
-        <h1 class="hero__title post-hero__title"><?= htmlspecialchars($post['title']) ?></h1>
-
-        <?php if (!empty($post['excerpt'])): ?>
-        <p class="post-hero__excerpt"><?= htmlspecialchars($post['excerpt']) ?></p>
-        <?php endif; ?>
+        <h1 class="post-hero__title"><?= htmlspecialchars($post['title']) ?></h1>
 
         <div class="post-hero__meta">
           <?php if (!empty($post['author_name'])): ?>
@@ -88,9 +74,8 @@ if (!empty($post['image_url'])) $json_ld['image'] = $post['image_url'];
           <time datetime="<?= htmlspecialchars($post['published_at']) ?>">
             <?= htmlspecialchars($post['date_formatted']) ?>
           </time>
-          <span class="post-hero__sep" aria-hidden="true">·</span>
-          <span><?= $post['reading_time'] ?> min read</span>
         </div>
+
       </div>
     </div>
   </section>
