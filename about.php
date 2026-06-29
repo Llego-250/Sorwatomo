@@ -294,13 +294,13 @@ include 'partials/_head.php';
         <div class="story-img-wrap">
           <div class="story-double-img">
             <img
-              src="assets/img/slider/story-field.jpg"
+              src="assets/img/slider/Mobile/collection-flatlay.png"
               alt="Great Lakes region, home of Sorwatom production"
               class="story-double-img__primary"
               loading="lazy"
             >
             <img
-              src="assets/img/slider/hero-tomato.jpg"
+              src="assets/img/slider/Mobile/hero_tomato.png"
               alt="Fresh tomatoes used in Sorwatom products"
               class="story-double-img__secondary"
               loading="lazy"
