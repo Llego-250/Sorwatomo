@@ -60,25 +60,25 @@
 }
 
 /* Dark-mode colour overrides for stats inside hero */
-.stats-bar--hero {
+.page-about .stats-bar--hero {
   border-top-color:    rgba(255, 255, 255, 0.15);
   border-bottom-color: rgba(255, 255, 255, 0.15);
 }
 
-.stats-bar--hero .stats-bar__item {
+.page-about .stats-bar--hero .stats-bar__item {
   border-right-color: rgba(255, 255, 255, 0.15);
 }
 
-.stats-bar--hero .stats-bar__item:nth-child(3),
-.stats-bar--hero .stats-bar__item:nth-child(4) {
+.page-about .stats-bar--hero .stats-bar__item:nth-child(3),
+.page-about .stats-bar--hero .stats-bar__item:nth-child(4) {
   border-top-color: rgba(255, 255, 255, 0.15);
 }
 
-.stats-bar--hero .stats-bar__value {
+.page-about .stats-bar--hero .stats-bar__value {
   color: var(--col-accent);
 }
 
-.stats-bar--hero .stats-bar__label {
+.page-about .stats-bar--hero .stats-bar__label {
   color: rgba(255, 255, 255, 0.60);
 }
 
