@@ -40,28 +40,6 @@
         </address>
       </div>
 
-      <!-- Col 4: Newsletter -->
-      <div class="footer-col footer-newsletter">
-        <h4>Stay Close</h4>
-        <p class="footer-newsletter__intro">
-          New products, brand updates, and exclusive launches — delivered to your inbox.
-        </p>
-        <form action="#" method="post" novalidate aria-label="Newsletter signup">
-          <div class="footer-newsletter__row">
-            <label for="footer-email" class="sr-only">Email address</label>
-            <input
-              type="email"
-              id="footer-email"
-              name="email"
-              placeholder="Your email address"
-              autocomplete="email"
-              required
-            >
-            <button type="submit">JOIN</button>
-          </div>
-        </form>
-      </div>
-
     </div><!-- /.footer-grid -->
 
     <!-- Bottom bar -->
