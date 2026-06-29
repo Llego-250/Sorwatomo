@@ -34,9 +34,9 @@ include 'partials/_head.php';
     <div class="hero__bg hero__bg--pattern" aria-hidden="true"></div>
     <div class="hero__content">
       <div class="container">
-        <p class="eyebrow eyebrow--light">The Sorwatom Journal</p>
-        <h1 class="hero__title">Stories from the <em>field.</em></h1>
-        <p class="hero__subtitle">Recipes, harvest notes, and news from the Great Lakes region.</p>
+        <p class="eyebrow eyebrow--light"><?= __t('blog.hero.eyebrow') ?></p>
+        <h1 class="hero__title"><?= __r('blog.hero.title') ?></h1>
+        <p class="hero__subtitle"><?= __t('blog.hero.subtitle') ?></p>
       </div>
     </div>
   </section>
@@ -50,7 +50,7 @@ include 'partials/_head.php';
 
       <!-- Category filter -->
       <div class="blog-filter" role="group" aria-label="Filter by category">
-        <a href="/blog" class="filter-pill <?= $active_cat === 'all' ? 'active' : '' ?>">All</a>
+        <a href="/blog" class="filter-pill <?= $active_cat === 'all' ? 'active' : '' ?>"><?= __t('blog.filter.all') ?></a>
         <?php foreach ($categories as $cat): ?>
         <a href="/blog?category=<?= urlencode($cat['slug']) ?>"
            class="filter-pill <?= $active_cat === $cat['slug'] ? 'active' : '' ?>">
@@ -80,7 +80,7 @@ include 'partials/_head.php';
           <?php else: ?>
           <div class="post-card__img-placeholder" aria-hidden="true"></div>
           <?php endif; ?>
-          <span class="featured-post__label">Latest</span>
+          <span class="featured-post__label"><?= __t('blog.featured.label') ?></span>
         </div>
         <div class="featured-post__body">
           <?php if (!empty($featured['category_name'])): ?>
@@ -100,16 +100,16 @@ include 'partials/_head.php';
               <?= htmlspecialchars($featured['date_formatted']) ?>
             </time>
             <span aria-hidden="true">·</span>
-            <span><?= $featured['reading_time'] ?> min read</span>
+            <span><?= $featured['reading_time'] ?> <?= __t('blog.card.min_read') ?></span>
           </div>
-          <span class="featured-post__read-more">Read article →</span>
+          <span class="featured-post__read-more"><?= __t('blog.featured.read_more') ?></span>
         </div>
       </a>
       <?php endif; ?>
 
       <!-- Post grid -->
       <?php if (empty($grid_posts) && !$featured): ?>
-      <p class="blog-empty">No posts in this category yet.</p>
+      <p class="blog-empty"><?= __t('blog.empty') ?></p>
       <?php elseif (!empty($grid_posts)): ?>
       <div class="blog-grid" id="blog-grid">
         <?php foreach ($grid_posts as $i => $post): ?>
@@ -138,11 +138,11 @@ include 'partials/_head.php';
                   <?= htmlspecialchars($post['date_formatted']) ?>
                 </time>
                 <span class="post-card__dot" aria-hidden="true">·</span>
-                <span><?= $post['reading_time'] ?> min read</span>
+                <span><?= $post['reading_time'] ?> <?= __t('blog.card.min_read') ?></span>
               </div>
               <h2 class="post-card__title"><?= htmlspecialchars($post['title']) ?></h2>
               <p class="post-card__excerpt"><?= htmlspecialchars($post['excerpt'] ?? '') ?></p>
-              <span class="post-card__read-more" aria-hidden="true">Read article →</span>
+              <span class="post-card__read-more" aria-hidden="true"><?= __t('blog.card.read_more') ?></span>
             </div>
 
           </a>
@@ -156,12 +156,12 @@ include 'partials/_head.php';
       <nav class="pagination" aria-label="Blog pagination">
         <?php if ($page > 1): ?>
         <a href="/blog?<?= http_build_query(array_merge($_GET, ['page' => $page - 1])) ?>"
-           class="pagination__btn">← Prev</a>
+           class="pagination__btn"><?= __t('blog.pagination.prev') ?></a>
         <?php endif; ?>
-        <span class="pagination__info">Page <?= $page ?> of <?= $total_pages ?></span>
+        <span class="pagination__info"><?= __t('blog.pagination.info', ['page' => $page, 'total' => $total_pages]) ?></span>
         <?php if ($page < $total_pages): ?>
         <a href="/blog?<?= http_build_query(array_merge($_GET, ['page' => $page + 1])) ?>"
-           class="pagination__btn">Next →</a>
+           class="pagination__btn"><?= __t('blog.pagination.next') ?></a>
         <?php endif; ?>
       </nav>
       <?php endif; ?>

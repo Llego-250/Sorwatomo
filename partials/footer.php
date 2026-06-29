@@ -50,7 +50,7 @@
         <div class="lang-switcher" role="group" aria-label="<?= __t('footer.lang_label') ?>">
           <?php
           global $LANG_CODE, $LANG;
-          $langs = ['en' => 'EN', 'fr' => 'FR', 'sw' => 'SW', 'rw' => 'RW'];
+          $langs = ['en' => 'EN', 'fr' => 'FR', 'sw' => 'SW'];
           foreach ($langs as $code => $label):
           ?>
           <a

@@ -242,8 +242,8 @@ include 'partials/_head.php';
 <section class="hero hero--half product-hero" aria-label="Tomato Paste">
     <img class="hero__bg" src="assets/img/slider/collection-flatlay.jpg" alt="" aria-hidden="true" fetchpriority="high" loading="eager">
     <div class="hero__content container">
-        <span class="eyebrow eyebrow--light">PASTA &middot; DOUBLE CONCENTRATED</span>
-        <h1 class="hero__title">Sorwatom <em>Tomato Paste</em></h1>
+        <span class="eyebrow eyebrow--light"><?= __t('pd.tomato.hero_eyebrow') ?></span>
+        <h1 class="hero__title"><?= __r('pd.tomato.hero_title') ?></h1>
     </div>
 </section>
 
@@ -265,33 +265,33 @@ include 'partials/_head.php';
                 <div class="product-thumb-strip">
                     <div class="product-thumb active" data-img="assets/img/products/tomatoes_paste_50g.png" data-alt="Sorwatom Tomato Paste 50g Sachet" onclick="switchImg(this)">
                         <img src="assets/img/products/tomatoes_paste_50g.png" alt="50g Sachet" loading="lazy" decoding="async">
-                        <span>50g Sachet</span>
+                        <span><?= __t('pd.tomato.thumb1') ?></span>
                     </div>
                     <div class="product-thumb" data-img="assets/img/products/tomatoes_paste_70g.png" data-alt="Sorwatom Tomato Paste 70g Sachet" onclick="switchImg(this)">
                         <img src="assets/img/products/tomatoes_paste_70g.png" alt="70g Sachet" loading="lazy" decoding="async">
-                        <span>70g Sachet</span>
+                        <span><?= __t('pd.tomato.thumb2') ?></span>
                     </div>
                     <div class="product-thumb" data-img="assets/img/products/tomatoes_paste_800g.png" data-alt="Sorwatom Tomato Paste 800g Tin" onclick="switchImg(this)">
                         <img src="assets/img/products/tomatoes_paste_800g.png" alt="800g Tin" loading="lazy" decoding="async">
-                        <span>800g Tin</span>
+                        <span><?= __t('pd.tomato.thumb3') ?></span>
                     </div>
                 </div>
             </div>
 
             <!-- Info Column -->
             <div class="product-detail__info">
-                <span class="badge">Pasta &middot; Double Concentrated</span>
-                <h2 class="product-detail__title">SORWATOM Double Concentrated Tomato Paste</h2>
-                <p class="product-detail__desc">Made from sun-ripened Great Lakes tomatoes, our double-concentrated paste brings bold colour and vibrant taste to any dish. Free from artificial additives &mdash; just pure tomato, crafted to an Italian specification.</p>
+                <span class="badge"><?= __t('pd.tomato.badge') ?></span>
+                <h2 class="product-detail__title"><?= __t('pd.tomato.title') ?></h2>
+                <p class="product-detail__desc"><?= __t('pd.tomato.desc') ?></p>
                 <ul class="product-features">
-                    <li><span class="feat-check">&#10003;</span> 100% Natural</li>
-                    <li><span class="feat-check">&#10003;</span> No Preservatives</li>
-                    <li><span class="feat-check">&#10003;</span> Double Concentrated (28&ndash;30%)</li>
-                    <li><span class="feat-check">&#10003;</span> ISO Certified</li>
+                    <li><span class="feat-check">&#10003;</span> <?= __t('pd.tomato.f1') ?></li>
+                    <li><span class="feat-check">&#10003;</span> <?= __t('pd.tomato.f2') ?></li>
+                    <li><span class="feat-check">&#10003;</span> <?= __t('pd.tomato.f3') ?></li>
+                    <li><span class="feat-check">&#10003;</span> <?= __t('pd.tomato.f4') ?></li>
                 </ul>
                 <div class="product-detail__actions">
-                    <a href="/contact?inquiry=tomato-paste" class="btn-primary-green">Request a Quote &rarr;</a>
-                    <a href="/products" class="btn-outline-dark">View All Products</a>
+                    <a href="/contact?inquiry=tomato-paste" class="btn-primary-green"><?= __t('pd.req_quote') ?></a>
+                    <a href="/products" class="btn-outline-dark"><?= __t('pd.view_all') ?></a>
                 </div>
             </div>
 
@@ -302,7 +302,7 @@ include 'partials/_head.php';
 <!-- Related Products -->
 <section class="related-section">
     <div class="container">
-        <p class="section-eyebrow">YOU MIGHT ALSO LIKE</p>
+        <p class="section-eyebrow"><?= __t('pd.related_eyebrow') ?></p>
         <div class="related-grid">
 
             <a href="/product-ketchup" class="related-card">
@@ -310,9 +310,9 @@ include 'partials/_head.php';
                     <img src="assets/img/products/ketchup.png" alt="Sorwatom Heirloom Ketchup" loading="lazy" decoding="async">
                 </div>
                 <div class="related-card__body">
-                    <span class="related-card__label">Condiments &middot; Glass Bottle</span>
-                    <p class="related-card__name">Heirloom Ketchup</p>
-                    <span class="related-card__link">View Product &rarr;</span>
+                    <span class="related-card__label"><?= __t('pd.rel.ketchup_label') ?></span>
+                    <p class="related-card__name"><?= __t('pd.rel.ketchup_name') ?></p>
+                    <span class="related-card__link"><?= __t('pd.view_product') ?></span>
                 </div>
             </a>
 
@@ -321,9 +321,9 @@ include 'partials/_head.php';
                     <img src="assets/img/products/masala.png" alt="Sorwatom Pilau Masala" loading="lazy" decoding="async">
                 </div>
                 <div class="related-card__body">
-                    <span class="related-card__label">Spices &middot; Hand-Ground Heritage Blend</span>
-                    <p class="related-card__name">Pilau Masala</p>
-                    <span class="related-card__link">View Product &rarr;</span>
+                    <span class="related-card__label"><?= __t('pd.rel.masala_label') ?></span>
+                    <p class="related-card__name"><?= __t('pd.rel.masala_name') ?></p>
+                    <span class="related-card__link"><?= __t('pd.view_product') ?></span>
                 </div>
             </a>
 
@@ -332,9 +332,9 @@ include 'partials/_head.php';
                     <img src="assets/img/products/vinegar.png" alt="Sorwatom Pure Vinegar" loading="lazy" decoding="async">
                 </div>
                 <div class="related-card__body">
-                    <span class="related-card__label">Condiments &middot; Glass Bottle</span>
-                    <p class="related-card__name">Pure Vinegar</p>
-                    <span class="related-card__link">View Product &rarr;</span>
+                    <span class="related-card__label"><?= __t('pd.rel.vinegar_label') ?></span>
+                    <p class="related-card__name"><?= __t('pd.rel.vinegar_name') ?></p>
+                    <span class="related-card__link"><?= __t('pd.view_product') ?></span>
                 </div>
             </a>
 

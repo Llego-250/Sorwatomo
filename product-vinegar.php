@@ -210,8 +210,8 @@ include 'partials/_head.php';
 <section class="hero hero--half product-hero" aria-label="Pure Vinegar">
     <img class="hero__bg" src="assets/img/slider/collection-flatlay.jpg" alt="" aria-hidden="true" fetchpriority="high" loading="eager">
     <div class="hero__content container">
-        <span class="eyebrow eyebrow--light">CONDIMENTS &middot; GLASS BOTTLE</span>
-        <h1 class="hero__title">Pure <em>Vinegar</em></h1>
+        <span class="eyebrow eyebrow--light"><?= __t('pd.vinegar.hero_eyebrow') ?></span>
+        <h1 class="hero__title"><?= __r('pd.vinegar.hero_title') ?></h1>
     </div>
 </section>
 
@@ -233,18 +233,18 @@ include 'partials/_head.php';
 
             <!-- Info Column -->
             <div class="product-detail__info">
-                <span class="badge">Condiments &middot; Glass Bottle</span>
-                <h2 class="product-detail__title">SORWATOM Pure White Vinegar</h2>
-                <p class="product-detail__desc">Made with the highest quality ingredients, our white vinegar can be used directly on salads, applied to any dressing of your choice, or used as a natural preservative. Distilled to a precise acidity for consistent results.</p>
+                <span class="badge"><?= __t('pd.vinegar.badge') ?></span>
+                <h2 class="product-detail__title"><?= __t('pd.vinegar.title') ?></h2>
+                <p class="product-detail__desc"><?= __t('pd.vinegar.desc') ?></p>
                 <ul class="product-features">
-                    <li><span class="feat-check">&#10003;</span> Distilled from natural ingredients</li>
-                    <li><span class="feat-check">&#10003;</span> Consistent 5% acidity</li>
-                    <li><span class="feat-check">&#10003;</span> Glass bottle</li>
-                    <li><span class="feat-check">&#10003;</span> Versatile use</li>
+                    <li><span class="feat-check">&#10003;</span> <?= __t('pd.vinegar.f1') ?></li>
+                    <li><span class="feat-check">&#10003;</span> <?= __t('pd.vinegar.f2') ?></li>
+                    <li><span class="feat-check">&#10003;</span> <?= __t('pd.vinegar.f3') ?></li>
+                    <li><span class="feat-check">&#10003;</span> <?= __t('pd.vinegar.f4') ?></li>
                 </ul>
                 <div class="product-detail__actions">
-                    <a href="/contact?inquiry=vinegar" class="btn-primary-green">Request a Quote &rarr;</a>
-                    <a href="/products" class="btn-outline-dark">View All Products</a>
+                    <a href="/contact?inquiry=vinegar" class="btn-primary-green"><?= __t('pd.req_quote') ?></a>
+                    <a href="/products" class="btn-outline-dark"><?= __t('pd.view_all') ?></a>
                 </div>
             </div>
 
@@ -255,7 +255,7 @@ include 'partials/_head.php';
 <!-- Related Products -->
 <section class="related-section">
     <div class="container">
-        <p class="section-eyebrow">YOU MIGHT ALSO LIKE</p>
+        <p class="section-eyebrow"><?= __t('pd.related_eyebrow') ?></p>
         <div class="related-grid">
 
             <a href="/product-tomato-paste" class="related-card">
@@ -263,9 +263,9 @@ include 'partials/_head.php';
                     <img src="assets/img/products/tomatoes_paste_70g.png" alt="Sorwatom Tomato Paste" loading="lazy" decoding="async">
                 </div>
                 <div class="related-card__body">
-                    <span class="related-card__label">Pasta &middot; Double Concentrated</span>
-                    <p class="related-card__name">Tomato Paste</p>
-                    <span class="related-card__link">View Product &rarr;</span>
+                    <span class="related-card__label"><?= __t('pd.rel.tomato_label') ?></span>
+                    <p class="related-card__name"><?= __t('pd.rel.tomato_name') ?></p>
+                    <span class="related-card__link"><?= __t('pd.view_product') ?></span>
                 </div>
             </a>
 
@@ -274,9 +274,9 @@ include 'partials/_head.php';
                     <img src="assets/img/products/ketchup.png" alt="Sorwatom Heirloom Ketchup" loading="lazy" decoding="async">
                 </div>
                 <div class="related-card__body">
-                    <span class="related-card__label">Condiments &middot; Glass Bottle</span>
-                    <p class="related-card__name">Heirloom Ketchup</p>
-                    <span class="related-card__link">View Product &rarr;</span>
+                    <span class="related-card__label"><?= __t('pd.rel.ketchup_label') ?></span>
+                    <p class="related-card__name"><?= __t('pd.rel.ketchup_name') ?></p>
+                    <span class="related-card__link"><?= __t('pd.view_product') ?></span>
                 </div>
             </a>
 
@@ -285,9 +285,9 @@ include 'partials/_head.php';
                     <img src="assets/img/products/masala.png" alt="Sorwatom Pilau Masala" loading="lazy" decoding="async">
                 </div>
                 <div class="related-card__body">
-                    <span class="related-card__label">Spices &middot; Hand-Ground Heritage Blend</span>
-                    <p class="related-card__name">Pilau Masala</p>
-                    <span class="related-card__link">View Product &rarr;</span>
+                    <span class="related-card__label"><?= __t('pd.rel.masala_label') ?></span>
+                    <p class="related-card__name"><?= __t('pd.rel.masala_name') ?></p>
+                    <span class="related-card__link"><?= __t('pd.view_product') ?></span>
                 </div>
             </a>
 
