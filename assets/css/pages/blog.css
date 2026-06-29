@@ -334,9 +334,8 @@
 }
 
 .post-card__category {
-  position: absolute;
-  bottom: 12px;
-  left: 12px;
+  display: inline-block;
+  align-self: flex-start;
   background: var(--col-ground);
   color: white;
   font-family: var(--font-body);
