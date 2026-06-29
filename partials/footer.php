@@ -30,7 +30,7 @@
       <div class="footer-col footer-hq">
         <h4>Headquarters</h4>
         <address class="footer-address">
-          <p>Kigali Special Economic Zone<br>Kigali, Rwanda</p>
+          <p>Ndera - Murindi<br>Kigali, Rwanda</p>
           <p>
             <a href="tel:+250787160000">(+250) 787 160 000</a>
           </p>
