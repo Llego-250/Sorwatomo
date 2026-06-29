@@ -70,6 +70,8 @@
       <nav class="footer-social" aria-label="Social and legal links">
         <a href="https://www.instagram.com/sorwatom_rw/" rel="noopener noreferrer" aria-label="Sorwatomo on Instagram">INSTAGRAM</a>
         <a href="https://www.linkedin.com/in/sorwatom-ltd-6b2a48177/" rel="noopener noreferrer" aria-label="Sorwatomo on LinkedIn">LINKEDIN</a>
+        <a href="https://www.facebook.com/SORWATOM/" rel="noopener noreferrer" aria-label="Sorwatomo on Facebook">FACEBOOK</a>
+        <a href="https://www.X.com/sorwatom/" rel="noopener noreferrer" aria-label="Sorwatomo on Twitter">TWITTER</a>
         <a href="#">PRIVACY</a>
       </nav>
     </div>
