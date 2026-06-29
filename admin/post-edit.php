@@ -189,12 +189,9 @@ $auth_val    = $post['author_id']   ?? '';
             <div class="sidebar-actions">
               <button type="submit" class="btn-primary btn-full">Save Post</button>
               <?php if ($id): ?>
-              <form method="post" action="/admin/post-delete.php" style="margin-top:.5rem"
-                    onsubmit="return confirm('Delete this post permanently?')">
-                <input type="hidden" name="csrf_token" value="<?= htmlspecialchars(csrf_token()) ?>">
-                <input type="hidden" name="id" value="<?= $id ?>">
-                <button type="submit" class="btn-delete btn-full">Delete Post</button>
-              </form>
+              <button type="submit" form="delete-form" class="btn-delete btn-full"
+                      style="margin-top:.5rem"
+                      onclick="return confirm('Delete this post permanently?')">Delete Post</button>
               <?php endif; ?>
             </div>
           </div>
@@ -262,6 +259,13 @@ $auth_val    = $post['author_id']   ?? '';
 
       </div><!-- /.edit-layout -->
     </form>
+
+    <?php if ($id): ?>
+    <form id="delete-form" method="post" action="/admin/post-delete.php" style="display:none">
+      <input type="hidden" name="csrf_token" value="<?= htmlspecialchars(csrf_token()) ?>">
+      <input type="hidden" name="id" value="<?= $id ?>">
+    </form>
+    <?php endif; ?>
 
   </div>
 </main>
