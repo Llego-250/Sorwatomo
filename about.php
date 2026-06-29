@@ -258,16 +258,24 @@ include 'partials/_head.php';
           </h2>
 
           <p class="reveal" data-delay="2">
-            Sorwatom produces 28–30% Double Concentrated Tomato paste with a
-            state-of-the-art Italian production line, ensuring true customer
-            satisfaction and the best value food products in the region —
-            backed by a 100% consumer satisfaction guarantee.
+            The company produces the finest 100% natural Double Concentrated
+            Tomato Paste 28–30% with a state-of-the-art Italian production line.
+            SORWATOM continues to produce tomato paste of the finest quality to
+            ensure true customer satisfaction and the best value food products
+            within the region — backed by a 100% consumer satisfaction guarantee.
           </p>
 
           <p class="reveal" data-delay="3">
-            Our products are known for their great taste, fresh aroma and vibrant
-            color. We have perfected the art of making high-quality tomato paste —
-            and we use nothing artificial. Ever.
+            Our products are known for their great taste, fresh aroma, and vibrant
+            colour. We have perfected the art of making high-quality 100% natural
+            tomato paste — and we do not use anything artificial in our products.
+          </p>
+
+          <p class="reveal" data-delay="4">
+            The company is now under professional management with over 60 years
+            of combined African agribusiness expertise in FMCG, food and beverage,
+            coffee, and banking — with direct operations established in Burundi,
+            DRC, and Rwanda.
           </p>
 
           <!-- Region pills -->
