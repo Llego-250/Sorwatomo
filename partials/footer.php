@@ -93,7 +93,6 @@
   width: auto;
   object-fit: contain;
   display: block;
-  filter: brightness(0) invert(1);
 }
 
 /* -------------------------------------------------------
