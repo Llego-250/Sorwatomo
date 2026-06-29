@@ -68,17 +68,14 @@ include 'partials/_head.php';
 
   <!-- ============================================================
        SECTION 3 — Brand Statement
-       The oversized ghost quotation mark is the aesthetic risk:
-       a CSS ::before pseudo-element at ~22rem renders behind the
-       paragraph, anchoring forty years of story in a single
-       typographic gesture — earned, not decorative.
        ============================================================ -->
   <section class="section brand-statement-section" aria-label="Brand statement">
     <div class="container--narrow brand-statement-inner">
       <p class="brand-statement reveal">
         <strong>SORWATOM</strong> is Eastern Africa's leading agribusiness
-        manufacturer — created in 1984 by visionary investors who saw an opportunity
-        to transform local fresh tomatoes into <em>world-class paste.</em>
+        manufacturer — created in 1984 by a group of highly successful investors
+        who identified an opportunity to transform local fresh tomatoes into
+        <em>world-class paste.</em>
       </p>
     </div>
   </section>
