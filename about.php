@@ -135,22 +135,7 @@ include 'partials/_head.php';
 
 
   <!-- ============================================================
-       SECTION 3 — Brand Statement
-       ============================================================ -->
-  <section class="section brand-statement-section" aria-label="Brand statement">
-    <div class="container--narrow brand-statement-inner">
-      <p class="brand-statement reveal">
-        <strong>SORWATOM</strong> is Eastern Africa's leading agribusiness
-        manufacturer — created in 1984 by a group of highly successful investors
-        who identified an opportunity to transform local fresh tomatoes into
-        <em>world-class paste.</em>
-      </p>
-    </div>
-  </section>
-
-
-  <!-- ============================================================
-       SECTION 5 — Our Journey (timeline milestones as cards)
+       SECTION 3 — Our Journey (timeline milestones as cards)
        ============================================================ -->
   <section class="section principles-section on-dark" aria-labelledby="journey-heading">
     <div class="container">

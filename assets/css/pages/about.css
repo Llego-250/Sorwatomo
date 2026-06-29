@@ -81,62 +81,6 @@
 }
 
 
-/* ----------------------------------------------------------
-   BRAND STATEMENT
-   The aesthetic risk: a massive typographic quote mark sits
-   behind the paragraph, rendered purely in CSS — no images,
-   no icon fonts. It reads as editorial confidence, grounded
-   in forty years of history that earns the flourish.
-   ---------------------------------------------------------- */
-.brand-statement-section {
-  position: relative;
-  overflow: hidden;
-}
-
-.brand-statement-section::before {
-  content: "\201C";                        /* left double quotation mark */
-  position: absolute;
-  top: -0.25em;
-  left: 50%;
-  transform: translateX(-50%);
-  font-family: var(--font-display);
-  font-size: clamp(12rem, 28vw, 22rem);
-  line-height: 1;
-  color: var(--col-ground);
-  opacity: 0.045;
-  pointer-events: none;
-  user-select: none;
-  white-space: nowrap;
-  z-index: 0;
-}
-
-.brand-statement-inner {
-  position: relative;
-  z-index: 1;
-  text-align: center;
-}
-
-.brand-statement {
-  font-family: var(--font-display);
-  font-size: var(--step-3);
-  line-height: 1.45;
-  color: var(--col-text);
-  margin-block: var(--space-lg);
-  max-width: 800px;
-  margin-inline: auto;
-}
-
-.brand-statement em {
-  font-style: italic;
-  color: var(--col-accent);
-  font-family: var(--font-display);
-}
-
-.brand-statement strong {
-  font-weight: 400;
-  letter-spacing: 0.04em;
-}
-
 
 /* ----------------------------------------------------------
    TIMELINE — full component lives in components.css;
