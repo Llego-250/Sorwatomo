@@ -35,7 +35,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 </head>
 <body class="admin-login-page">
 <div class="login-card">
-  <img src="/assets/img/logo.png" alt="Sorwatom" class="login-logo">
+  <img src="/assets/img/logo.png" alt="Sorwatom" class="login-logo" style="filter:none">
   <h1>Admin Panel</h1>
   <?php if ($error): ?>
   <p class="login-error"><?= htmlspecialchars($error) ?></p>
