@@ -127,11 +127,6 @@ include 'partials/_head.php';
               loading="lazy"
             >
           </div>
-
-          <div class="story-badge" aria-label="ISO certified quality standard">
-            <span class="story-badge__value">ISO</span>
-            <span class="story-badge__label">Certified Quality</span>
-          </div>
         </div>
 
       </div>
