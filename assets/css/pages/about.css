@@ -18,7 +18,7 @@
 .page-about .hero__content {
   display: flex;
   flex-direction: column;
-  padding-top: clamp(5rem, 12svh, 9rem); /* nav is ~80px; this always clears it */
+  padding-top: clamp(7rem, 18svh, 12rem); /* nav is ~80px; this always clears it */
   z-index: 2;
 }
 
