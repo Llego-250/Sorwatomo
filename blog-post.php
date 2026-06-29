@@ -51,7 +51,7 @@ if (!empty($post['image_url'])) $json_ld['image'] = $post['image_url'];
   <!-- ============================================================
        POST HERO
        ============================================================ -->
-  <section class="hero post-hero" aria-label="Article header">
+  <section class="hero hero--full" aria-label="Article header">
     <div class="hero__bg hero__bg--pattern" aria-hidden="true"></div>
 
     <div class="hero__content">
