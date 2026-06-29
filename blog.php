@@ -92,6 +92,7 @@ include 'partials/_head.php';
             <span aria-hidden="true">·</span>
             <span><?= $featured['reading_time'] ?> min read</span>
           </div>
+          <span class="featured-post__read-more">Read article →</span>
         </div>
       </a>
       <?php endif; ?>

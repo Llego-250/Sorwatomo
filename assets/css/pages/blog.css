@@ -106,7 +106,8 @@
    ---------------------------------------------------------- */
 .featured-post {
   display: grid;
-  grid-template-columns: 5fr 4fr;
+  grid-template-columns: 2fr 3fr;
+  max-height: 300px;
   border-radius: var(--radius-lg);
   overflow: hidden;
   background: var(--col-ground);
@@ -125,13 +126,19 @@
 @media (max-width: 768px) {
   .featured-post {
     grid-template-columns: 1fr;
+    max-height: none;
   }
 }
 
 .featured-post__img-wrap {
   position: relative;
   overflow: hidden;
-  aspect-ratio: 16 / 9;
+}
+
+@media (max-width: 768px) {
+  .featured-post__img-wrap {
+    height: 200px;
+  }
 }
 
 .featured-post__img-wrap img {
@@ -205,6 +212,26 @@
   font-size: var(--step--1);
   color: rgba(255,255,255,.45);
   margin-top: var(--space-xs);
+}
+
+.featured-post__read-more {
+  display: inline-flex;
+  align-items: center;
+  gap: .3rem;
+  padding: .5rem 1.1rem;
+  background: var(--col-accent);
+  color: white;
+  border-radius: var(--radius-sm);
+  font-size: var(--step--1);
+  font-weight: 500;
+  margin-top: var(--space-sm);
+  align-self: flex-start;
+  transition: opacity var(--dur-fast), transform var(--dur-fast);
+}
+
+.featured-post:hover .featured-post__read-more {
+  opacity: .85;
+  transform: translateX(2px);
 }
 
 
