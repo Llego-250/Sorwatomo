@@ -72,7 +72,7 @@ include 'partials/_head.php';
 
         <!-- Left column: text -->
         <div class="story-text">
-          <span class="eyebrow eyebrow--accent reveal">Our Promise</span>
+          <span class="eyebrow eyebrow--accent reveal">About Us</span>
           <h2 id="promise-heading" class="reveal" data-delay="1">
             Finest <em>100% natural</em><br>Double Concentrated Paste.
           </h2>
