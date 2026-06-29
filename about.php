@@ -82,7 +82,61 @@ include 'partials/_head.php';
 
 
   <!-- ============================================================
-       SECTION 4 — Timeline
+       SECTION 4 — Principles (dark green background)
+       ============================================================ -->
+  <section class="section principles-section on-dark" aria-labelledby="principles-heading">
+    <div class="container">
+
+      <header class="section-header reveal">
+        <span class="eyebrow eyebrow--light">What We Stand For</span>
+        <h2 id="principles-heading" style="color: white;">The principles that <em>guide us.</em></h2>
+      </header>
+
+      <div class="principles-grid">
+
+        <article class="principle-card reveal" data-delay="1">
+          <span class="principle-card__num" aria-hidden="true">01</span>
+          <h3 class="principle-card__title">Heritage</h3>
+          <p class="principle-card__desc">
+            Four decades of perfecting the craft of tomato processing in the
+            Great Lakes — a standard built on the land itself.
+          </p>
+        </article>
+
+        <article class="principle-card reveal" data-delay="2">
+          <span class="principle-card__num" aria-hidden="true">02</span>
+          <h3 class="principle-card__title">Integrity</h3>
+          <p class="principle-card__desc">
+            Traceable supply chains. No artificial additives. No shortcuts.
+            We mean it — and our label proves it.
+          </p>
+        </article>
+
+        <article class="principle-card reveal" data-delay="3">
+          <span class="principle-card__num" aria-hidden="true">03</span>
+          <h3 class="principle-card__title">Community</h3>
+          <p class="principle-card__desc">
+            Building lasting partnerships across our region — because
+            great products start with the right people behind them.
+          </p>
+        </article>
+
+        <article class="principle-card reveal" data-delay="4">
+          <span class="principle-card__num" aria-hidden="true">04</span>
+          <h3 class="principle-card__title">Precision</h3>
+          <p class="principle-card__desc">
+            Italian processing technology meeting rigorous international food
+            standards — every sachet, every batch, every time.
+          </p>
+        </article>
+
+      </div><!-- /.principles-grid -->
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       SECTION 5 — Timeline
        ============================================================ -->
   <section class="section" aria-labelledby="timeline-heading">
     <div class="container">
@@ -148,60 +202,6 @@ include 'partials/_head.php';
         </div>
 
       </div><!-- /.timeline -->
-    </div>
-  </section>
-
-
-  <!-- ============================================================
-       SECTION 5 — Principles (dark green background)
-       ============================================================ -->
-  <section class="section principles-section on-dark" aria-labelledby="principles-heading">
-    <div class="container">
-
-      <header class="section-header reveal">
-        <span class="eyebrow eyebrow--light">What We Stand For</span>
-        <h2 id="principles-heading" style="color: white;">The principles that <em>guide us.</em></h2>
-      </header>
-
-      <div class="principles-grid">
-
-        <article class="principle-card reveal" data-delay="1">
-          <span class="principle-card__num" aria-hidden="true">01</span>
-          <h3 class="principle-card__title">Heritage</h3>
-          <p class="principle-card__desc">
-            Four decades of perfecting the craft of tomato processing in the
-            Great Lakes — a standard built on the land itself.
-          </p>
-        </article>
-
-        <article class="principle-card reveal" data-delay="2">
-          <span class="principle-card__num" aria-hidden="true">02</span>
-          <h3 class="principle-card__title">Integrity</h3>
-          <p class="principle-card__desc">
-            Traceable supply chains. No artificial additives. No shortcuts.
-            We mean it — and our label proves it.
-          </p>
-        </article>
-
-        <article class="principle-card reveal" data-delay="3">
-          <span class="principle-card__num" aria-hidden="true">03</span>
-          <h3 class="principle-card__title">Community</h3>
-          <p class="principle-card__desc">
-            Building lasting partnerships across our region — because
-            great products start with the right people behind them.
-          </p>
-        </article>
-
-        <article class="principle-card reveal" data-delay="4">
-          <span class="principle-card__num" aria-hidden="true">04</span>
-          <h3 class="principle-card__title">Precision</h3>
-          <p class="principle-card__desc">
-            Italian processing technology meeting rigorous international food
-            standards — every sachet, every batch, every time.
-          </p>
-        </article>
-
-      </div><!-- /.principles-grid -->
     </div>
   </section>
 
