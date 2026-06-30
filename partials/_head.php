@@ -32,12 +32,15 @@
   <link rel="icon" type="image/png" href="/assets/img/favicon.png">
   <link rel="apple-touch-icon" href="/assets/img/favicon.png">
 
-  <!-- Google Fonts — preconnect for performance -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;1,400&family=DM+Sans:wght@300;400;500&display=swap">
+  <!-- Canonical URL -->
+  <?php
+    $canonical_base = defined('SITE_URL') ? SITE_URL : 'https://' . $_SERVER['HTTP_HOST'];
+    $canonical_path = strtok($_SERVER['REQUEST_URI'], '?');
+  ?>
+  <link rel="canonical" href="<?= htmlspecialchars($canonical_base . $canonical_path) ?>">
 
   <!-- Design system — load order is fixed -->
+  <link rel="stylesheet" href="/assets/css/fonts.css">
   <link rel="stylesheet" href="/assets/css/tokens.css">
   <link rel="stylesheet" href="/assets/css/reset.css">
   <link rel="stylesheet" href="/assets/css/global.css">

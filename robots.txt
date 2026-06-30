@@ -1,0 +1,10 @@
+User-agent: *
+Allow: /
+
+Disallow: /admin/
+Disallow: /config/
+Disallow: /data/
+Disallow: /lang/
+Disallow: /partials/
+
+Sitemap: https://sorwatom.rf.gd/sitemap.xml
